@@ -4,7 +4,7 @@
     <div class="row full-height">
       <div class="col-6  auth-text">
         <h3 class="mx-4 h1 title">Stay<span>cation.</span></h3>
-        <div class=" m-5 p-5 d-flex justify-content-center flex-column bg-info">
+        <div class=" m-5 p-5 d-flex justify-content-center flex-column ">
           <div class="text-form">
             <h2>Sign in</h2>
             <p>If you don’t have an account register
@@ -15,13 +15,13 @@
           <form action="" [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
             <div>
-              <mat-form-field class="w-100">
+              <mat-form-field class="w-100 my-4">
                 <mat-label for="email">E-mail</mat-label>
                 <input formControlName="email" id="email" type="email" placeholder="Enter your E-mail" matInput>
               </mat-form-field>
             </div>
             <div>
-              <mat-form-field class="w-100">
+              <mat-form-field class="w-100 my-5">
                 <mat-label for="passowrd">Enter your password</mat-label>
                 <input matInput id="password" [type]="hide ? 'password' : 'text'" formControlName="password"
                   placeholder="Enter Your Password">
@@ -31,6 +31,8 @@
                 </button>
               </mat-form-field>
             </div>
+
+            <button class="primary w-100">Login</button>
 
 
           </form>
