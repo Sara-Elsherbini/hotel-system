@@ -1,0 +1,13 @@
+.auth{
+  h3 {
+    color: $primary-color;
+    span{
+      color: $main-color!important;
+    }
+  }
+  .auth-text{
+   h2{
+    color: $accent-color;
+   }
+  }
+}
