@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormGroup, Validators,FormControl } from "@angular/forms";
 import { AuthService } from './services/auth.service';
 import {Auth}from './models/auth'
+import { NotifyService } from 'src/app/common/services/notify.service';
+import { HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -20,7 +23,7 @@ export class AuthComponent {
       ),
     ]),
   })
- constructor(private _AuthService:AuthService){
+ constructor(private _AuthService:AuthService,private _NotifyService:NotifyService){
 
  }
  ngOnInit(): void {
@@ -31,10 +34,14 @@ export class AuthComponent {
  onLogin(data:FormGroup){
   this._AuthService.login(data.value).subscribe({
     next:(res:Auth.ILoginRes)=>{
+      this._NotifyService.Success("Data is Sent Successfully")
       console.log(res);
 
     },
-    error:()=>{},
+    error:(error:HttpErrorResponse)=>{
+      const errMes=error.error.message;
+      this._NotifyService.ServerError(errMes);
+    },
     complete:()=>{}
   })
  }
