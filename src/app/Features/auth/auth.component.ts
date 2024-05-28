@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators,FormControl } from "@angular/forms";
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -19,7 +20,7 @@ export class AuthComponent {
       ),
     ]),
   })
- constructor(){
+ constructor(private _AuthService:AuthService){
 
  }
  ngOnInit(): void {
