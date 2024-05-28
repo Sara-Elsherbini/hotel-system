@@ -1,10 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-constructor() { }
+ userToken: string = '';
+ role: string = '';
+constructor(private _HttpClient:HttpClient) { }
 
 }
