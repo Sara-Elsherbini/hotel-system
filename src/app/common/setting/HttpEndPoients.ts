@@ -5,5 +5,7 @@ export class HttpEndPoints {
    forgetPass:'portal/users/forgot-password',
    resetPass:'portal/users/reset-password'
 
+
   }
+
 }

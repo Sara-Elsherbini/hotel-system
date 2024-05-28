@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators,FormControl } from "@angular/forms";
 import { AuthService } from './services/auth.service';
-
+import {Auth}from './models/auth'
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -28,7 +28,21 @@ export class AuthComponent {
 
  }
 
- onLogin(){
+ onLogin(data:FormGroup){
+  this._AuthService.login(data.value).subscribe({
+    next:(res:Auth.ILoginRes)=>{
+      console.log(res);
 
+    },
+    error:()=>{},
+    complete:()=>{}
+  })
  }
+
+ get email() {
+  return this.loginForm.get('email');
+}
+get password() {
+  return this.loginForm.get('password');
+}
 }
