@@ -1,4 +1,11 @@
-img {
-  aspect-ratio: 1/1;
-  width: 100%;
+.auth{
+  .full-height{
+   height: 95vh;
+  }
+ .img-login{
+  background-image: url('../../../assets/login.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+z-index: 100;
+ }
 }
