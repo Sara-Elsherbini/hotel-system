@@ -1,3 +1,6 @@
+a{
+  text-decoration: none;
+}
 .auth{
   .title{
     color: $primary-color;
@@ -5,5 +8,10 @@
       color: $main-color!important;
     }
   }
-
+  p{
+    a{
+      color: $danger-Color;
+    }
+   }
 }
+
