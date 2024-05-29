@@ -1,17 +1,22 @@
-@import '../Variables';
+@import "../Variables";
 
-button{
+button {
   border: none;
   border-radius: 4px;
   transition: $main-transtion;
-  &.primary{
+  cursor: pointer;
+  &:disabled{
+    cursor: not-allowed;
+  }
+  &.primary {
     background-color: $primary-color;
     color: #fff;
     padding: 0.7rem 0.5rem;
-    &:hover{
-     background-color: transparent;
-     color:$primary-color ;
-     border: $border-style  $primary-color ;
+    border: $border-style transparent;
+    &:hover {
+      background-color: transparent;
+      color: $primary-color;
+      border: $border-style $primary-color;
     }
   }
 }

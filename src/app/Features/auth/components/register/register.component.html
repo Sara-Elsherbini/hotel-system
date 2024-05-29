@@ -1,1 +1,284 @@
-<p>register works!</p>
+<section class="auth p-3 min-vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6 auth-left-side">
+        <h3 class="mx-4 h1 title">Stay<span>cation.</span></h3>
+        <div class="m-5 p-5 d-flex justify-content-center flex-column">
+          <div>
+            <h2>Sign up</h2>
+            <p>
+              If you already have an account register <br />You can
+              <a class="px-2 fw-bold" routerLink="../">Login here !</a>
+            </p>
+          </div>
+          <form
+            [formGroup]="registerForm"
+            (ngSubmit)="onRegister(registerForm)"
+          >
+            <div class="d-flex-center w-100 mb-2">
+              <div
+                class="d-flex-center position-relative border rounded-circle overflow-hidden"
+              >
+                <label
+                  for="Image"
+                  class="w-100 h-100 position-relative z-1 curser-pointer p-6"
+                  ><i
+                    class="fa-light fa-camera"
+                    [ngClass]="{ 'opacity-0': url }"
+                  ></i
+                ></label>
+                <input
+                  type="file"
+                  formControlName="profileImage"
+                  id="Image"
+                  (change)="onSelect($event)"
+                  hidden
+                />
+                <img
+                  *ngIf="url"
+                  class="w-100 h-100 pointer-event-none position-absolute z-0"
+                  [src]="url"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div>
+                  <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>User Name</mat-label>
+                    <input
+                      formControlName="userName"
+                      matInput
+                      placeholder="Enter Your User Name"
+                    />
+                    <mat-hint
+                      *ngIf="
+                        registerForm.get('userName')?.errors &&
+                        registerForm.get('userName')?.touched
+                      "
+                      class="hint-text"
+                    >
+                      <ng-container
+                        *ngIf="
+                          registerForm.get('userName')?.getError('required')
+                        "
+                      >
+                        * User Name is Requierd
+                      </ng-container>
+                    </mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Phone Number</mat-label>
+                    <input
+                      formControlName="phoneNumber"
+                      matInput
+                      placeholder="Enter Your Phone Number"
+                    />
+                    <mat-hint
+                      *ngIf="
+                        registerForm.get('phoneNumber')?.errors &&
+                        registerForm.get('phoneNumber')?.touched
+                      "
+                      class="hint-text"
+                    >
+                      <ng-container
+                        *ngIf="
+                          registerForm.get('phoneNumber')?.getError('required')
+                        "
+                      >
+                        * Phone Number is Requierd
+                      </ng-container>
+                      <ng-container
+                        *ngIf="
+                          registerForm.get('phoneNumber')?.getError('pattern')
+                        "
+                      >
+                        * Phone Number Invalid Format
+                      </ng-container>
+                    </mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Country</mat-label>
+                    <input
+                      formControlName="country"
+                      matInput
+                      placeholder="Enter Your Country"
+                    />
+                    <mat-hint
+                      *ngIf="
+                        registerForm.get('country')?.errors &&
+                        registerForm.get('country')?.touched
+                      "
+                      class="hint-text"
+                    >
+                      <ng-container
+                        *ngIf="
+                          registerForm.get('country')?.getError('required')
+                        "
+                      >
+                        * Country is Requierd
+                      </ng-container>
+                    </mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div>
+                  <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>E-mail</mat-label>
+                    <input
+                      formControlName="email"
+                      matInput
+                      placeholder="Enter Your Email"
+                    />
+                    <mat-hint
+                      *ngIf="
+                        registerForm.get('email')?.errors &&
+                        registerForm.get('email')?.touched
+                      "
+                      class="hint-text"
+                    >
+                      <ng-container
+                        *ngIf="registerForm.get('email')?.getError('required')"
+                      >
+                        * Email is Requierd
+                      </ng-container>
+                      <ng-container
+                        *ngIf="registerForm.get('email')?.getError('email')"
+                      >
+                        * Email Invalid Format
+                      </ng-container>
+                    </mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div>
+                  <mat-form-field class="w-100">
+                    <mat-label>Password</mat-label>
+                    <input
+                      formControlName="password"
+                      matInput
+                      [type]="hide ? 'password' : 'text'"
+                      placeholder="Enter your New Password"
+                    />
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      (click)="hide = !hide"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide"
+                    >
+                      <mat-icon>{{
+                        hide ? "visibility_off" : "visibility"
+                      }}</mat-icon>
+                    </button>
+                    <mat-hint
+                      *ngIf="
+                        registerForm.get('password')?.errors &&
+                        registerForm.get('password')?.touched
+                      "
+                      class="hint-text"
+                    >
+                      <ng-container
+                        *ngIf="
+                          registerForm.get('password')?.getError('required')
+                        "
+                      >
+                        * Password is Requierd
+                      </ng-container>
+                      <ng-container
+                        *ngIf="
+                          registerForm.get('password')?.getError('pattern')
+                        "
+                      >
+                        * Invalid Password
+                      </ng-container>
+                    </mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div>
+                  <mat-form-field class="w-100">
+                    <mat-label>Confirm Password</mat-label>
+                    <input
+                      formControlName="confirmPassword"
+                      matInput
+                      [type]="hideConfirm ? 'password' : 'text'"
+                      placeholder="Confirm New Password"
+                    />
+                    <button
+                      mat-icon-button
+                      matSuffix
+                      (click)="hideConfirm = !hideConfirm"
+                      [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hideConfirm"
+                    >
+                      <mat-icon>{{
+                        hideConfirm ? "visibility_off" : "visibility"
+                      }}</mat-icon>
+                    </button>
+                    <mat-hint
+                      *ngIf="
+                        registerForm.get('confirmPassword')?.errors &&
+                        registerForm.get('confirmPassword')?.touched
+                      "
+                      class="hint-text"
+                    >
+                      <ng-container
+                        *ngIf="
+                          registerForm
+                            .get('confirmPassword')
+                            ?.getError('required')
+                        "
+                      >
+                        * Confirm password is requierd
+                      </ng-container>
+                      <ng-container
+                        *ngIf="
+                          registerForm.get('confirmPassword')?.value.length !==
+                            registerForm.get('password')?.value.length ||
+                          registerForm.get('confirmPassword')?.value !==
+                            registerForm.get('password')?.value
+                        "
+                      >
+                        * Password and confirm password must match.
+                      </ng-container>
+                    </mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="primary w-100" [disabled]="registerForm.invalid">
+              Signup
+            </button>
+          </form>
+        </div>
+      </div>
+      <div
+        class="col-6 auth-right-side d-flex justify-content-end flex-column p-5"
+      >
+        <div class="text-white">
+          <h3>Sign up to Roamhome</h3>
+          <p>Homes as unique as you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

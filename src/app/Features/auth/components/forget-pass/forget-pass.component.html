@@ -1,1 +1,43 @@
-<p>forget-pass works!</p>
+<section class="auth py-3 px-3 ">
+
+    <div class="container-fluid">
+      <div class="row full-height">
+        <div class="col-6  auth-text">
+          <h3 class="mx-4 h1 title">Stay<span>cation.</span></h3>
+          <div class=" m-5 p-5 d-flex justify-content-center flex-column ">
+            <div class="text-form">
+              <h2>Forget Password</h2>
+              <p>If you don’t have an account register
+                <br>You can <a class="px-2 fw-bold" routerLink="/auth">Login here !</a>
+              </p>
+            </div>
+  
+            <form action="" [formGroup]="forgetPassForm" (ngSubmit)="onForgetPass(forgetPassForm)">
+  
+              <div>
+                <mat-form-field class="w-100 my-4">
+                  <mat-label for="email">E-mail</mat-label>
+                  <input formControlName="email" id="email" type="email" placeholder="Enter your E-mail" matInput>
+                </mat-form-field>
+              </div>
+              <div>
+              </div>
+  
+              <button class="primary w-100" [disabled]="forgetPassForm.invalid">Login</button>
+  
+  
+            </form>
+  
+          </div>
+  
+  
+        </div>
+        <div class="col-6 p-0 img-forgetPass d-flex justify-content-end flex-column p-5">
+         <div class="text-white ">
+           <h3>Sign in to Roamhome</h3>
+           <p>Homes as unique as you.</p>
+         </div>
+        </div>
+      </div>
+    </div>
+  </section>
