@@ -45,7 +45,9 @@ export class AuthComponent {
 
       this._NotifyService.ServerError(errMes);
     },
-    complete:()=>{this._NotifyService.Success("Data is Sent Successfully");}
+    complete:()=>{this._NotifyService.Success("Data is Sent Successfully");
+      
+    }
   })
  }
 

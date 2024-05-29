@@ -26,4 +26,8 @@ if(localStorage.getItem('token')!==null&&localStorage.getItem('user')!==null) {
 login(loginData:Auth.ILoginReq):Observable<Auth.ILoginRes>{
  return this._HttpClient.post<Auth.ILoginRes>(HttpEndPoints.Auth.login,loginData)
 }
+  // Function to reset  password
+  resetPassword(passwordData:Auth.IResetPass): Observable<{ message: string }> {
+    return this._HttpClient.post<{ message: string }>(HttpEndPoints.Auth.resetPass, passwordData);
+  }
 }
