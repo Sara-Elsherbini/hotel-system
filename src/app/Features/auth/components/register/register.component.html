@@ -68,7 +68,7 @@
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Country</mat-label>
-                    <input type="button" formControlName="country" matInput placeholder="Enter Your Country" />
+                    <input formControlName="country" matInput placeholder="Enter Your Country" />
                     <mat-hint *ngIf="
                         registerForm.get('country')?.errors &&
                         registerForm.get('country')?.touched
@@ -88,7 +88,7 @@
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
                     <mat-label>E-mail</mat-label>
-                    <input type="button" formControlName="email" matInput placeholder="Enter Your Email" />
+                    <input formControlName="email" matInput placeholder="Enter Your Email" />
                     <mat-hint *ngIf="
                         registerForm.get('email')?.errors &&
                         registerForm.get('email')?.touched
@@ -111,7 +111,7 @@
                     <mat-label>Password</mat-label>
                     <input formControlName="password" matInput [type]="hide ? 'password' : 'text'"
                       placeholder="Enter your New Password" />
-                    <button mat-icon-button matSuffix (click)="hide = !hide" type="button" [attr.aria-label]="'Hide password'"
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" type="button" [attr.aria-label]="'Hide password'"
                       [attr.aria-pressed]="hide">
                       <mat-icon>{{
                         hide ? "visibility_off" : "visibility"
@@ -141,7 +141,7 @@
                     <mat-label>Confirm Password</mat-label>
                     <input formControlName="confirmPassword" matInput [type]="hideConfirm ? 'password' : 'text'"
                       placeholder="Confirm New Password" />
-                    <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm"
+                    <button type="button" mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm"
                       [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirm" type="button">
                       <mat-icon>{{
                         hideConfirm ? "visibility_off" : "visibility"
