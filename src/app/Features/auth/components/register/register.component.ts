@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { NotifyService } from 'src/app/common/services/notify.service';
 import { Auth } from '../../models/auth';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,7 @@ export class RegisterComponent {
   url!: any;
 
   registerForm!: FormGroup;
-  constructor(private _AuthService: AuthService, private _NotifyService: NotifyService) {
+  constructor(private _AuthService: AuthService, private _NotifyService: NotifyService, private _router: Router) {
 
   }
   ngOnInit(): void {
@@ -54,14 +55,14 @@ export class RegisterComponent {
     if (this.registerForm.valid) {
       this._AuthService.register(data).subscribe({
         next: (res: any) => {
-          console.log(res)
+          this._NotifyService.Success("Registered Successfully");
         },
         error: (error: HttpErrorResponse) => {
           const errMes = error.error.message;
 
           this._NotifyService.ServerError(errMes);
         },
-        complete: () => { this._NotifyService.Success("Registered Successfully"); }
+        complete: () => { this._router.navigate(["../"]) }
       })
     }
 
