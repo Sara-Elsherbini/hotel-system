@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NotifyService } from 'src/app/common/services/notify.service';
+import { Auth } from '../../models/auth';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-forget-pass',
@@ -6,5 +11,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./forget-pass.component.scss']
 })
 export class ForgetPassComponent {
+  hide:boolean=true;
+  forgetPassForm:FormGroup=new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]),
+  })
 
+  constructor(private _AuthService:AuthService,private _NotifyService:NotifyService){
+
+  }
+  ngOnInit(): void {
+ 
+ 
+  }
+
+  onForgetPass(data:FormGroup){
+    console.log(data);
+    
+    this._AuthService.forgetPass(data.value).subscribe({
+      next:(res:Auth.IForgetPassRes)=>{
+        console.log(res);
+      },
+      error:(error:HttpErrorResponse)=>{
+      const errMes=error.error.message;
+      this._NotifyService.ServerError(errMes);
+        console.log(error)
+      },
+      complete:()=>{
+      this._NotifyService.Success("Password reset token sent successfully")
+      }
+    })
+  }
 }

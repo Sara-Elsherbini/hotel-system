@@ -23,6 +23,7 @@ export class AuthService {
     }
   }
 
+
   login(loginData: Auth.ILoginReq): Observable<Auth.ILoginRes> {
     return this._HttpClient.post<Auth.ILoginRes>(HttpEndPoints.Auth.login, loginData)
   }
@@ -30,4 +31,9 @@ export class AuthService {
   register(registerData: FormData): Observable<Auth.ILoginRes>{
     return this._HttpClient.post<Auth.ILoginRes>(HttpEndPoints.Auth.register, registerData)
   }
+
+
+forgetPass(forgetPassData:Auth.IForgetPassReq):Observable<Auth.IForgetPassRes>{
+  return this._HttpClient.post<Auth.IForgetPassRes>(HttpEndPoints.Auth.forgetPass,forgetPassData)
+ }
 }
