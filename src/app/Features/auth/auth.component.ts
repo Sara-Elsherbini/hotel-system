@@ -34,15 +34,18 @@ export class AuthComponent {
  onLogin(data:FormGroup){
   this._AuthService.login(data.value).subscribe({
     next:(res:Auth.ILoginRes)=>{
-      this._NotifyService.Success("Data is Sent Successfully")
-      console.log(res);
+      localStorage.setItem('token',res.data.token);
+      let user=JSON.stringify(res.data.user)
+      localStorage.setItem('user',user);
 
     },
     error:(error:HttpErrorResponse)=>{
       const errMes=error.error.message;
+      console.log("error",error);
+
       this._NotifyService.ServerError(errMes);
     },
-    complete:()=>{}
+    complete:()=>{this._NotifyService.Success("Data is Sent Successfully");}
   })
  }
 

@@ -15,7 +15,7 @@ export namespace Auth {
   }
 
   export interface User {
-    _id: string
+    id: string
     userName: string
     role: string
   }
