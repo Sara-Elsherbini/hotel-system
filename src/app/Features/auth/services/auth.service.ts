@@ -26,4 +26,8 @@ if(localStorage.getItem('token')!==null&&localStorage.getItem('user')!==null) {
 login(loginData:Auth.ILoginReq):Observable<Auth.ILoginRes>{
  return this._HttpClient.post<Auth.ILoginRes>(HttpEndPoints.Auth.login,loginData)
 }
+
+forgetPass(forgetPassData:Auth.IForgetPassReq):Observable<Auth.IForgetPassRes>{
+  return this._HttpClient.post<Auth.IForgetPassRes>(HttpEndPoints.Auth.forgetPass,forgetPassData)
+ }
 }
