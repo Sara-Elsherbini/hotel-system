@@ -3,6 +3,8 @@ export namespace Auth {
     email:string,
     password:string
   }
+
+  
   export interface ILoginRes {
     success: boolean
     message: string
@@ -29,8 +31,14 @@ export namespace Auth {
     confirmPassword: string;
   }
 
-  export interface IForgetPass{
+  export interface IForgetPassReq{
     email: string,
+  }
+
+  export interface IForgetPassRes{
+    success: boolean,
+    message: string,
+    data: null
   }
 
   export interface IResetPass{

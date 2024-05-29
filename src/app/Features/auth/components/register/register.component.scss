@@ -1,0 +1,38 @@
+.auth {
+    .auth-left-side{
+        form{
+            .hint-text{
+                font-size: 0.8rem;
+            }
+        }
+    }
+  .auth-right-side {
+    background-image: url("../../../../../assets/signup.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1.25rem;
+
+    h3 {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 60px;
+    }
+  }
+}
+
+.p-6{
+  padding: 4.5rem;
+}
+
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.curser-pointer {
+  cursor: pointer;
+}
+.pointer-event-none {
+  pointer-events: none;
+}
