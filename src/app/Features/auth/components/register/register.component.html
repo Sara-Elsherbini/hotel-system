@@ -68,7 +68,7 @@
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Country</mat-label>
-                    <input formControlName="country" matInput placeholder="Enter Your Country" />
+                    <input type="button" formControlName="country" matInput placeholder="Enter Your Country" />
                     <mat-hint *ngIf="
                         registerForm.get('country')?.errors &&
                         registerForm.get('country')?.touched
@@ -88,7 +88,7 @@
                 <div>
                   <mat-form-field appearance="fill" class="w-100">
                     <mat-label>E-mail</mat-label>
-                    <input formControlName="email" matInput placeholder="Enter Your Email" />
+                    <input type="button" formControlName="email" matInput placeholder="Enter Your Email" />
                     <mat-hint *ngIf="
                         registerForm.get('email')?.errors &&
                         registerForm.get('email')?.touched
