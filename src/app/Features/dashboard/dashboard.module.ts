@@ -5,6 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../auth/services/auth.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AuthService } from '../auth/services/auth.service';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers:[AuthService]
 })
