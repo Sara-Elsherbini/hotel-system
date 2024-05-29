@@ -11,26 +11,37 @@
                 <br>You can <a class="px-2 fw-bold" routerLink="/auth">Login here !</a>
               </p>
             </div>
-  
+
             <form action="" [formGroup]="forgetPassForm" (ngSubmit)="onForgetPass(forgetPassForm)">
-  
+
               <div>
                 <mat-form-field class="w-100 my-4">
                   <mat-label for="email">E-mail</mat-label>
                   <input formControlName="email" id="email" type="email" placeholder="Enter your E-mail" matInput>
+                  <mat-hint *ngIf="
+                  forgetPassForm.get('email')?.errors &&
+                  forgetPassForm.get('email')?.touched
+                " class="hint-text">
+                <ng-container *ngIf="forgetPassForm.get('email')?.getError('required')">
+                  Email is Requierd
+                </ng-container>
+                <ng-container *ngIf="forgetPassForm.get('email')?.getError('email')">
+                  Email Invalid Format
+                </ng-container>
+                  </mat-hint>
                 </mat-form-field>
               </div>
               <div>
               </div>
-  
+
               <button class="primary w-100" [disabled]="forgetPassForm.invalid">Login</button>
-  
-  
+
+
             </form>
-  
+
           </div>
-  
-  
+
+
         </div>
         <div class="col-6 p-0 img-forgetPass d-flex justify-content-end flex-column p-5">
          <div class="text-white ">

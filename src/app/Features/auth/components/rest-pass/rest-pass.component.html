@@ -1,4 +1,3 @@
-
 <section class="auth py-3 px-3 ">
 
   <div class="container-fluid">
@@ -9,53 +8,57 @@
           <div class="text-form">
             <h2>Reset Password</h2>
             <p>If you already have an account register
-              <br>You can <a class="px-2 fw-bold" routerLink="auth">Login here !</a>
+              <br>You can <a class="px-2 fw-bold" routerLink="/auth">Login here !</a>
             </p>
           </div>
 
-          <form action=""  [formGroup]="resetPassword" (ngSubmit)="onReset(resetPassword)">
-      <!-- Start Email Field -->
+          <form action="" [formGroup]="resetPassword" (ngSubmit)="onReset(resetPassword)">
+            <!-- Start Email Field -->
 
             <div> <label for="">Email</label>
-              <mat-form-field class="w-100 ">
-               
-                <!-- <mat-label for="email">E-mail</mat-label> -->
-                <input formControlName="email" id="email" type="email" placeholder="Enter your E-mail" matInput>
-              </mat-form-field>
-              <div class="my-1">
-                <div class="alert alert-danger py-1" 
-                  *ngIf="resetPassword.get('email')?.getError('required') && resetPassword.get('email')?.touched">
-                  E-Mail is required
-                </div>
-                <div class="alert alert-danger py-1" 
-                  *ngIf="resetPassword.get('email')?.getError('email') && resetPassword.get('email')?.touched">
-                  E-Mail is Invalid
-                </div>
+              <div>
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>E-mail</mat-label>
+                  <input formControlName="email" matInput placeholder="Enter Your Email" />
+                  <mat-hint *ngIf="
+                      resetPassword.get('email')?.errors &&
+                      resetPassword.get('email')?.touched
+                    " class="hint-text">
+                    <ng-container *ngIf="resetPassword.get('email')?.getError('required')">
+                      Email is Requierd
+                    </ng-container>
+                    <ng-container *ngIf="resetPassword.get('email')?.getError('email')">
+                      Email Invalid Format
+                    </ng-container>
+                  </mat-hint>
+                </mat-form-field>
               </div>
+
             </div>
-                  <!-- End Email Field -->
-                        <!-- Start OTP Field -->
-        <div>
-          <label for="">OTP</label>
-       <mat-form-field  class="w-100 ">
-        <!-- <mat-label for="OTP">OTP</mat-label> -->
-          <input id="otp" type="text" formControlName="seed" matInput placeholder="seed" 
-           [ngClass]="{
+            <!-- End Email Field -->
+            <!-- Start OTP Field -->
+            <div>
+              <label for="">OTP</label>
+              <mat-form-field class="w-100 ">
+                <!-- <mat-label for="OTP">OTP</mat-label> -->
+                <input id="otp" type="text" formControlName="seed" matInput placeholder="seed" [ngClass]="{
               'is-invalid': resetPassword.get('seed')?.touched && resetPassword.get('seed')?.invalid,
               'is-valid': resetPassword.get('seed')?.touched && resetPassword.get('seed')?.valid }">
-       
-       </mat-form-field>
-          <div class="my-1 ">
-            <div class="alert alert-danger "
-              *ngIf="resetPassword.get('seed')?.getError('required') && resetPassword.get('seed')?.touched">
-              Please provide the OTP which u received in your email
-            </div>
-        
-          </div>
-        </div>
-      <!-- End OTP Field -->
+                <mat-hint *ngIf="
+                  resetPassword.get('seed')?.errors &&
+                  resetPassword.get('seed')?.touched
+                " class="hint-text">
+                  <ng-container *ngIf="resetPassword.get('seed')?.getError('required')">
+                    Seed is Requierd
+                  </ng-container>
 
-      <!-- Start Password Field -->
+                </mat-hint>
+              </mat-form-field>
+
+            </div>
+            <!-- End OTP Field -->
+
+            <!-- Start Password Field -->
 
             <div>
               <label for=""> Password</label>
@@ -64,49 +67,65 @@
                 <!-- <mat-label for="passowrd">Enter your password</mat-label> -->
                 <input matInput id="password" [type]="hide ? 'password' : 'text'" formControlName="password"
                   placeholder="Enter Your Password">
-                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide">
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-hint *ngIf="
+                resetPassword.get('password')?.errors &&
+                resetPassword.get('password')?.touched
+              " class="hint-text">
+                  <ng-container *ngIf="
+                  resetPassword.get('password')?.getError('required')
+                ">
+                    Password is Requierd
+                  </ng-container>
+                  <ng-container *ngIf="
+                  resetPassword.get('password')?.getError('pattern')
+                ">
+                    Invalid Password
+                  </ng-container>
+                </mat-hint>
               </mat-form-field>
-            </div>    <div class="my-1">
-                <div class="alert alert-danger py-1" 
-                  *ngIf="resetPassword.get('password')?.getError('required') && resetPassword.get('password')?.touched">
-                  Password is required
-                </div>
-                <div class="alert alert-danger py-1" 
-                  *ngIf="resetPassword.get('password')?.getError('pattern') && resetPassword.get('password')?.touched">
-                  Password is Invalid
-                </div>
-              </div> 
-              <!-- End Password Field -->
+            </div>
 
-      <!-- Start Confirm Password Field -->
+            <!-- End Password Field -->
+
+            <!-- Start Confirm Password Field -->
 
             <div>
               <label for="">Confirm Password</label>
 
               <mat-form-field class="w-100 ">
                 <!-- <mat-label for="passowrd">confirm password</mat-label> -->
-                <input matInput id="password" [type]="hide ? 'password' : 'text'" formControlName="password"
+                <input matInput id="password" [type]="hide ? 'password' : 'text'" formControlName="confirmPassword"
                   placeholder="confirm Password">
-                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide">
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+
+                <mat-hint *ngIf="
+                resetPassword.get('confirmPassword')?.errors &&
+                resetPassword.get('confirmPassword')?.touched
+              " class="hint-text">
+                  <ng-container *ngIf="
+                  resetPassword.get('confirmPassword')?.getError('required')
+                ">
+                    Password is Requierd
+                  </ng-container>
+                  <ng-container *ngIf="
+                  resetPassword.get('confirmPassword')?.getError('pattern')
+                ">
+                    Invalid Password
+                  </ng-container>
+                </mat-hint>
+
               </mat-form-field>
-            
-            </div>  <div class="my-1">
-                <div class="alert alert-danger py-1" 
-                  *ngIf="resetPassword.get('confirmPassword')?.getError('required') && resetPassword.get('confirmPassword')?.touched">
-                  Confirm Password is required.
-                </div>
-                <div class="alert alert-danger py-1" 
-                  *ngIf="resetPassword.get('confirmPassword')?.getError('passwordMismatch') && resetPassword.get('confirmPassword')?.touched">
-                  The password and confirmPassword fields do not match.
-                </div>
-              </div>
-                  <!-- End Confirm Password Field -->
+
+            </div>
+
+            <!-- End Confirm Password Field -->
 
             <button class="primary w-100" [disabled]="resetPassword.invalid">Reset</button>
 
@@ -118,13 +137,11 @@
 
       </div>
       <div class="col-6 p-0 img-reset d-flex justify-content-end flex-column p-5">
-       <div class="text-white ">
-         <h3>Reset Password</h3>
-         <p>Homes as unique as you.</p>
-       </div>
+        <div class="text-white ">
+          <h3>Reset Password</h3>
+          <p>Homes as unique as you.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-

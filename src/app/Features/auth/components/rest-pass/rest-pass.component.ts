@@ -5,12 +5,6 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { NotifyService } from 'src/app/common/services/notify.service';
-import { Auth } from './../../models/auth';
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NotifyService } from 'src/app/common/services/notify.service';
-import { AuthService } from '../../services/auth.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -61,18 +55,18 @@ export class RestPassComponent implements OnInit {
        return { passwordMisMatch: true };
        //key and value
     }
-    
- 
+
+
   }
 
   onReset(resetFormData: FormGroup) {
     this._AuthService.resetPassword(resetFormData.value).subscribe({
-      next: (res) => { 
-        
+      next: (res) => {
+
        },
       error: (error: HttpErrorResponse) => {
         const errMes=error.error.message;
-  
+
         this._NotifyService.ServerError(errMes);
       },
       complete:()=>{this._NotifyService.Success("Data is Sent Successfully")

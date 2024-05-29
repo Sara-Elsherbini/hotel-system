@@ -18,6 +18,17 @@
               <mat-form-field class="w-100 my-4">
                 <mat-label for="email">E-mail</mat-label>
                 <input formControlName="email" id="email" type="email" placeholder="Enter your E-mail" matInput>
+                <mat-hint *ngIf="
+                loginForm.get('email')?.errors &&
+                loginForm.get('email')?.touched
+              " class="hint-text">
+              <ng-container *ngIf="loginForm.get('email')?.getError('required')">
+                Email is Requierd
+              </ng-container>
+              <ng-container *ngIf="loginForm.get('email')?.getError('email')">
+                Email Invalid Format
+              </ng-container>
+            </mat-hint>
               </mat-form-field>
             </div>
             <div>
