@@ -1,9 +1,9 @@
 <section class="auth p-3 min-vh-100">
   <div class="container-fluid">
-    <div class="row full-height">
+    <div class="row">
       <div class="col-md-6 col-lg-6  col-12 ">
-        <h3 class="mx-4 h1 title">Stay<span>cation.</span></h3>
-        <div class="mx-5 px-5 d-flex justify-content-center flex-column">
+        <h3 class="mx-1 h1 title">Stay<span>cation.</span></h3>
+        <div class="m-2 p-2 d-flex justify-content-center flex-column">
           <div>
             <h2>Sign up</h2>
             <p>
@@ -111,7 +111,7 @@
                     <mat-label>Password</mat-label>
                     <input formControlName="password" matInput [type]="hide ? 'password' : 'text'"
                       placeholder="Enter your New Password" />
-                    <button mat-icon-button matSuffix (click)="hide = !hide" type="button" [attr.aria-label]="'Hide password'"
+                    <button type="button" mat-icon-button matSuffix (click)="hide = !hide" type="button" [attr.aria-label]="'Hide password'"
                       [attr.aria-pressed]="hide">
                       <mat-icon>{{
                         hide ? "visibility_off" : "visibility"
@@ -141,7 +141,7 @@
                     <mat-label>Confirm Password</mat-label>
                     <input formControlName="confirmPassword" matInput [type]="hideConfirm ? 'password' : 'text'"
                       placeholder="Confirm New Password" />
-                    <button mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm"
+                    <button type="button" mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm"
                       [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirm" type="button">
                       <mat-icon>{{
                         hideConfirm ? "visibility_off" : "visibility"
