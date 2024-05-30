@@ -10,8 +10,8 @@
   <tbody class="tableBody">
     <ng-container *ngIf="table.data && table.data.length">
       <tr *ngFor="let row of table.data">
-        <td class="fluid-md-padding" *ngFor="let col of table.colDefs">
-          {{ getValue(row, col) }}
+        <td class="fluid-md-padding" *ngFor="let col of table.colDefs" appHandleCellInnerValue [cell]="{col: col, row: row}">
+          <!-- {{ getValue(row, col) }} -->
         </td>
 
         <td class="fluid-md-padding" *ngIf="table.operators && table.operators.length">

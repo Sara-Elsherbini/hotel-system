@@ -5,7 +5,8 @@ import { TableOperator } from './model';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  
 })
 export class TableComponent {
 
@@ -18,14 +19,7 @@ export class TableComponent {
 
 
   getValue(row: any, col: any) {
-    let value = row[col.field];
-    if(col?.valueGetter) 
-      value = col?.valueGetter(row);
-
-    if(col?.valueFormatter)
-      value = col?.valueFormatter(row[col.field]);
-
-    return value
+    
   }
 
   selectedOp(operator: TableOperator): (row: any)=>void{
