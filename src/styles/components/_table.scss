@@ -1,0 +1,50 @@
+.native-table {
+  $header-bg-color: hsla(168, 29%, 27%, 0.898);
+  $header-color: hsl(0, 0%, 100%);
+  $body-row-bg-color: hsl(220, 27%, 98%);
+
+  width: 100%;
+  empty-cells: show;
+  border-collapse: collapse;
+
+  .fluid-padding {
+    padding-block: 0.75rem;
+    padding-block: clamp(0.6rem, -0.4vh + 0.6rem, 1rem) !important;
+    padding-inline: 1.25rem;
+    padding-inline: clamp(1rem, -0.4vw + 1rem, 1.25rem) !important;
+  }
+
+  .fluid-md-padding {
+    padding-block: 0.5rem;
+    padding-block: clamp(0.4rem, -0.4vh + 0.6rem, 0.75rem) !important;
+    padding-inline: 1rem;
+    padding-inline: clamp(0.8rem, -0.4vw + 0.8rem, 1rem) !important;
+  }
+
+  .tableHeader {
+    background-color: $header-bg-color;
+    color: $header-color;
+
+    border: 1px solid $header-bg-color;
+    height: 56px;
+    tr {
+      th {
+        margin: 0 auto;
+        border: 1px solid rgba(25, 61, 57, 0.9) !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+      }
+    }
+  }
+  .tableBody {
+    tr {
+      height: max-content;
+      td {
+        margin: 0 auto;
+      }
+      &:nth-of-type(even) {
+        background-color: $body-row-bg-color;
+      }
+    }
+  }
+}
