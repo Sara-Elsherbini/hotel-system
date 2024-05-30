@@ -1,0 +1,55 @@
+<table class="native-table">
+  <thead class="tableHeader">
+    <tr>
+      <th *ngFor="let header of table.colDefs" class="fluid-padding">
+        {{ header.headerName || header.field }}
+      </th>
+      <th class="fluid-padding" *ngIf="table.operators && table.operators.length">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="tableBody">
+    <ng-container *ngIf="table.data && table.data.length">
+      <tr *ngFor="let row of table.data">
+        <td class="fluid-md-padding" *ngFor="let col of table.colDefs">
+          {{ getValue(row, col) }}
+        </td>
+
+        <td class="fluid-md-padding" *ngIf="table.operators && table.operators.length">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              *ngFor="let operator of table.operators"
+              (click)="selectedOp(operator)(row)"
+            >
+              <mat-icon>{{ operator.icon }}</mat-icon>
+              <span>{{ operator.title }}</span>
+            </button>
+          </mat-menu>
+        </td>
+      </tr>
+    </ng-container>
+    <tr *ngIf="table.data.length === 0">
+      <td [attr.colspan]="table.colDefs.length + 1">
+        <div class="container">
+          <div class="row m-3 text-center">
+            <div class="d-flex flex-column align-items-center">
+              <img
+                class="p-1"
+                src="assets/images/delete-img.svg"
+                alt="No Data"
+              />
+              <h3 class="form-title p-1">No Data !</h3>
+              <p class="w-75 form-regular fluid-sm-text">
+                Unfortunately there are no data found right now, You can check
+                later.
+              </p>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

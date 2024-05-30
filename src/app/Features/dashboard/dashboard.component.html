@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<section class="overflow-x-hidden">
+    <div class="row flex-nowrap overflow-x-hidden">
+        <div #sidebar class="w-auto px-0 sideBar-bg">
+            <app-sidebar [height]="height"></app-sidebar>
+        </div>
+        <div #mainSection id="mainSection">
+            <app-navbar></app-navbar>
+            <div #RouteOutlet>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</section>

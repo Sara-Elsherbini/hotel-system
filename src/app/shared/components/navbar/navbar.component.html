@@ -1,0 +1,57 @@
+<section>
+  <div class="w-100">
+    <div
+      class="row align-items-center justify-content-between p-2 mx-0 my-2 rounded-1 bg-dark bg-opacity-10"
+    >
+      <div class="col-md-9">
+        <div class="input-group">
+          <span class="input-group-text"
+            ><i class="fa-light fa-magnifying-glass"></i
+          ></span>
+          <input
+            type="search"
+            class="form-control"
+            placeholder="Search"
+            aria-label="search"
+            aria-describedby="search"
+          />
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-around col-md-2">
+        <div class="native-dropdown">
+          <button
+            class="d-flex align-items-center justify-content-between btn dropdown-toggle text-capitalize"
+            [matMenuTriggerFor]="menu"
+          >
+            <div class="profilePic">
+              <img [src]="imgUrl" />
+            </div>
+            <div class="px-2 pe-4">
+              {{ UserName }}
+            </div>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button class="menu-item" mat-menu-item (click)="profileDialog()">
+              Profile
+            </button>
+            <button
+              class="menu-item"
+              mat-menu-item
+              (click)="changePasswordDialog()"
+            >
+              Change Password
+            </button>
+            <button class="menu-item" mat-menu-item (click)="logout()">
+              Logout
+            </button>
+          </mat-menu>
+        </div>
+        <div>
+          <button class="border-0 bg-transparent">
+            <i class="fa-solid fa-bell"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

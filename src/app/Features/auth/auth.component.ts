@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { FormGroup, Validators,FormControl } from "@angular/forms";
+import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { AuthService } from './services/auth.service';
 import {Auth}from './models/auth'
-import { NotifyService } from 'src/app/common/services/notify.service';
+import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

@@ -1,0 +1,36 @@
+<style>
+  ::ng-deep :host{
+    display: block;
+    height: 100%;
+  }
+</style>
+<section #sect class="bg-dash" [style.height]="height">
+  <div
+    class="sideBar d-flex flex-column justify-content-around h-100"
+    [ngClass]="{'active-sidebar': opened}"
+    #parElm
+  >
+    <div
+      (click)="toggleSidebar()"
+      role="button"
+      class="d-flex justify-content-start align-items-center icon "
+      [ngClass]="{'closed': !opened, 'opened': opened}"
+    >
+      <!-- {{ opened ? "<" : ">" }} -->
+      <span></span>
+      <span></span>
+    </div>
+    <div class="pages-links h-75" >
+      <ul #elm>
+        <ng-container *ngFor="let page of menu">
+          <li>
+            <a [routerLink]="[page['link']]" routerLinkActive="active-link">
+              <i [class]="page['icon']" class="fluid-sm-text"></i>
+              <span class="fluid-sm-text">{{ page.text }}</span>
+              </a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</section>
