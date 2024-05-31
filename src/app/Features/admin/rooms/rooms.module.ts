@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RoomsRoutingModule } from './rooms-routing.module';
 import { RoomsComponent } from './rooms.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { RoomsComponent } from './rooms.component';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RoomsRoutingModule
   ]
 })

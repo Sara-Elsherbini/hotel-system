@@ -3,6 +3,7 @@ import { FacilitiesService } from './services/facilities.service';
 import {Facilities} from './models/facilites';
 import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Table } from 'src/app/shared/components/table/model/Table.namespace';
 
 @Component({
   selector: 'app-facilities',
@@ -10,7 +11,43 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./facilities.component.scss']
 })
 export class FacilitiesComponent {
-  FacilitiesList!:Facilities.IFacilitiesList
+  FacilitiesList!:Facilities.IFacilitiesList|any;
+  data:Facilities.IFacility[]=[]
+  columns: Table.IColumn[] = [
+    {
+      header: "Name",
+      property: "name"
+    },
+    {
+      header: "Created By",
+      property: "createdBy",
+
+    },
+    {
+      header: "Created at",
+      property: "createdAt",
+      isDate:true
+    },
+    {
+      header: "Updated at",
+      property: "updatedAt",
+      isDate:true
+    }
+  ]
+  operators: Table.IOperators[] = [
+    {
+      icon: "edit_square",
+      title: "Edit"
+    },
+    {
+      icon: "visibility",
+      title: "View"
+    },
+    {
+      icon: "delete",
+      title: "Delete"
+    }
+  ]
   constructor(private _FacilitiesService:FacilitiesService,
     private _NotifyService:NotifyService
   ){
@@ -23,21 +60,22 @@ export class FacilitiesComponent {
   getFacilities(){
     let param={
       page:1,
-      size:5
+      size:10
     }
     this._FacilitiesService.getAllFacilities(param).subscribe({
-      next:(res:Facilities.IFacilitiesList)=>{
-        this.FacilitiesList=res
+      next:(res:Facilities.IFacilitiesRes)=>{
+        this.FacilitiesList=res.data;
+        this.data=res.data.facilities;
       },
       error:(err:HttpErrorResponse)=>{
-        console.log(err);
-
         this._NotifyService.ServerError(err.error.message)
       },
       complete:()=>{
-
       }
 
     })
+  }
+  runOp(data: any){
+    console.log(data);
   }
 }

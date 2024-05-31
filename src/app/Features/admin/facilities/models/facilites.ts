@@ -1,4 +1,10 @@
 export namespace Facilities {
+  export interface IFacilitiesRes {
+    success: boolean;
+    message: string;
+    data:    IFacilitiesList;
+}
+
   export interface IFacilitiesList {
     facilities: IFacility[];
     totalCount: number;

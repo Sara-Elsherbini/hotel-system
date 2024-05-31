@@ -11,5 +11,9 @@ export class HttpEndPoints {
     FacilitiesList:'admin/room-facilities',
 
   }
+  public static Rooms={
+    RoomsList:'admin/rooms',
+
+  }
 
 }

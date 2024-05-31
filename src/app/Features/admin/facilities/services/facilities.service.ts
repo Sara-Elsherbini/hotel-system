@@ -11,8 +11,8 @@ export class FacilitiesService {
 
 constructor( private _HttpClient:HttpClient) { }
 
-getAllFacilities(params:Facilities.IParams):Observable<Facilities.IFacilitiesList>{
- return this._HttpClient.get<Facilities.IFacilitiesList>(HttpEndPoints.Facilities.FacilitiesList,{params:params})
+getAllFacilities(params:Facilities.IParams):Observable<Facilities.IFacilitiesRes>{
+ return this._HttpClient.get<Facilities.IFacilitiesRes>(HttpEndPoints.Facilities.FacilitiesList,{params:params})
 }
 
 
