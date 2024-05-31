@@ -4,6 +4,9 @@ import { AuthService } from './services/auth.service';
 import {Auth}from './models/auth'
 import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { RoutePaths } from 'src/app/common/setting/RoutePath';
+import { Router } from '@angular/router';
+import { RoleEnum } from 'src/app/common/Enums/RoleEnum.enum';
 
 @Component({
   selector: 'app-auth',
@@ -12,8 +15,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AuthComponent {
   userName:string='';
+  RoleEnum=RoleEnum;
+  role:string='';
   hide:boolean=true
-
+  RoutePaths=RoutePaths
   loginForm:FormGroup=new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [
@@ -23,7 +28,11 @@ export class AuthComponent {
       ),
     ]),
   })
- constructor(private _AuthService:AuthService,private _NotifyService:NotifyService){
+ constructor(private _AuthService:AuthService,
+  private _NotifyService:NotifyService,
+  private _Router:Router
+
+){
 
  }
  ngOnInit(): void {
@@ -34,6 +43,7 @@ export class AuthComponent {
  onLogin(data:FormGroup){
   this._AuthService.login(data.value).subscribe({
     next:(res:Auth.ILoginRes)=>{
+      this.role=res.data.user.role
       localStorage.setItem('token',res.data.token);
       let user=JSON.stringify(res.data.user)
       localStorage.setItem('user',user);
@@ -46,7 +56,10 @@ export class AuthComponent {
       this._NotifyService.ServerError(errMes);
     },
     complete:()=>{this._NotifyService.Success("Data is Sent Successfully");
-      
+    if (this.role==RoleEnum.ADMIN) {
+      this._Router.navigateByUrl(this.RoutePaths.Dashboard.Dashboard)
+    }
+
     }
   })
  }

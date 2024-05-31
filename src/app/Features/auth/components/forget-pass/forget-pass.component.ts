@@ -35,7 +35,6 @@ export class ForgetPassComponent {
       error:(error:HttpErrorResponse)=>{
       const errMes=error.error.message;
       this._NotifyService.ServerError(errMes);
-        console.log(error)
       },
       complete:()=>{
       this._NotifyService.Success("Password reset token sent successfully")
