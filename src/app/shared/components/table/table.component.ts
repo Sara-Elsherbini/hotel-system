@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import Table from './model/table.model';
-import { TableOperator } from './model';
+import { Table } from './model/Table.namespace';
 
 @Component({
   selector: 'app-table',
@@ -10,22 +9,15 @@ import { TableOperator } from './model';
 })
 export class TableComponent {
 
-  @Input() table!: Table;
+  @Input() columns!: Table.IColumn[];
+  @Input() data!: any[];
+  @Input() operators!: Table.IOperators[];
   @Output() operationData = new EventEmitter()
-  BaseUrl = "https://upskilling-egypt.com:3006/";
 
   constructor() {
   }
 
-
-  getValue(row: any, col: any) {
-    
-  }
-
-  selectedOp(operator: TableOperator): (row: any)=>void{
-    if(operator.action)
-      return operator.action;
-
+  selectedOp(operator: any): (row: any)=>void{
     return this.defaultAction(operator.title);
   }
 
