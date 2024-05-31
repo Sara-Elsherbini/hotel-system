@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { TableModule } from './table/table.module';
+import { TableComponent } from './components/table/table.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
@@ -15,7 +15,8 @@ import { MatMenuModule } from '@angular/material/menu';
 
   declarations: [
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +25,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    TableModule,
     RouterModule,
     MatMenuModule
   ],
@@ -34,7 +34,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     ReactiveFormsModule,
     MatIconModule,
-    TableModule,
+    TableComponent,
     SidebarComponent,
     NavbarComponent,
     RouterModule,

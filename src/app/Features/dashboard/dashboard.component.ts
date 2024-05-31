@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { SizingHelperService } from 'src/app/common';
-import Table from 'src/app/shared/table/model/table.model';
 
 @Component({
   selector: 'app-dashboard',
