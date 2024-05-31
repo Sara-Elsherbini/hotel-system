@@ -12,10 +12,10 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
 })
 export class SidebarComponent {
   RoutePaths=RoutePaths
-  opened: boolean = false;
-  @ViewChild("parElm", { static: true }) parElm!: ElementRef;
-  @ViewChild("sect", { static: true }) sect!: ElementRef;
-  @Input() height!:string;
+  opened: boolean = true;
+  // @ViewChild("parElm", { static: true }) parElm!: ElementRef;
+  // @ViewChild("sect", { static: true }) sect!: ElementRef;
+  // @Input() height!:string;
 
   menu: IMenu[] = [
     {
@@ -39,7 +39,7 @@ export class SidebarComponent {
   constructor(private _TokenService:TokenService){}
 
   toggleSidebar() {
-    this.parElm.nativeElement.classList.toggle("active-sidebar")
+    // this.parElm.nativeElement.classList.toggle("active-sidebar")
     this.opened = !this.opened;
   }
 

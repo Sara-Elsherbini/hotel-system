@@ -1,12 +1,13 @@
 <section class="overflow-x-hidden">
     <div class="row flex-nowrap overflow-x-hidden">
-        <div #sidebar class="w-auto px-0 sideBar-bg">
-            <app-sidebar [height]="height"></app-sidebar>
+        <div #sidebar class="w-auto px-0 sideBar-bg min-vh-100">
+            <app-sidebar></app-sidebar>
         </div>
         <div #mainSection id="mainSection">
             <app-navbar></app-navbar>
             <div #RouteOutlet>
                 <router-outlet></router-outlet>
+                <app-table [columns]="columns" [data]="data" [operators]="operators" (operationData)="runOp($event)"></app-table>
             </div>
         </div>
     </div>
