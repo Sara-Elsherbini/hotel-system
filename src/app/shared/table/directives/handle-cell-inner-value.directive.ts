@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { iCellColRow } from '../model/iCellColRow.model';
 import { TableColDef } from '../model';
 
@@ -9,7 +9,7 @@ export class HandleCellInnerValueDirective implements OnInit {
 
   @Input("cell") cell!: iCellColRow;
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef, private _render:Renderer2) { }
 
   ngOnInit(): void {
     this.init();
@@ -57,11 +57,13 @@ export class HandleCellInnerValueDirective implements OnInit {
   BuildView(func: Function, value: any){
     let elem = func(value);
 
-    this.elementRef.nativeElement.appendChild(elem);
+    this._render.appendChild(this.elementRef.nativeElement, elem);
   }
 
   BindValue(value: any){
-    this.elementRef.nativeElement.innerText = `${value}`
+    let text = this._render.createText(value)
+
+    this._render.appendChild(this.elementRef.nativeElement, text);
   }
 
   
