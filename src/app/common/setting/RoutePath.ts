@@ -1,4 +1,3 @@
-
 export class RoutePaths {
 public static Auth={
 Login:'/auth/login',
@@ -11,10 +10,12 @@ public static Dashboard={
   Dashboard:'dashboard'
 }
 public static Admin={
-  Admin:'admin',
   Facilities:{
     FacilitiesList:'facilities',
 
+  },
+  Home:{
+    HomeComponent:'home'
   }
 }
 }

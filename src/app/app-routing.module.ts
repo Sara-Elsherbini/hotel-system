@@ -7,6 +7,7 @@ const routes: Routes = [
 {path: '',redirectTo:'auth',pathMatch:'full'},
 { path: 'auth', loadChildren: () => import('./Features/auth/auth.module').then(m => m.AuthModule) },
 { path: RoutePaths.Dashboard.Dashboard, loadChildren: () => import('./Features/admin/dashboard/dashboard.module').then(m => m.DashboardModule),canActivate:[adminGuard] },
+
 ];
 
 @NgModule({
