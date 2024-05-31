@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FacilitiesRoutingModule } from './facilities-routing.module';
 import { FacilitiesComponent } from './facilities.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { FacilitiesComponent } from './facilities.component';
   ],
   imports: [
     CommonModule,
-    FacilitiesRoutingModule
+    FacilitiesRoutingModule,
+    SharedModule
   ]
 })
 export class FacilitiesModule { }

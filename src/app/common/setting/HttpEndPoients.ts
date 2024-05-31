@@ -7,5 +7,9 @@ export class HttpEndPoints {
 
 
   }
+  public static Facilities={
+    FacilitiesList:'admin/room-facilities',
+
+  }
 
 }

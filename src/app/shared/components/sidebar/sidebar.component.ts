@@ -12,7 +12,7 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
 })
 export class SidebarComponent {
   RoutePaths=RoutePaths
-  opened: boolean = false;
+  opened: boolean = true;
   @ViewChild("parElm", { static: true }) parElm!: ElementRef;
   @ViewChild("sect", { static: true }) sect!: ElementRef;
   @Input() height!:string;

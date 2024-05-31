@@ -1,2 +1,24 @@
-export interface facilities {
+export namespace Facilities {
+  export interface IFacilitiesList {
+    facilities: IFacility[];
+    totalCount: number;
+  }
+
+  export interface IFacility {
+    _id: string;
+    name: string;
+    createdBy: IUser;
+    createdAt: Date;
+    updatedAt: Date;
+  }
+
+  export interface IUser {
+    _id: string;
+    userName: string;
+  }
+  export interface IParams {
+    page:number;
+    size:number;
+    [Key:string]:any
+  }
 }
