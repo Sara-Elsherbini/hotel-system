@@ -1,3 +1,4 @@
+import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-
+RoutePaths=RoutePaths
   hide: boolean = true;
   hideConfirm: boolean = true;
 

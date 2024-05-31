@@ -1,14 +1,14 @@
 <section class="auth p-3">
   <div class="container-fluid">
-    <div class="row">
+    <div class="row full-height">
       <div class="col-md-6 col-lg-6  col-12 ">
-        <h3 class="mx-1 h1 title">Stay<span>cation.</span></h3>
-        <div class="m-2 p-2 d-flex justify-content-center flex-column">
+        <h3 class="mx-1  title">Stay<span>cation.</span></h3>
+        <div class="m-2 px-2 d-flex justify-content-center flex-column">
           <div>
             <h2>Sign up</h2>
             <p>
               If you already have an account register <br />You can
-              <a class="px-2 fw-bold" routerLink="../">Login here !</a>
+              <a class="px-2 fw-bold" [routerLink]="['/auth']">Login here !</a>
             </p>
           </div>
           <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
