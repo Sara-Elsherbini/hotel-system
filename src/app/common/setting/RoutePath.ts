@@ -16,6 +16,12 @@ public static Admin={
   },
   Home:{
     HomeComponent:'home'
+  },
+  Room:{
+    RoomList:'rooms',
+    add:'add',
+    edit:'edit/:id'
   }
+
 }
 }

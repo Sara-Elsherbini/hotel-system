@@ -29,25 +29,11 @@ export class SidebarComponent {
       link: this.RoutePaths.Admin.Facilities.FacilitiesList,
     },
     {
-      text: 'Projects',
+      text: 'Rooms',
       icon: 'fa-thin fa-objects-column',
-      link: '/dashboard/manager/projects',
-    },
-    {
-      text: 'Tasks',
-      icon: 'fa-thin fa-list-check',
-      link: '/dashboard/manager/tasks',
-    },
-    {
-      text: 'Projects',
-      icon: 'fa-thin fa-objects-column',
-      link: '/dashboard/employee/projects',
-    },
-    {
-      text: 'Tasks',
-      icon: 'fa-thin fa-list-check',
-      link: '/dashboard/employee/task-board',
-    },
+      link: this.RoutePaths.Admin.Room.RoomList,
+    }
+
   ]
 
   constructor(private _TokenService:TokenService){}
