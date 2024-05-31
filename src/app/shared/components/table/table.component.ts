@@ -12,7 +12,8 @@ export class TableComponent {
   @Input() columns!: Table.IColumn[];
   @Input() data!: any[];
   @Input() operators!: Table.IOperators[];
-  @Output() operationData = new EventEmitter()
+  @Output() operationData = new EventEmitter();
+
 
   constructor() {
   }

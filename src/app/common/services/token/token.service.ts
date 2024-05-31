@@ -63,7 +63,7 @@ export class TokenService {
   }
 
   public routeTologin() {
-    this.router.navigate(["/auth/login"]);
+    this.router.navigate(["/auth"]);
     //window.location.reload();
   }
 }
