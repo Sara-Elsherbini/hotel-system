@@ -81,6 +81,7 @@ export class FacilitiesComponent {
 
   runOp(data: any) {
     console.log(data);
+
     if (data.opInfo === 'Delete') {
       this.openDeleteDialog(data.row._id)
     }
