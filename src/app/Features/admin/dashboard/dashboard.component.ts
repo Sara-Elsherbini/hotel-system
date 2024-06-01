@@ -26,7 +26,7 @@ export class DashboardComponent {
     //   }
     // })
 
-    // this.height = `${window.innerHeight}px`;
+    this.height = `${window.innerHeight}px`;
   }
 
   cnLog(...messages: any) {
