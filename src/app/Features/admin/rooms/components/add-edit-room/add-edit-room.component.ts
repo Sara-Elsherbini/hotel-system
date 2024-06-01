@@ -14,7 +14,7 @@ import { NotifyService } from 'src/app/common';
 export class AddEditRoomComponent implements OnInit {
   facilityList: Facilities.IFacility[] = [];
   imgSrc: any;
-  files: File[] = [];
+  files: any[] = [];
   roomId: number = 0;
   roomData: any;
   constructor(
@@ -87,6 +87,15 @@ export class AddEditRoomComponent implements OnInit {
       next: (res) => {
         this.roomData = res;
         console.log(this.roomData);
+        console.log(this.roomData.data.room.images);
+
+        this.roomData.data.room.images.forEach((el:any) => {
+          let imgRes=this.fetchImage(el)
+          imgRes.then((val)=>{
+            this.files.push(val)
+          })
+
+        });
 
 
       },
@@ -94,7 +103,7 @@ export class AddEditRoomComponent implements OnInit {
         console.log(err);
       },
       complete: () => {
-        let allFacilities= this.roomData.data.room.facilities?.map((x: any) => x.name)
+        let allFacilities= this.roomData.data.room.facilities?.map((x: any) => x._id)
         this.addRoomForm.patchValue({
           roomNumber: this.roomData.data.room.roomNumber,
           price: this.roomData.data.room.price,
@@ -106,6 +115,11 @@ export class AddEditRoomComponent implements OnInit {
       },
     });
   }
+  async fetchImage(url: string) {
+    var res = await fetch(url);
+    var blob = await res.blob();
+    return blob;
+  };
 
   getFacilities() {
     let param = {
