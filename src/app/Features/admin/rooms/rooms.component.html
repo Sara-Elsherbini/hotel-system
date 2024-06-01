@@ -1,3 +1,16 @@
+
+<div>
+  <div class="d-flex align-items-center justify-content-between">
+    <h2 class="h3 m-0">Rooms Table Details</h2>
+
+    <button class="primary" routerLink="add">Add New Room</button>
+  </div>
+
+  <p class="text-muted mt-0">You can check all details</p>
+</div>
+
+
+<app-table [columns]="columns" [data]="data" [operators]="operators" (operationData)="runOp($event)"></app-table>
 <app-table [columns]="columns" [totalCount]="roomList.totalCount"  [data]="data" [operators]="operators"
 (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)"></app-table>
 <app-no-data *ngIf="noData==true"></app-no-data>

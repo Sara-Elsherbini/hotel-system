@@ -10,6 +10,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
@@ -32,6 +33,8 @@ import {FormsModule} from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     RouterModule,
+    MatMenuModule,
+    MatSelectModule,
     MatPaginatorModule,
     MatMenuModule,
     DialogModule,
@@ -49,6 +52,7 @@ import {FormsModule} from '@angular/forms';
     NavbarComponent,
     RouterModule,
     MatMenuModule,
+    MatSelectModule,
     MatPaginatorModule,
     SharedHeaderComponent,
     DialogModule,

@@ -14,4 +14,17 @@ getAllRooms(params:Rooms.IParams):Observable<Rooms.IRoomsRes>{
   return this._HttpClient.get<Rooms.IRoomsRes>(HttpEndPoints.Rooms.RoomsList,{params:params})
  }
 
+ addRoom(data:FormData):Observable<Rooms.IRoom>{
+  return this._HttpClient.post<Rooms.IRoom>(HttpEndPoints.Rooms.RoomsList,data)
+ }
+ editRoom(data:FormData,id:number):Observable<Rooms.IRoom>{
+  return this._HttpClient.put<Rooms.IRoom>(`${HttpEndPoints.Rooms.RoomsList}/${id}`,data)
+ }
+
+getRoomById(id:number):Observable<Rooms.IRoom>
+{
+
+  return this._HttpClient.get<Rooms.IRoom>(`${HttpEndPoints.Rooms.editRoom}/${id}`)
+}
+
 }
