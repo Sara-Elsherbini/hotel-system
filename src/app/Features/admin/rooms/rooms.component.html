@@ -11,3 +11,6 @@
 
 
 <app-table [columns]="columns" [data]="data" [operators]="operators" (operationData)="runOp($event)"></app-table>
+<app-table [columns]="columns" [totalCount]="roomList.totalCount"  [data]="data" [operators]="operators"
+(pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)"></app-table>
+<app-no-data *ngIf="noData==true"></app-no-data>

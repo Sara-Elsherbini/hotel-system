@@ -1,19 +1,23 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Table } from './model/Table.namespace';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  
+
 })
 export class TableComponent {
-
+  pageSize = 5;
+  pageIndex = 1;
   @Input() columns!: Table.IColumn[];
   @Input() data!: any[];
   @Input() operators!: Table.IOperators[];
+  @Input() totalCount:number=0;
   @Output() operationData = new EventEmitter()
-
+  @Output() pageSizeChanged = new EventEmitter<number>();
+  @Output() pageIndexChanged = new EventEmitter<number>();
   constructor() {
     
   }
@@ -34,6 +38,12 @@ export class TableComponent {
 
   isDate(value: any) {
     return !Number.isNaN(Date.parse(value));
+  }
+  handlePageEvent(event: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.pageSizeChanged.emit(this.pageSize);
+    this.pageIndexChanged.emit(this.pageIndex);
   }
 
 }
