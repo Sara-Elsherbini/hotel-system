@@ -1,3 +1,75 @@
-<p>
-  add-edit-room works!
-</p>
+<section class="w-75 my-5 m-auto">
+  <form [formGroup]="addRoomForm" (ngSubmit)="sendData(addRoomForm)">
+
+    <div class="col-md-12">
+      <mat-form-field class="w-100" appearance="outline">
+        <input type="text" matInput formControlName="roomNumber" placeholder="roomNumber">
+        <mat-error *ngIf="roomNumber?.hasError('required')">
+          RoomNumber is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field class="w-100" appearance="outline">
+          <input type="number" matInput formControlName="price" placeholder="Price">
+          <mat-error *ngIf="price?.hasError('required')">
+            price is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-md-6">
+        <mat-form-field class="w-100" appearance="outline">
+          <input type="number" matInput formControlName="capacity" placeholder="capacity">
+          <mat-error *ngIf="capacity?.hasError('required')">
+            capacity is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field class="w-100" appearance="outline">
+          <input type="number" matInput formControlName="discount" placeholder="Discount">
+          <mat-error *ngIf="discount?.hasError('required')">
+            Discount is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-md-6">
+
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-select formControlName="facilities" multiple placeholder="Facilities">
+            <mat-option *ngFor="let facility of facilityList"  [value]="facility._id">{{facility.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+        <ngx-dropzone-label *ngIf="!imgSrc">Drag and Drop image <span class="text-success fw-bold"> Choose a Room Images
+          </span>to upload</ngx-dropzone-label>
+        <!-- <ngx-dropzone-label *ngIf="imgSrc">
+          <img [src]="imgSrc" alt="" class="w-25">
+        </ngx-dropzone-label> -->
+        <ngx-dropzone-image-preview [removable]="true"  (removed)="onRemove(f)" ngProjectAs="ngx-dropzone-preview"
+          *ngFor="let f of files" [file]="f">
+        </ngx-dropzone-image-preview>
+      </ngx-dropzone>
+    </div>
+
+    <div>
+      <button type="submit" class="primary">
+        Save
+      </button>
+    </div>
+
+  </form>
+</section>
