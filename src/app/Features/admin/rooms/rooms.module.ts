@@ -6,6 +6,7 @@ import { RoomsComponent } from './rooms.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
   imports: [
     CommonModule,
     SharedModule,
-    RoomsRoutingModule,NgxDropzoneModule
+    ReactiveFormsModule,
+    RoomsRoutingModule,
+    NgxDropzoneModule
   ]
 })
 export class RoomsModule { }
