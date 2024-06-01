@@ -1,14 +1,8 @@
-<style>
-  ::ng-deep :host{
-    display: block;
-    height: 100%;
-  }
-</style>
-<section #sect class="bg-dash" [style.height]="height">
+
+
   <div
-    class="sideBar d-flex flex-column justify-content-around h-100"
+    class="sideBar d-flex flex-column justify-content-around vh-100 position-sticky"
     [ngClass]="{'active-sidebar': opened}"
-    #parElm
   >
     <div
       (click)="toggleSidebar()"
@@ -33,4 +27,4 @@
       </ul>
     </div>
   </div>
-</section>
+
