@@ -75,9 +75,12 @@ export class FacilitiesComponent {
     this._FacilitiesService.getAllFacilities(param).subscribe({
       next: (res: Facilities.IFacilitiesRes) => {
         this.FacilitiesList = res.data;
-        res.data.facilities
-          ? (this.data = res.data.facilities)
-          : (this.noData = true);
+        const tableData = res.data.facilities.map((item:any)=> ({
+          ...item,
+          createdBy: item.createdBy.userName
+        }));
+        this.data=tableData;
+        !this.data.length?this.noData=true:this.noData=false;
       },
       error: (err: HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message);
