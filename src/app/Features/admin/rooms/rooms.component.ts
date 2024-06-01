@@ -4,6 +4,9 @@ import {Rooms} from './models/rooms'
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotifyService } from 'src/app/common';
 import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Router } from '@angular/router';
+import { RoutePaths } from 'src/app/common/setting/RoutePath';
+
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
@@ -59,7 +62,7 @@ export class RoomsComponent {
       title: "Delete"
     }
   ]
-constructor(private _RoomsService:RoomsService,private _NotifyService:NotifyService){
+constructor(private _RoomsService:RoomsService,private _NotifyService:NotifyService, private _Router:Router ){
 
 }
 ngOnInit(): void {
@@ -97,8 +100,20 @@ ngOnInit(): void {
 
     })
   }
-  runOp(data: any){
+
+
+
+  runOp(data: any) {
     console.log(data);
+    let id=data.row._id
+    console.log("id",id);
+
+    if (data.opInfo == 'Edit') {
+      this._Router.navigateByUrl(`dashboard/rooms/edit/${id}`);
+    }
+    if (data.opInfo == 'View') {
+      // this.openAddEditFacility('View', data.row);
+    }
   }
 
   pageNumber(event: number) {

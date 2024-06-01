@@ -24,7 +24,7 @@ getAllRooms(params:Rooms.IParams):Observable<Rooms.IRoomsRes>{
 getRoomById(id:number):Observable<Rooms.IRoom>
 {
 
-  return this._HttpClient.get<Rooms.IRoom>(`${HttpEndPoints.Rooms.RoomsList}/${id}`)
+  return this._HttpClient.get<Rooms.IRoom>(`${HttpEndPoints.Rooms.editRoom}/${id}`)
 }
 
 }

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RoomsService } from '../../services/rooms.service';
 import { ActivatedRoute } from '@angular/router';
 import { FacilitiesService } from '../../../facilities/services/facilities.service';
-import{Facilities} from '../../../facilities/models/facilites';
+import { Facilities } from '../../../facilities/models/facilites';
 import { NotifyService } from 'src/app/common';
 
 @Component({
@@ -12,36 +12,38 @@ import { NotifyService } from 'src/app/common';
   styleUrls: ['./add-edit-room.component.scss'],
 })
 export class AddEditRoomComponent implements OnInit {
-  facilityList:Facilities.IFacility[]=[]
+  facilityList: Facilities.IFacility[] = [];
+  imgSrc: any;
+  files: File[] = [];
+  roomId: number = 0;
+  roomData: any;
   constructor(
     private _RoomsService: RoomsService,
     private _ActivatedRoute: ActivatedRoute,
-    private _FacilitiesService:FacilitiesService,
-    private _NotifyService:NotifyService
+    private _FacilitiesService: FacilitiesService,
+    private _NotifyService: NotifyService
   ) {
-    this.roomId = _ActivatedRoute.snapshot.params['id'];
+
+  }
+
+  ngOnInit() {
+    this.getFacilities();
+    this.roomId = this._ActivatedRoute.snapshot.params['id'];
     if (this.roomId) {
       console.log(this.roomId);
       this.getRoomById(this.roomId);
     }
   }
 
-  ngOnInit() {
-    this.getFacilities();
-  }
-  imgSrc: any;
-  files: File[] = [];
-  roomId: number = 0;
-  roomData: any;
-
   addRoomForm = new FormGroup({
-    roomNumber: new FormControl('', [ Validators.required,]),
-    price: new FormControl(null, [ Validators.required,]),
-    capacity: new FormControl(null, [ Validators.required,]),
-    discount:new FormControl(null, [ Validators.required,]),
-    facilities: new FormControl([0]),
+    roomNumber: new FormControl(null, [Validators.required]),
+    price: new FormControl(null, [Validators.required]),
+    capacity: new FormControl(null, [Validators.required]),
+    discount: new FormControl(null, [Validators.required]),
+    facilities: new FormControl([]),
     imgs: new FormControl(null),
   });
+
   onSelect(event: any) {
     this.files.push(...event.addedFiles);
     this.imgSrc = this.files[0];
@@ -51,16 +53,20 @@ export class AddEditRoomComponent implements OnInit {
   }
 
   sendData(data: FormGroup) {
-    console.log("data",data.value);
+    console.log(data.value);
 
     let myData = new FormData();
 
-    myData.append('roomNumber', data.value.roomNumber);
-    myData.append('price', data.value.price);
-    myData.append('discount', data.value.discount);
-    myData.append('capacity ', data.value.capacity);
-    myData.append('recipeImage', this.imgSrc);
-    myData.append('facilities', data.value.facilities);
+    let facilities:any = this.addRoomForm.get('facilities')?.value
+  for (let i = 0; i < facilities!.length; i++) {
+    myData.append(`facilities`, facilities[i]);
+  }
+  myData.append('roomNumber', data.value.roomNumber);
+  myData.append('price', data.value.price);
+  myData.append('discount', data.value.discount);
+  myData.append('capacity', data.value.capacity);
+    myData.append('imgs', this.imgSrc);
+
     if (this.roomId) {
       this._RoomsService.editRoom(myData, this.roomId).subscribe({
         next: (res) => {
@@ -80,27 +86,26 @@ export class AddEditRoomComponent implements OnInit {
     this._RoomsService.getRoomById(id).subscribe({
       next: (res) => {
         this.roomData = res;
-
         console.log(this.roomData);
+
+
       },
       error: (err) => {
         console.log(err);
       },
       complete: () => {
+        let allFacilities= this.roomData.data.room.facilities?.map((x: any) => x.name)
         this.addRoomForm.patchValue({
-          roomNumber: this.roomData.roomnumber,
-          price: this.roomData.price,
-          capacity: this.roomData.capacity,
-          discount: this.roomData.discount,
-          imgs: this.roomData.imagePath,
-          facilities: this.roomData.room.map((x: any) => x.id),
+          roomNumber: this.roomData.data.room.roomNumber,
+          price: this.roomData.data.room.price,
+          capacity: this.roomData.data.room.capacity,
+          discount: this.roomData.data.room.discount,
+          imgs: this.roomData.data.room.imagePath,
+          facilities: allFacilities
         });
       },
     });
   }
-
-
-
 
   getFacilities() {
     let param = {
@@ -120,7 +125,7 @@ export class AddEditRoomComponent implements OnInit {
   }
 
   get roomNumber() {
-    return this.addRoomForm .get('roomNumber');
+    return this.addRoomForm.get('roomNumber');
   }
   get price() {
     return this.addRoomForm.get('price');

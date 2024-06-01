@@ -45,7 +45,7 @@
       <div class="col-md-6">
 
         <mat-form-field class="w-100" appearance="outline">
-          <mat-select formControlName="facilities" [multiple]="true" placeholder="Facilities">
+          <mat-select formControlName="facilities" multiple placeholder="Facilities">
             <mat-option *ngFor="let facility of facilityList"  [value]="facility._id">{{facility.name}}</mat-option>
           </mat-select>
         </mat-form-field>

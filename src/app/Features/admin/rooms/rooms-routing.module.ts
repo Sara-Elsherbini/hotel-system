@@ -6,7 +6,7 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
 
 const routes: Routes = [{ path: '', component: RoomsComponent },
 {path:RoutePaths.Admin.Room.add, component: AddEditRoomComponent },
-{ path:RoutePaths.Admin.Room.edit, component: AddEditRoomComponent }
+{ path:'edit/:id', component: AddEditRoomComponent }
 ];
 
 @NgModule({
