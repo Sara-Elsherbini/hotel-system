@@ -16,7 +16,7 @@ export class FacilitiesComponent {
   FacilitiesList: Facilities.IFacilitiesList | any;
   FacilityId: string = '';
   pageNum: number = 1;
-  pageSizing: number = 5;
+  pageSizing: number = 10;
   data: Facilities.IFacility[] = [];
   noData: Boolean = false;
   columns: Table.IColumn[] = [

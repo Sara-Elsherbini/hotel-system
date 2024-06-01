@@ -9,7 +9,7 @@ import { PageEvent } from '@angular/material/paginator';
 
 })
 export class TableComponent {
-  pageSize = 5;
+  pageSize = 10;
   pageIndex = 1;
   @Input() columns!: Table.IColumn[];
   @Input() data!: any[];
