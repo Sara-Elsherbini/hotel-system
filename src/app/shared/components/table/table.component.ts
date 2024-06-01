@@ -38,6 +38,11 @@ export class TableComponent {
   isDate(value: any) {
     return !Number.isNaN(Date.parse(value));
   }
+
+  isArray(value: any){
+    return Array.isArray(value);
+  }
+
   handlePageEvent(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;

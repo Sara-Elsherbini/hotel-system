@@ -21,6 +21,9 @@ public static Admin={
     RoomList:'rooms',
     add:'add',
     edit:'edit/:id'
+  },
+  Ads:{
+    AdsList: "ads",
   }
 
 }

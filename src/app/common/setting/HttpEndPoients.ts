@@ -14,7 +14,10 @@ export class HttpEndPoints {
   }
   public static Rooms={
     RoomsList:'admin/rooms',
+  }
 
+  public static Ads={
+    AdsGeneral: 'admin/ads',
   }
 
 }

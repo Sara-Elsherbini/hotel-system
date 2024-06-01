@@ -15,6 +15,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
 import {DialogModule} from '@angular/cdk/dialog';
 import {FormsModule} from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
 
   declarations: [
@@ -35,7 +37,9 @@ import {FormsModule} from '@angular/forms';
     MatPaginatorModule,
     MatMenuModule,
     DialogModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   exports: [
     NoDataComponent,
@@ -52,7 +56,9 @@ import {FormsModule} from '@angular/forms';
     MatPaginatorModule,
     SharedHeaderComponent,
     DialogModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatSelectModule
   ],
 })
 export class SharedModule { }

@@ -1,5 +1,5 @@
 .sideBar-bg {
-  background-color: #1f263d
+  background-color: #203FC7;
 }
 .sideBar {
   $min-width: clamp(5px, 5.054945055vw + 5px, 20px);
@@ -93,72 +93,6 @@
     }
   }
 
-  // .pages-links {
-  //   ul {
-  //     list-style: none;
-  //     padding-left: 0px;
-
-  //     li {
-  //       padding: 6px;
-  //       text-wrap: nowrap;
-  //       overflow: hidden;
-
-  //       a {
-  //         display: flex;
-  //         justify-content: center;
-  //         align-items: center;
-  //         font-size: 1rem;
-  //         color: white;
-  //         text-decoration: none;
-  //         border-radius: 8px;
-  //         padding: 0.5em;
-
-  //         i {
-  //           color: white;
-  //           margin-inline: $margin-inline;
-  //         }
-  //         span {
-  //           // display: none;
-  //           //transform: translateX(calc($margin-inline / -2));
-  //           // position: absolute;
-  //           width: 0;
-  //           padding: 0;
-  //           margin: 0;
-  //           opacity: 0;
-  //           transition: width $duration, opacity $duration, padding $duration;
-  //           -webkit-transition: width $duration, opacity $duration,
-  //             padding $duration;
-  //           -moz-transition: width $duration, opacity $duration,
-  //             padding $duration;
-  //           transition-timing-function: $timing-func-default;
-  //         }
-
-  //         &.active-link {
-  //           background-color: hsla(35, 87%, 55%, 0.302);
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-  ////////////////////
-  // &.active-sidebar {
-  //   width: max-content;
-  //   border-top-right-radius: 10vh;
-
-  //   .pages-links {
-  //     ul {
-  //       li {
-  //         a {
-  //           span {
-  //             transform: translateX(0);
-  //             opacity: 1;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
   .pages-links {
     ul {
       list-style: none;
@@ -196,8 +130,8 @@
         }
 
         &:has(a.active-link) {
-          background-color: hsla(149, 100%, 29%, 0.1);
-          border-left: 3px solid hsl(149, 100%, 29%);
+          background-color: hsla(225, 7%, 11%, 0.169);
+          border-left: 3px solid hsl(220, 63%, 22%);
 
           i {
             margin-left: calc($margin-inline - 3px);

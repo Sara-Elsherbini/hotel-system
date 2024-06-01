@@ -32,6 +32,11 @@ export class SidebarComponent {
       text: 'Rooms',
       icon: 'fa-thin fa-objects-column',
       link: this.RoutePaths.Admin.Room.RoomList,
+    },
+    {
+      text: 'Ads',
+      icon: 'fa-light fa-calendar-range',
+      link: this.RoutePaths.Admin.Ads.AdsList,
     }
 
   ]
