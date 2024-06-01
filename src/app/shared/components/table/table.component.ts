@@ -15,6 +15,7 @@ export class TableComponent {
   @Output() operationData = new EventEmitter()
 
   constructor() {
+    
   }
 
   selectedOp(operator: any): (row: any)=>void{

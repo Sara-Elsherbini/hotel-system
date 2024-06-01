@@ -13,7 +13,12 @@ export class HttpEndPoints {
   }
   public static Rooms={
     RoomsList:'admin/rooms',
+    addRoom: 'admin/rooms',
+    editRoom: 'admin/rooms/{id}',
 
+  
+
+    
   }
 
 }

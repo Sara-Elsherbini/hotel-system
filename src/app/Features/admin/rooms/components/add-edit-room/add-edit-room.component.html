@@ -1,3 +1,42 @@
-<p>
-  add-edit-room works!
-</p>
+<section>
+  <div class="container">
+    <form [formGroup]="addRoomForm" (ngSubmit)="sendData(addRoomForm)">
+      <div class="row">
+        <div class="col-md-12">
+          <input formControlName="RoomNumber" class="form-control" type="text" placeholder="RoomNumber">
+        </div>
+        <div class="col-md-6">
+          <input formControlName="price" class="form-control" type="text" placeholder="price">
+        </div>
+
+        <div class="col-md-6">
+          <input formControlName="capacity" class="form-control" type="text" placeholder="capacity">
+        </div>
+        <div class="col-md-6">
+          <input formControlName="discount" class="form-control" type="text" placeholder="discount">
+        </div>
+        <div class="col-md-6">
+          <input formControlName="facilities" class="form-control" type="text" placeholder="facilities">
+        </div>
+    
+       
+        <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+          <ngx-dropzone-label *ngIf="!imgSrc">Drag and Drop image <span class="text-success fw-bold">Choose image
+            </span>to upload</ngx-dropzone-label>
+          <ngx-dropzone-label *ngIf="imgSrc">
+            <img [src]="imgSrc" alt="" class="w-25">
+          </ngx-dropzone-label>
+          <ngx-dropzone-image-preview [removable]="true" (removed)="onRemove(f)" ngProjectAs="ngx-dropzone-preview"
+            *ngFor="let f of files" [file]="f">
+          </ngx-dropzone-image-preview>
+        </ngx-dropzone>
+      </div>
+      <div>
+        <button type="submit" class="primary">
+          Save
+        </button>
+      </div>
+    </form>
+
+  </div>
+</section>
