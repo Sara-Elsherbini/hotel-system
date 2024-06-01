@@ -1,4 +1,15 @@
 
+<div class="d-flex justify-content-between align-items-center my-3">
+  <div>
+    <h2 class="h4">Facilities Table Details</h2>
+    <p>You can check all details</p>
+  </div>
+  <div>
+    <button class="primary" (click)="openAddEditFacility('AddEdit')">
+      Add New Facility
+    </button>
+  </div>
+</div>
 <app-table *ngIf="noData==false" [totalCount]="FacilitiesList?.totalCount" [columns]="columns" [data]="data"
  [operators]="operators" (operationData)="runOp($event)" (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)"></app-table>
 <app-no-data *ngIf="noData==true"></app-no-data>

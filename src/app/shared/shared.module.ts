@@ -12,14 +12,17 @@ import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { NoDataComponent } from './components/no-data/no-data.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
+import {DialogModule} from '@angular/cdk/dialog';
+import {FormsModule} from '@angular/forms';
 @NgModule({
 
   declarations: [
     SidebarComponent,
     NavbarComponent,
     TableComponent,
-    NoDataComponent
+    NoDataComponent,
+    SharedHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +33,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatIconModule,
     RouterModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    DialogModule,
+    FormsModule
   ],
   exports: [
     NoDataComponent,
@@ -44,7 +49,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     NavbarComponent,
     RouterModule,
     MatMenuModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    SharedHeaderComponent,
+    DialogModule,
+    FormsModule
   ],
 })
 export class SharedModule { }

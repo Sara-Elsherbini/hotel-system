@@ -15,5 +15,15 @@ getAllFacilities(params:Facilities.IParams):Observable<Facilities.IFacilitiesRes
  return this._HttpClient.get<Facilities.IFacilitiesRes>(HttpEndPoints.Facilities.FacilitiesList,{params:params})
 }
 
+onaddFacility(itemName:string):Observable<any>{
+  return this._HttpClient.post(HttpEndPoints.Facilities.addFacilities,{name:itemName})
+  }
+
+  onEditFacility(facilityId:string,itemName:string):Observable<any>{
+    let endPoint=HttpEndPoints.Facilities.editFacilities
+    console.log("end",endPoint);
+
+    return this._HttpClient.put(`admin/room-facilities/${facilityId}`,{name:itemName})
+    }
 
 }

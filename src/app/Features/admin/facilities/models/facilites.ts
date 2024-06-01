@@ -27,4 +27,8 @@ export namespace Facilities {
     size:number;
     [Key:string]:any
   }
+  export interface IDataMode {
+    mode: string;
+    row: IFacility
+  }
 }
