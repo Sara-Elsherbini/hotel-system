@@ -10,13 +10,15 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { DeleteComponent } from './components/delete/delete.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
 
   declarations: [
     SidebarComponent,
     NavbarComponent,
-    TableComponent
+    TableComponent,
+    DeleteComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatIconModule,
     RouterModule,
-    MatMenuModule
+    MatMenuModule,
+MatDialogModule
+
   ],
   exports: [
     MatInputModule,
@@ -38,7 +42,8 @@ import { MatMenuModule } from '@angular/material/menu';
     SidebarComponent,
     NavbarComponent,
     RouterModule,
-    MatMenuModule
+    MatMenuModule,
+    DeleteComponent
   ],
 })
 export class SharedModule { }
