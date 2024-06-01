@@ -12,14 +12,22 @@
       <ng-container *ngIf="data && data.length">
         <tr *ngFor="let row of data">
           <td class="fluid-md-padding" *ngFor="let col of columns">
-            <ng-container *ngIf="row[col.property]">
+
+            <ng-container
+              *ngIf="row[col.property] !== null || row[col.property] !== undefined || (isArray(row[col.property]) && row[col.property].length > 0)">
               <span *ngIf="col.isImage">
-                <img [src]="row[col.property]" class="imageDim"/>
+                <img [src]="row[col.property]" class="imageDim" />
               </span>
               <span *ngIf="col.isDate">{{row[col.property] | date:"fullDate"}}</span>
-              <span *ngIf="!col.isImage && !col.isDate">{{row[col.property]}}</span>
+              <ng-container *ngIf="col.isBoolean">
+                <span *ngIf="row[col.property] === true">Yes</span>
+                <span *ngIf="row[col.property] === false">No</span>
+              </ng-container>
+              <span *ngIf="!col.isImage && !col.isDate && !col.isBoolean">{{row[col.property]}}</span>
             </ng-container>
-            <span *ngIf="!row[col.property]"> - </span>
+            <span
+              *ngIf="row[col.property] === null || row[col.property] === undefined || (isArray(row[col.property]) && row[col.property].length === 0)">
+              - </span>
           </td>
 
           <td class="fluid-md-padding" *ngIf="operators && operators.length">
@@ -40,8 +48,8 @@
   </table>
 
   <mat-paginator *ngIf="totalCount" #paginator class="demo-paginator" (page)="handlePageEvent($event)"
-  [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25]" [pageIndex]="pageIndex"
-  aria-label="Select page">
-</mat-paginator>
+    [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25]" [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
 
 </section>

@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FacilitiesRoutingModule } from './facilities-routing.module';
 import { FacilitiesComponent } from './facilities.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -16,8 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     CommonModule,
     FacilitiesRoutingModule,
-    SharedModule,
-    MatDialogModule
+    SharedModule
   ]
 })
 export class FacilitiesModule { }
