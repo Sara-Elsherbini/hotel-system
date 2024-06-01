@@ -1,11 +1,11 @@
 .native-table {
-  $header-bg-color: hsla(168, 29%, 27%, 0.898);
-  $header-color: hsl(0, 0%, 100%);
+  $header-bg-color: #E2E5EB;
+  $header-color:#1F263E;
   $body-row-bg-color: hsl(220, 27%, 98%);
 
   width: 100%;
   empty-cells: show;
-  border-collapse: collapse;
+
 
   .fluid-padding {
     padding-block: 0.75rem;
@@ -30,7 +30,6 @@
     tr {
       th {
         margin: 0 auto;
-        border: 1px solid rgba(25, 61, 57, 0.9) !important;
         font-weight: 500 !important;
         font-size: 14px !important;
       }

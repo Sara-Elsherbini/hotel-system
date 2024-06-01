@@ -10,13 +10,16 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
+import { NoDataComponent } from './components/no-data/no-data.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
 
   declarations: [
     SidebarComponent,
     NavbarComponent,
-    TableComponent
+    TableComponent,
+    NoDataComponent
   ],
   imports: [
     CommonModule,
@@ -26,9 +29,11 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatIconModule,
     RouterModule,
+    MatPaginatorModule,
     MatMenuModule
   ],
   exports: [
+    NoDataComponent,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -38,7 +43,8 @@ import { MatMenuModule } from '@angular/material/menu';
     SidebarComponent,
     NavbarComponent,
     RouterModule,
-    MatMenuModule
+    MatMenuModule,
+    MatPaginatorModule
   ],
 })
 export class SharedModule { }

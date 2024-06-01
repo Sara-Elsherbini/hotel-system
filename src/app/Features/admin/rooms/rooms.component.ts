@@ -10,8 +10,14 @@ import { Table } from 'src/app/shared/components/table/model/Table.namespace';
   styleUrls: ['./rooms.component.scss']
 })
 export class RoomsComponent {
-  roomList!:Rooms.IRoomsList;
+  roomList:Rooms.IRoomsList={
+    rooms:[],
+    totalCount: 0,
+  };
   data:Rooms.IRoom[]=[];
+  noData:boolean=false
+  pageNum: number = 1;
+  pageSizing: number = 5;
   columns: Table.IColumn[] = [
     {
       header: "Room number",
@@ -62,11 +68,12 @@ ngOnInit(): void {
 }
   geAllRooms(){
     let param={
-      page:1,
-      size:10
+      page:this.pageNum,
+      size:this.pageSizing
     }
     this._RoomsService.getAllRooms(param).subscribe({
       next:(res:Rooms.IRoomsRes)=>{
+
         this.roomList=res.data;
         let tableData = res.data.rooms.map((room: any)=>{
           let facilitiesString = "";
@@ -80,6 +87,7 @@ ngOnInit(): void {
           }
         });
         this.data=tableData;
+        !this.data.length?this.noData=true:this.noData=false;
       },
       error:(err:HttpErrorResponse)=>{
         this._NotifyService.ServerError(err.error.message)
@@ -91,5 +99,15 @@ ngOnInit(): void {
   }
   runOp(data: any){
     console.log(data);
+  }
+
+  pageNumber(event: number) {
+    this.pageNum = event;
+    this.geAllRooms();
+  }
+
+  pageSize(event: number) {
+    this.pageSizing = event;
+    this.geAllRooms();
   }
 }
