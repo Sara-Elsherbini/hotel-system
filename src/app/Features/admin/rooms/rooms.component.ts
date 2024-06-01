@@ -20,7 +20,7 @@ export class RoomsComponent {
   data:Rooms.IRoom[]=[];
   noData:boolean=false
   pageNum: number = 1;
-  pageSizing: number = 5;
+  pageSizing: number = 10;
   columns: Table.IColumn[] = [
     {
       header: "Room number",
