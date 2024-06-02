@@ -94,6 +94,8 @@ export class FacilitiesComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.deleteFacilities(id)
+        // console.log(result);
+
       }
     });
   }
