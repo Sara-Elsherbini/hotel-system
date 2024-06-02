@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Facilities } from '../models/facilites';
+// import { Facilities } from '../../../../../app/common/setting/RoutePath'
 import { HttpEndPoints } from 'src/app/common/setting/HttpEndPoients';
 
 @Injectable({

@@ -12,6 +12,7 @@ export class TableComponent {
   pageSize = 10;
   pageIndex = 1;
   @Input() columns!: Table.IColumn[];
+  // the data which i recived from facilites component for example
   @Input() data!: any[];
   @Input() operators!: Table.IOperators[];
   @Input() totalCount:number=0;
@@ -20,10 +21,16 @@ export class TableComponent {
   @Output() pageIndexChanged = new EventEmitter<number>();
   constructor() {
     
+    
   }
 
   selectedOp(operator: any): (row: any)=>void{
+    debugger
+
+    
     return this.defaultAction(operator.title);
+    
+    
   }
 
   defaultAction(opInfo: string){
