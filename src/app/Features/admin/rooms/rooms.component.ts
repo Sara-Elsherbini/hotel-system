@@ -17,7 +17,7 @@ export class RoomsComponent {
     rooms:[],
     totalCount: 0,
   };
-  data:Rooms.IRoom[]=[];
+  data:Rooms.IRoom[]|any=[];
   noData:boolean=false
   pageNum: number = 1;
   pageSizing: number = 10;
@@ -78,16 +78,14 @@ ngOnInit(): void {
       next:(res:Rooms.IRoomsRes)=>{
 
         this.roomList=res.data;
-        let tableData = res.data.rooms.map((room: any)=>{
-          let facilitiesString = "";
-          room.facilities.forEach((fac: { [x: string]: string; }) => {
-            facilitiesString += fac["name"] + ", ";
-          });
+        let tableData = res.data.rooms.map((room: Rooms.IRoom) => {
+          const facilities = room.facilities.map((fac: Rooms.IFacility) => fac.name);
+          const facilitiesString = facilities.join(", ");
           return {
             ...room,
             image: room.images[0],
-            facilities: facilitiesString
-          }
+            facilities: facilitiesString,
+          };
         });
         this.data=tableData;
         !this.data.length?this.noData=true:this.noData=false;

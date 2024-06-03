@@ -24,6 +24,9 @@ public static Admin={
   },
   Ads:{
     AdsList: "ads",
+  },
+  Booking:{
+    bookingList:"booking"
   }
 
 }

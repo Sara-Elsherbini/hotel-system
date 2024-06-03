@@ -19,7 +19,7 @@ export class TableComponent {
   @Output() pageSizeChanged = new EventEmitter<number>();
   @Output() pageIndexChanged = new EventEmitter<number>();
   constructor() {
-    
+
   }
 
   selectedOp(operator: any): (row: any)=>void{
