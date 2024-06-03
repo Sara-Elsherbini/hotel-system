@@ -18,6 +18,7 @@ import { SharedHeaderComponent } from './components/shared-header/shared-header.
 import { DialogModule } from '@angular/cdk/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
 
   declarations: [
@@ -44,7 +45,8 @@ import { MatSelectModule } from '@angular/material/select';
     DialogModule,
     FormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
   exports: [
     NoDataComponent,
@@ -65,7 +67,8 @@ import { MatSelectModule } from '@angular/material/select';
     DialogModule,
     FormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
 })
 export class SharedModule { }

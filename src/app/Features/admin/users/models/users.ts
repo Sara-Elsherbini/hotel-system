@@ -4,7 +4,7 @@ export namespace Users {
         message: string;
         data:
             IUsersList;
-        
+
     }
 
     export interface IUsersList {
@@ -24,14 +24,17 @@ export namespace Users {
         createdAt: string; // Alternatively, you can use Date if you plan to convert it
         updatedAt: string; // Alternatively, you can use Date if you plan to convert it
       totalCount: number;
-                
+
     }
 
-
+    export interface IDataMode {
+      mode: string;
+      row: IUser
+    }
     export interface IParams {
         page:number;
         size:number;
         [Key:string]:any
       }
-   
+
   }

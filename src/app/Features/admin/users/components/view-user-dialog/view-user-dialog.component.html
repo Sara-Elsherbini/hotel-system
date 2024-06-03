@@ -1,3 +1,26 @@
-<p>{{userName}}</p>
-<p>{{userCountry}}</p>
-<p>{{userPhoneNumber}}</p>
+
+
+
+
+<mat-card class="example-card p-2">
+  <a class="text-end d-block " (click)="onNoClick()"><i class="fa-regular close fa-2x fa-circle-xmark text-danger"></i></a>
+
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title><h2 class="primary">User details</h2></mat-card-title>
+      <img mat-card-md-image [src]="data.row.profileImage" >
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="data font">
+      <span class="h3 fs-4">Name :</span><span class="fs-5 ps-2">{{data.row.userName}}</span><br>
+      <span class="h3 fs-4">Email :</span><span class="fs-5 ps-2">{{data.row.email}}</span><br>
+      <span class="h3 fs-4">Country :</span><span class="fs-5 ps-2">{{data.row.country}}</span><br>
+      <span class="h3 fs-4">PhoneNumber :</span><span class="fs-5 ps-2">{{data.row.phoneNumber}}</span>
+      <hr>
+  </div>
+  </mat-card-content>
+</mat-card>
+
+
+

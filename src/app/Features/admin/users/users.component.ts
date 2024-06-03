@@ -6,6 +6,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ViewUserDialogComponent } from './components/view-user-dialog/view-user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NotifyService } from 'src/app/common';
+import { RoutePaths } from 'src/app/common/setting/RoutePath';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -18,9 +20,7 @@ export class UsersComponent {
   pageSizing: number = 10;
   noData: Boolean = false;
   data: Users.IUser[] = [];
-
-  // totalCount:number=0
-
+ userId:string=''
 
   columns: Table.IColumn[] = [
     {
@@ -53,7 +53,8 @@ export class UsersComponent {
 
   constructor( private UsersService: UsersService,
     public _dialog: MatDialog,
-    private _NotifyService:NotifyService
+    private _NotifyService:NotifyService,
+    private _Router:Router
 
     ){}
 
@@ -103,8 +104,8 @@ export class UsersComponent {
     this.openViewUser(data);
 
   }
-  openViewUser(data:any) {
-    // row ? (this.FacilityId = row._id) : null;
+  openViewUser(data:Users.IDataMode) {
+    data.row ? (this.userId = data.row._id) : null;
     const dialogRef = this._dialog.open(ViewUserDialogComponent, {
       data: data,
 
@@ -121,6 +122,9 @@ export class UsersComponent {
       //   } else this.editFacility(result);
       // }
     });
+
+
+
   }
 
   pageNumber(event: number) {

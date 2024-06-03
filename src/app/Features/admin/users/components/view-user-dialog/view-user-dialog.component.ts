@@ -1,7 +1,8 @@
+
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddEditFacilitiesDialog } from '../../../facilities/components/add-edit-facilities/add-edit-facilitiesDialog';
-import { Facilities } from '../../../facilities/models/facilites';
+import { Users } from '../../models/users';
 
 @Component({
   selector: 'app-view-user-dialog',
@@ -9,13 +10,13 @@ import { Facilities } from '../../../facilities/models/facilites';
   styleUrls: ['./view-user-dialog.component.scss']
 })
 export class ViewUserDialogComponent {
-  userName:string='';
-  userCountry:string='';
-  userPhoneNumber:number=0;
+  // userName:string='';
+  // userCountry:string='';
+  // userPhoneNumber:number=0;
 
   constructor(
     private dialogRef: MatDialogRef<ViewUserDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any
+    @Inject(MAT_DIALOG_DATA) public data:Users.IDataMode
   ) {
     console.log(data)
 
@@ -25,16 +26,16 @@ export class ViewUserDialogComponent {
   ngOnInit() {
     console.log();
 
-      this.userName = this.data.row.userName;
-      this.userCountry=this.data.row.country;
-      this.userPhoneNumber=this.data.row.phoneNumber;
+      // this.userName = this.data.row.userName;
+      // this.userCountry=this.data.row.country;
+      // this.userPhoneNumber=this.data.row.phoneNumber;
 
+    }
+    onNoClick(): void {
+      this.dialogRef.close();
     }
     }
 
-  
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
+
 
 
