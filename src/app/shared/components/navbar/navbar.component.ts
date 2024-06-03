@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { NotifyService } from 'src/app/common';
 // import { AuthService } from 'src/app/auth/service/auth.service';
 import { TokenService } from 'src/app/common/services/token/token.service';
 // import { MatDialog } from '@angular/material/dialog';
@@ -16,30 +16,29 @@ export class NavbarComponent implements OnInit {
   UserName: string = "";
   userData!:any;
   imgUrl: string = "";
-  BaseUrl = "https://upskilling-egypt.com:3006/"
 
   constructor(
     private _tokenService: TokenService,
-    // private _authservice: AuthService,
-    // private _toasterService: ToasterService,
+    private _NotifyService: NotifyService,
     ) {
   }
 
   ngOnInit(): void {
-    // this.UserName = this._tokenService.getName();
+    this.UserName = this._tokenService.getName();
     this.getImageUrl()
   }
 
   getImageUrl() {
-    // this._authservice.getCurrentUser().subscribe({
-    //   next: (res: any) => {
-    //     this.userData = res;
-    //     this.imgUrl = this.BaseUrl + res.imagePath;
-    //   },
-    //   error: (err) => {
-    //     this._toasterService.msgStart(err.error.message, false)
-    //   }
-    // })
+    this._tokenService.getCurrentUser().subscribe({
+      next: (res: any) => {
+        this.userData = res.data.user;
+        this.imgUrl =  this.userData.profileImage;
+      },
+      error: (err) => {
+        const errMes=err.error.message;
+        this._NotifyService.ServerError(errMes);
+      }
+    })
   }
 
   profileDialog() {
@@ -58,6 +57,7 @@ export class NavbarComponent implements OnInit {
     // const dialogRef = this.dialog.open(ChangePasswordComponent);
   }
 
+<<<<<<< HEAD
 
 
   onclick(){
@@ -66,6 +66,8 @@ export class NavbarComponent implements OnInit {
   }
 
 
+=======
+>>>>>>> 03b595f557947413d254ce437fb9a3976b901a60
   logout() {
     this._tokenService.logout()
   }
