@@ -4,6 +4,7 @@ export namespace Table{
         property: string,
         isImage?: boolean,
         isDate?: boolean,
+        isBoolean?: boolean,
     }
     export interface IOperators{
         icon: string,

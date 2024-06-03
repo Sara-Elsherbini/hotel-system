@@ -12,13 +12,21 @@ import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { DeleteComponent } from './components/delete/delete.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NoDataComponent } from './components/no-data/no-data.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
+import { DialogModule } from '@angular/cdk/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
 
   declarations: [
     SidebarComponent,
     NavbarComponent,
     TableComponent,
-    DeleteComponent
+    DeleteComponent,
+    NoDataComponent,
+    SharedHeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -29,10 +37,17 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     RouterModule,
     MatMenuModule,
-MatDialogModule
-
+    MatDialogModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    DialogModule,
+    FormsModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   exports: [
+    NoDataComponent,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -43,7 +58,14 @@ MatDialogModule
     NavbarComponent,
     RouterModule,
     MatMenuModule,
-    DeleteComponent
+    DeleteComponent,
+    MatSelectModule,
+    MatPaginatorModule,
+    SharedHeaderComponent,
+    DialogModule,
+    FormsModule,
+    MatDialogModule,
+    MatSelectModule
   ],
 })
 export class SharedModule { }

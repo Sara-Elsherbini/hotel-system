@@ -30,7 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/ngx-spinner/animations/ball-fussion.css",
+              "node_modules/ngx-spinner/animations/ball-atom.css",
               "node_modules/bootstrap/scss/bootstrap.scss",
               "src/assets/fontawesome/css/all.min.css",
               "src/styles.scss"

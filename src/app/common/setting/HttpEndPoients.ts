@@ -7,15 +7,21 @@ export class HttpEndPoints {
 
 
   }
+
   public static Facilities = {
     FacilitiesList: 'admin/room-facilities',
+    addFacilities: 'admin/room-facilities',
+    editFacilities: 'admin/room-facilities',
     FacilitiesDelete: 'admin/room-facilities/',
-
-
   }
   public static Rooms = {
     RoomsList: 'admin/rooms',
+    addRoom: 'admin/rooms',
+    editRoom: 'admin/rooms',
+  }
 
+  public static Ads = {
+    AdsGeneral: 'admin/ads',
   }
 
 }

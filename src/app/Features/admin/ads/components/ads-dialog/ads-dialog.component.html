@@ -1,0 +1,53 @@
+<section>
+    <div class="container">
+        <div class="title d-flex justify-content-between d-flex mx-2 my-3">
+            <h2 class="fw-bold" *ngIf="!data.row"> Add AD</h2>
+            <h2 class="fw-bold" *ngIf="data.row&&data.mode=='Edit'">Edit AD</h2>
+            <h2 class="fw-bold" *ngIf="data.row&&data.mode=='View'">View AD</h2>
+            <div class="close" (click)="onNoClick()"><i class="fa-regular fa-circle-xmark text-danger"></i></div>
+        </div>
+
+        <form [formGroup]="formGroup">
+            <div class="row">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Room Number</mat-label>
+                    <mat-select formControlName="room" placeholder="Room">
+                        <mat-option *ngFor="let room of data.rooms" [value]="room._id">{{room.roomNumber}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="room?.hasError('required')">
+                        Room is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Discount</mat-label>
+                    <input type="number" matInput formControlName="discount" placeholder="Discount">
+                    <mat-error *ngIf="discount?.hasError('required')">
+                        Discount is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Active Status</mat-label>
+                    <mat-select formControlName="isActive" placeholder="Active">
+                        <mat-option [value]="true">Yes</mat-option>
+                        <mat-option [value]="false">No</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="isActive?.hasError('required')">
+                        Active is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="text-end m-3">
+                <button class="primary px-3" [ngStyle]="{'opacity': isViewMode ? '0.7' : '1'}"
+                    [mat-dialog-close]="formGroup.value" type="button"
+                    [disabled]="isViewMode || formGroup.invalid">Save</button>
+            </div>
+        </form>
+
+    </div>
+
+
+</section>
