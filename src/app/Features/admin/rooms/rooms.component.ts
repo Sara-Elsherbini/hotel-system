@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RoomsService } from './services/rooms.service';
-import {Rooms} from './models/rooms'
+import { Rooms } from './models/rooms'
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotifyService } from 'src/app/common';
 import { Table } from 'src/app/shared/components/table/model/Table.namespace';
 import { Router } from '@angular/router';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { ViewRoomComponent } from './components/view-room/view-room.component';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-rooms',
@@ -14,12 +15,13 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./rooms.component.scss']
 })
 export class RoomsComponent {
-  roomList:Rooms.IRoomsList={
-    rooms:[],
+  roomList: Rooms.IRoomsList = {
+    rooms: [],
     totalCount: 0,
   };
-  data:Rooms.IRoom[]=[];
-  noData:boolean=false
+
+  data: Rooms.IRoom[] = [];
+  noData: boolean = false
   pageNum: number = 1;
   pageSizing: number = 10;
   columns: Table.IColumn[] = [
@@ -63,19 +65,22 @@ export class RoomsComponent {
       title: "Delete"
     }
   ]
-constructor(public _dialog:MatDialog,private _RoomsService:RoomsService,private _NotifyService:NotifyService, private _Router:Router){
 
-}
-ngOnInit(): void {
-  this.geAllRooms()
+  constructor(private _RoomsService: RoomsService, private _NotifyService: NotifyService, private _Router: Router, private _dialog: MatDialog) {
 
-}
-  geAllRooms(){
-    let param={
-      page:this.pageNum,
-      size:this.pageSizing
+
+  }
+  ngOnInit(): void {
+    this.geAllRooms()
+
+  }
+  geAllRooms() {
+    let param = {
+      page: this.pageNum,
+      size: this.pageSizing
     }
     this._RoomsService.getAllRooms(param).subscribe({
+
       next:(res:Rooms.IRoomsRes)=>{
         this.data=res.data.rooms;
         console.log(this.data);
@@ -86,20 +91,27 @@ ngOnInit(): void {
           room.facilities.forEach((fac: { [x: string]: string; }) => {
             facilitiesString += fac["name"] + ", ";
           });
+
+      next: (res: Rooms.IRoomsRes) => {
+
+        this.roomList=res.data;
+        let tableData = res.data.rooms.map((room: any) => {
+          const facilities = room.facilities.map((fac: Rooms.IFacility) => fac.name);
+          const facilitiesString = facilities.join(", ");
           return {
             ...room,
             
             image: room.images[0],
-            facilities: facilitiesString
-          }
+            facilities: facilitiesString,
+          };
         });
-        this.data=tableData;
-        !this.data.length?this.noData=true:this.noData=false;
+        this.data = tableData;
+        !this.data.length ? this.noData = true : this.noData = false;
       },
-      error:(err:HttpErrorResponse)=>{
+      error: (err: HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message)
       },
-      complete:()=>{
+      complete: () => {
       }
 
     })
@@ -109,14 +121,18 @@ ngOnInit(): void {
 
   runOp(data: any) {
     console.log(data);
-    let id=data.row._id
-    console.log("id",id);
+    let id = data.row._id
+    console.log("id", id);
 
     if (data.opInfo == 'Edit') {
       this._Router.navigateByUrl(`dashboard/rooms/edit/${id}`);
     }
     if (data.opInfo == 'View') {
     this.openViewUser(data);
+    }
+
+    if (data.opInfo === 'Delete') {
+      this.openDeleteRoom(data.row._id)
     }
   }
 
@@ -144,4 +160,35 @@ ngOnInit(): void {
     this.pageSizing = event;
     this.geAllRooms();
   }
+
 }
+
+
+  openDeleteRoom(id: number): void {
+    const dialogRef = this._dialog.open(DeleteComponent, {
+      data: { id: id },
+      width: '30%',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteRoom(id)
+        // console.log(result);
+      }
+    })
+  }
+
+  deleteRoom(id: number) {
+    this._RoomsService.deleteRoom(id).subscribe({
+      next: (res) => { },
+      error: (error: HttpErrorResponse) => {
+        this._NotifyService.ServerError(error.error.message)
+
+      },
+      complete: () => {
+        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this.geAllRooms()
+      }
+    })
+  }
+}
+

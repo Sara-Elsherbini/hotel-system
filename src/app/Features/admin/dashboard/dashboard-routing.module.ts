@@ -14,6 +14,10 @@ const routes: Routes = [{
     { path: RoutePaths.Admin.Room.RoomList, loadChildren: () => import('../rooms/rooms.module').then(m => m.RoomsModule) },
     { path: RoutePaths.Admin.Ads.AdsList, loadChildren: () => import('../ads/ads.module').then(m => m.AdsModule) },
 
+    { path: RoutePaths.Admin.Booking.bookingList, loadChildren: () => import('../booking/booking.module').then(m => m.BookingModule) },
+
+    { path: RoutePaths.Admin.Users.usersList, loadChildren: () => import('../users/users.module').then(m => m.UsersModule) },
+
   ]
 },
 
