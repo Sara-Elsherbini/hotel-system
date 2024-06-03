@@ -10,12 +10,13 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-import { NoDataComponent } from './components/no-data/no-data.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
-import {DialogModule} from '@angular/cdk/dialog';
-import {FormsModule} from '@angular/forms';
+import { DeleteComponent } from './components/delete/delete.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NoDataComponent } from './components/no-data/no-data.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SharedHeaderComponent } from './components/shared-header/shared-header.component';
+import { DialogModule } from '@angular/cdk/dialog';
+import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 @NgModule({
 
@@ -23,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
     SidebarComponent,
     NavbarComponent,
     TableComponent,
+    DeleteComponent,
     NoDataComponent,
     SharedHeaderComponent,
   ],
@@ -35,6 +37,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     RouterModule,
     MatMenuModule,
+    MatDialogModule,
     MatSelectModule,
     MatPaginatorModule,
     MatMenuModule,
@@ -55,6 +58,7 @@ import { MatSelectModule } from '@angular/material/select';
     NavbarComponent,
     RouterModule,
     MatMenuModule,
+    DeleteComponent,
     MatSelectModule,
     MatPaginatorModule,
     SharedHeaderComponent,
