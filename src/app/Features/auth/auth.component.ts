@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl } from "@angular/forms";
 import { AuthService } from './services/auth.service';
 import {Auth}from './models/auth'
-import { NotifyService } from 'src/app/common';
+import { NotifyService, TokenService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { Router } from '@angular/router';
@@ -28,10 +28,11 @@ export class AuthComponent {
       ),
     ]),
   })
- constructor(private _AuthService:AuthService,
+ constructor(
+  private _AuthService:AuthService,
   private _NotifyService:NotifyService,
+  private _tokenService: TokenService,
   private _Router:Router
-
 ){
 
  }
@@ -44,9 +45,10 @@ export class AuthComponent {
   this._AuthService.login(data.value).subscribe({
     next:(res:Auth.ILoginRes)=>{
       this.role=res.data.user.role
-      localStorage.setItem('token',res.data.token);
-      let user=JSON.stringify(res.data.user)
-      localStorage.setItem('user',user);
+      // localStorage.setItem('token',res.data.token);
+      // let user=JSON.stringify(res.data.user)
+      // localStorage.setItem('user',user);
+      this._tokenService.setUserData(res.data);
 
     },
     error:(error:HttpErrorResponse)=>{
