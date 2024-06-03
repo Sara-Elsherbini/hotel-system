@@ -7,6 +7,7 @@ import { NotifyService } from 'src/app/common';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { HttpEndPoints } from 'src/app/common/setting/HttpEndPoients';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 
 @Component({
   selector: 'app-ads',
@@ -118,6 +119,10 @@ export class AdsComponent {
     if (data.opInfo == 'View') {
       this.openAdDialog('View', data.row);
     }
+    if (data.opInfo === 'Delete') {
+      this.openDeleteAd(data.row._id)
+    }
+
   }
 
   openAdDialog(mode: string, row?: Ads.IAds) {
@@ -153,7 +158,7 @@ export class AdsComponent {
 
   editAd(_id: string, data: Ads.IAdsForm) {
     this._AdsService
-      .onEditAd(_id, {discount: data.discount, isActive: data.isActive})
+      .onEditAd(_id, { discount: data.discount, isActive: data.isActive })
       .subscribe({
         next: (res) => {
           this._NotifyService.Success('Data is Sent Successfully');
@@ -168,7 +173,7 @@ export class AdsComponent {
       });
   }
 
-  
+
   getAllRooms() {
     let params = {
       size: 100000,
@@ -177,6 +182,33 @@ export class AdsComponent {
     this._HttpClient.get(HttpEndPoints.Rooms.RoomsList, { params: params }).subscribe({
       next: (res: any) => {
         this.rooms = res.data.rooms;
+      }
+    })
+  }
+
+  openDeleteAd(id: string): void {
+    const dialogRef = this._dialog.open(DeleteComponent, {
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteAd(id)
+        // console.log(result);
+      }
+    })
+  }
+
+
+  deleteAd(id: string) {
+    this._AdsService.onDeleteAd(id).subscribe({
+      next: (res) => { },
+      error: (error: HttpErrorResponse) => {
+        this._NotifyService.ServerError(error.error.message)
+
+      },
+      complete: () => {
+        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this.getAds()
       }
     })
   }
