@@ -72,7 +72,7 @@ export class FacilitiesComponent {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.deleteFacilities(id)
+        this.deleteFacilitiy(id)
         // console.log(result);
       }
     })
@@ -140,7 +140,7 @@ export class FacilitiesComponent {
     });
   }
 
-  deleteFacilities(id: number) {
+  deleteFacilitiy(id: number) {
     this._FacilitiesService.deletefacilitie(id).subscribe({
       next: (res) => { },
       error: (error: HttpErrorResponse) => {
