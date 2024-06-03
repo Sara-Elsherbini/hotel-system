@@ -37,6 +37,11 @@ export class SidebarComponent {
       text: 'Ads',
       icon: 'fa-light fa-calendar-range',
       link: this.RoutePaths.Admin.Ads.AdsList,
+    },
+    {
+      text: 'users',
+      icon: 'fa-light fa-calendar-range',
+      link: this.RoutePaths.Admin.Users.usersList,
     }
 
   ]

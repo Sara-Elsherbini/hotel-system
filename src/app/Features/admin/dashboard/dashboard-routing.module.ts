@@ -13,6 +13,7 @@ const routes: Routes = [{
     { path: RoutePaths.Admin.Home.HomeComponent, loadChildren: () => import('../home/home.module').then(m => m.HomeModule) },
     { path: RoutePaths.Admin.Room.RoomList, loadChildren: () => import('../rooms/rooms.module').then(m => m.RoomsModule) },
     { path: RoutePaths.Admin.Ads.AdsList, loadChildren: () => import('../ads/ads.module').then(m => m.AdsModule) },
+    { path: RoutePaths.Admin.Users.usersList, loadChildren: () => import('../users/users.module').then(m => m.UsersModule) },
 
   ]
 },

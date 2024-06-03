@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Facilities } from '../../models/facilites';
+import { Facilities } from '../../../facilities/models/facilites';
 @Component({
   selector: 'app-facilitiesList',
   templateUrl: './add-edit-facilitiesDialog.html',

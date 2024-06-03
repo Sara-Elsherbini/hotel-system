@@ -24,4 +24,10 @@ export class HttpEndPoints {
     AdsGeneral: 'admin/ads',
   }
 
+  public static Users={
+    usersList:'admin/users',
+   
+  }
+
 }
+

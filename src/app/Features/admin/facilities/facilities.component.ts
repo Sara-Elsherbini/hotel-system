@@ -102,6 +102,23 @@ export class FacilitiesComponent {
           createdBy: item.createdBy.userName,
         }));
         this.data = tableData;
+        
+
+// : 
+// "2024-06-01T21:47:43.734Z"
+// createdBy
+// : 
+// "shifo4"
+// name
+// : 
+// "room"
+// updatedAt
+// : 
+// "2024-06-01T21:47:43.734Z"
+// _id
+// : 
+// "665b96ffa17944edfd9f5be0"
+        console.log(this.data)
         !this.data.length ? (this.noData = true) : (this.noData = false);
       },
       error: (err: HttpErrorResponse) => {
@@ -111,12 +128,14 @@ export class FacilitiesComponent {
     });
   }
   runOp(data: any) {
+    debugger
     console.log(data);
     if (data.opInfo == 'Edit') {
       this.openAddEditFacility('Edit', data.row);
       console.log('1', data.row._id);
     }
     if (data.opInfo == 'View') {
+
       this.openAddEditFacility('View', data.row);
     }
     if (data.opInfo === 'Delete') {

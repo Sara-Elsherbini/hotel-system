@@ -16,6 +16,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FacilitiesRoutingModule,
     SharedModule
+  ],
+  exports: [
+    FacilitiesComponent
+
   ]
 })
 export class FacilitiesModule { }
