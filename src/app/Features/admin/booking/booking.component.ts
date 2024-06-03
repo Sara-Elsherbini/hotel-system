@@ -4,6 +4,8 @@ import { Booking } from './models/booking';
 import { BookingService } from './services/booking.service';
 import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewBookingDialogComponent } from './components/viewBookingDialog/viewBookingDialog.component';
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -52,6 +54,7 @@ export class BookingComponent {
   ];
  constructor(private _BookingService:BookingService,
   private _NotifyService: NotifyService,
+  public _dialog: MatDialog
   ){}
 
   ngOnInit(): void {
@@ -92,19 +95,29 @@ export class BookingComponent {
       complete: () => { },
     });
   }
-  runOp(data: any) {
+  runOp(data:any) {
 
-    // console.log(data);
-    // if (data.opInfo == 'Edit') {
-    //   this.openAddEditFacility('Edit', data.row);
-    //   console.log('1', data.row._id);
-    // }
-    // if (data.opInfo == 'View') {
+    if (data.opInfo == 'View') {
 
-    //   this.openAddEditFacility('View', data.row);
-    // }
+      this.openViewUser( data.row);
+    }
     // if (data.opInfo === 'Delete') {
     //   this.openDeleteDialog(data.row._id)
     // }
+  }
+
+  openViewUser(data:Booking.IBooking) {
+    const dialogRef = this._dialog.open(ViewBookingDialogComponent, {
+      data: data,
+
+      width: '30%',
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+      console.log('result', result);
+    });
+
+
+
   }
 }

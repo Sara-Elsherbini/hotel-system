@@ -189,6 +189,7 @@ export class AdsComponent {
   openDeleteAd(id: string): void {
     const dialogRef = this._dialog.open(DeleteComponent, {
       data: { id: id },
+      width: '30%',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

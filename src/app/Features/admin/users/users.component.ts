@@ -111,16 +111,9 @@ export class UsersComponent {
 
       width: '30%',
     });
-    console.log(data.row)
-
 
     dialogRef.afterClosed().subscribe((result:any) => {
       console.log('result', result);
-      // if (result) {
-      //   if (!this.FacilityId) {
-      //     this.addFacility(result);
-      //   } else this.editFacility(result);
-      // }
     });
 
 
