@@ -23,6 +23,9 @@ export class HttpEndPoints {
   public static Ads = {
     AdsGeneral: 'admin/ads',
   }
+  public static booking = {
+    bookingList: 'admin/booking',
+  }
 
   public static Users={
     usersList:'admin/users',
