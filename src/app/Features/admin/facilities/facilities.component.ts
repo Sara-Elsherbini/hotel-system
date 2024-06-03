@@ -66,19 +66,32 @@ export class FacilitiesComponent {
   }
 
 
-  openDeleteDialog(id: number): void {
+  openDeleteFacility(id: number): void {
     const dialogRef = this._dialog.open(DeleteComponent, {
       data: { id: id },
       width: '30%',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.deleteFacilities(id)
+        this.deleteFacility(id)
         // console.log(result);
       }
     })
   }
 
+  deleteFacility(id: number) {
+    this._FacilitiesService.deleteFacility(id).subscribe({
+      next: (res) => { },
+      error: (error: HttpErrorResponse) => {
+        this._NotifyService.ServerError(error.error.message)
+
+      },
+      complete: () => {
+        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this.getFacilities()
+      }
+    })
+  }
 
 
   pageNumber(event: number) {
@@ -125,7 +138,7 @@ export class FacilitiesComponent {
       this.openAddEditFacility('View', data.row);
     }
     if (data.opInfo === 'Delete') {
-      this.openDeleteDialog(data.row._id)
+      this.openDeleteFacility(data.row._id)
     }
   }
   openAddEditFacility(mode: string, row?: Facilities.IFacility) {
@@ -145,19 +158,6 @@ export class FacilitiesComponent {
     });
   }
 
-  deleteFacilities(id: number) {
-    this._FacilitiesService.deletefacilitie(id).subscribe({
-      next: (res) => { },
-      error: (error: HttpErrorResponse) => {
-        this._NotifyService.ServerError(error.error.message)
-
-      },
-      complete: () => {
-        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
-        this.getFacilities()
-      }
-    })
-  }
 
   addFacility(CategoryName: string) {
     this._FacilitiesService.onaddFacility(CategoryName).subscribe({
