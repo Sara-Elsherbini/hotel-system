@@ -38,15 +38,15 @@ export class SidebarComponent {
       icon: 'fa-solid fa-wand-magic-sparkles',
       link: this.RoutePaths.Admin.Ads.AdsList,
     },
-    {
-      text: 'Users',
-      icon: 'fa-solid fa-users',
-      link: this.RoutePaths.Admin.Users.usersList,
-    },
+    // {
+    //   text: 'Users',
+    //   icon: 'fa-solid fa-users',
+    //   link: this.RoutePaths.Admin.Users.usersList,
+    // },
     {
       text: 'Booking',
       icon: 'fa-solid fa-ticket',
-      link: this.RoutePaths.Admin.,
+      link: this.RoutePaths.Admin.Booking.bookingList,
     }
 
   ]
