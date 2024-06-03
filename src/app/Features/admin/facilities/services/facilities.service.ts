@@ -15,18 +15,18 @@ export class FacilitiesService {
     return this._HttpClient.get<Facilities.IFacilitiesRes>(HttpEndPoints.Facilities.FacilitiesList, { params: params })
   }
 
-onaddFacility(itemName:string):Observable<any>{
-  return this._HttpClient.post(HttpEndPoints.Facilities.addFacilities,{name:itemName})
+  onaddFacility(itemName: string): Observable<any> {
+    return this._HttpClient.post(HttpEndPoints.Facilities.addFacilities, { name: itemName })
   }
 
-  onEditFacility(facilityId:string,itemName:string):Observable<any>{
-    let endPoint=HttpEndPoints.Facilities.editFacilities
-    console.log("end",endPoint);
+  onEditFacility(facilityId: string, itemName: string): Observable<any> {
+    let endPoint = HttpEndPoints.Facilities.editFacilities
+    console.log("end", endPoint);
 
-    return this._HttpClient.put(`admin/room-facilities/${facilityId}`,{name:itemName})
-    }
+    return this._HttpClient.put(`admin/room-facilities/${facilityId}`, { name: itemName })
+  }
 
-  deletefacilitie(facilitieID: number): Observable<{ raw: [], affected: number }> {
+  deleteFacility(facilitieID: number): Observable<{ raw: [], affected: number }> {
     return this._HttpClient.delete<{ raw: [], affected: number }>(HttpEndPoints.Facilities.FacilitiesDelete + facilitieID)
   }
 
