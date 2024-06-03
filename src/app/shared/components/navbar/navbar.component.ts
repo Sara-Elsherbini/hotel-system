@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
 
     // dialogRef.afterClosed().subscribe(result => {
     //   if (result) {
-    //   } 
+    //   }
     // });
   }
 
@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit {
     // const dialogRef = this.dialog.open(ChangePasswordComponent);
   }
 
-  
+
 
   onclick(){
     let elms = document.querySelector(".cdk-overlay-container");

@@ -9,4 +9,11 @@
  .text-muted{
   color: #4D4D4D;
  }
+ @media screen and (max-width: 768px) {
+  .auth{
+    .auth-right-side{
+      display: none !important;
+    }
+  }
+}
 }
