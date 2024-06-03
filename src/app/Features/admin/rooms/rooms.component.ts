@@ -92,9 +92,6 @@ export class RoomsComponent {
         //     facilitiesString += fac["name"] + ", ";
         //   });
 
-
-
-
         let tableData = res.data.rooms.map((room: any) => {
           const facilities = room.facilities.map((fac: Rooms.IFacility) => fac.name);
           const facilitiesString = facilities.join(", ");

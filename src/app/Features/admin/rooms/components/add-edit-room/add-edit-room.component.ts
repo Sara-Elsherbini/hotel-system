@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RoomsService } from '../../services/rooms.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FacilitiesService } from '../../../facilities/services/facilities.service';
 import { Facilities } from '../../../facilities/models/facilites';
 import { NotifyService } from 'src/app/common';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-edit-room',
@@ -21,7 +22,8 @@ export class AddEditRoomComponent implements OnInit {
     private _RoomsService: RoomsService,
     private _ActivatedRoute: ActivatedRoute,
     private _FacilitiesService: FacilitiesService,
-    private _NotifyService: NotifyService
+    private _NotifyService: NotifyService,
+    private _Router:Router
   ) {
 
   }
@@ -72,12 +74,34 @@ export class AddEditRoomComponent implements OnInit {
         next: (res) => {
           console.log(res);
         },
+        error: (errRes) => {
+          const errMes = errRes.error.message;
+          this._NotifyService.ServerError(errMes);
+        },
+        complete: () => {
+          this._NotifyService.Success('Data is Updated Successfully');
+          setTimeout(() => {
+            this._Router.navigateByUrl(`dashboard/rooms`);
+          }, 1500);
+        },
       });
     } else {
       this._RoomsService.addRoom(myData).subscribe({
         next: (res) => {
           console.log(res);
+          this._NotifyService.Success('Data is Sent Successfully');
         },
+        error: (errRes) => {
+          const errMes = errRes.error.message;
+          this._NotifyService.ServerError(errMes);
+        },
+        complete: () => {
+          this._NotifyService.Success('Data is Sent Successfully');
+          setTimeout(() => {
+            this._Router.navigateByUrl(`dashboard/rooms`);
+          }, 1500);
+        },
+
       });
     }
   }
