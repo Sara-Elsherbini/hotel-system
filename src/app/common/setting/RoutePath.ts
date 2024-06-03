@@ -28,6 +28,9 @@ public static Dashboard={
   },
   Users:{
     usersList: "users",
+  },
+  Booking:{
+    bookingList: "booking",
   }
 
 }

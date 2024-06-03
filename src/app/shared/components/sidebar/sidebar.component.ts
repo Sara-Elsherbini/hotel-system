@@ -46,7 +46,7 @@ export class SidebarComponent {
     {
       text: 'Booking',
       icon: 'fa-solid fa-ticket',
-      link: this.RoutePaths.Admin.Users.usersList,
+      link: this.RoutePaths.Admin.Booking.bookingList,
     }
 
   ]
