@@ -17,7 +17,7 @@ export class UsersComponent {
   pageSizing: number = 10;
   noData: Boolean = false;
   data: Users.IUser[] = [];
-  
+
   // totalCount:number=0
 
 
@@ -42,19 +42,19 @@ export class UsersComponent {
     },
   ];
   operators: Table.IOperators[] = [
-  
+
     {
       icon: 'visibility',
       title: 'View',
     }
-   
+
   ];
 
   constructor( private UsersService: UsersService,
     public _dialog: MatDialog
 
     ){}
-  
+
   ngOnInit(): void {
     this.getUsers();
   }
@@ -65,12 +65,12 @@ export class UsersComponent {
       size: this.pageSizing,
     };
     this.UsersService.getAllUsers(param).subscribe({
-      next: (res: Users.IUserResponse) => {  
+      next: (res: Users.IUserResponse) => {
         console.log(res.data)
         this.UsersList= res.data
         this.data = res.data.users
-        
-        
+
+
 
         // this.UsersList = res.data.users;
         // console.log(this.UsersList);
@@ -80,7 +80,7 @@ export class UsersComponent {
         //   createdBy: item.createdBy.userName,
         // }));
         // this.data = tableData;
-        
+
 
 
         // console.log(this.data)
@@ -89,27 +89,27 @@ export class UsersComponent {
       error: (err: HttpErrorResponse) => {
         // this._NotifyService.ServerError(err.error.message);
         console.log(err);
-        
+
       },
       complete: () => {},
     });
   }
 
   runOp(data: any) {
-    debugger
+
     console.log(data);
     this.openViewUser(data);
-   
+
   }
   openViewUser(data:any) {
     // row ? (this.FacilityId = row._id) : null;
     const dialogRef = this._dialog.open(ViewUserDialogComponent, {
       data: data,
-      
+
       width: '30%',
     });
     console.log(data.row)
-    
+
 
     dialogRef.afterClosed().subscribe((result:any) => {
       console.log('result', result);
