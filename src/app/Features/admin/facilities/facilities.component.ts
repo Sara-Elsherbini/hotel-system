@@ -115,6 +115,8 @@ export class FacilitiesComponent {
           createdBy: item.createdBy.userName,
         }));
         this.data = tableData;
+//
+        console.log(this.data)
         !this.data.length ? (this.noData = true) : (this.noData = false);
       },
       error: (err: HttpErrorResponse) => {
@@ -124,12 +126,14 @@ export class FacilitiesComponent {
     });
   }
   runOp(data: any) {
+
     console.log(data);
     if (data.opInfo == 'Edit') {
       this.openAddEditFacility('Edit', data.row);
       console.log('1', data.row._id);
     }
     if (data.opInfo == 'View') {
+
       this.openAddEditFacility('View', data.row);
     }
     if (data.opInfo === 'Delete') {

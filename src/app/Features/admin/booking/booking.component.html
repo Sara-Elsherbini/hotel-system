@@ -1,0 +1,11 @@
+
+<div class="d-flex justify-content-between align-items-center my-3">
+  <div>
+    <h2 class="h4">Booking Table Details</h2>
+    <p>You can check all details</p>
+  </div>
+
+</div>
+<app-table *ngIf="noData==false" [totalCount]="bookingList?.totalCount" [columns]="columns" [data]="bookingData"
+ [operators]="operators" (operationData)="runOp($event)" (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)"></app-table>
+<app-no-data *ngIf="noData==true"></app-no-data>

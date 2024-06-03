@@ -18,8 +18,11 @@ export class RoomsComponent {
     rooms: [],
     totalCount: 0,
   };
+
   data: Rooms.IRoom[] = [];
   noData: boolean = false
+  data:Rooms.IRoom[]|any=[];
+  noData:boolean=false
   pageNum: number = 1;
   pageSizing: number = 10;
   columns: Table.IColumn[] = [
@@ -78,17 +81,24 @@ export class RoomsComponent {
     this._RoomsService.getAllRooms(param).subscribe({
       next: (res: Rooms.IRoomsRes) => {
 
+
         this.roomList = res.data;
         let tableData = res.data.rooms.map((room: any) => {
           let facilitiesString = "";
           room.facilities.forEach((fac: { [x: string]: string; }) => {
             facilitiesString += fac["name"] + ", ";
           });
+
+        this.roomList=res.data;
+        let tableData = res.data.rooms.map((room: Rooms.IRoom) => {
+          const facilities = room.facilities.map((fac: Rooms.IFacility) => fac.name);
+          const facilitiesString = facilities.join(", ");
+
           return {
             ...room,
             image: room.images[0],
-            facilities: facilitiesString
-          }
+            facilities: facilitiesString,
+          };
         });
         this.data = tableData;
         !this.data.length ? this.noData = true : this.noData = false;
