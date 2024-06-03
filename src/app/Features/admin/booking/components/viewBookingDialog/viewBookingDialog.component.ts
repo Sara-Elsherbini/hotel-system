@@ -12,6 +12,7 @@ export class ViewBookingDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<ViewBookingDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:Booking.IBooking
   ) {
+        console.log(data);
 
   }
 
