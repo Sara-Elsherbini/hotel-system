@@ -86,21 +86,21 @@ export class RoomsComponent {
         console.log(this.data);
         this.roomList=res.data;
         console.log(this.roomList);
-        let tableData = res.data.rooms.map((room: any)=>{
-          let facilitiesString = "";
-          room.facilities.forEach((fac: { [x: string]: string; }) => {
-            facilitiesString += fac["name"] + ", ";
-          });
+        // let tableData = res.data.rooms.map((room: any)=>{
+        //   let facilitiesString = "";
+        //   room.facilities.forEach((fac: { [x: string]: string; }) => {
+        //     facilitiesString += fac["name"] + ", ";
+        //   });
 
-      next: (res: Rooms.IRoomsRes) => {
 
-        this.roomList=res.data;
+
+
         let tableData = res.data.rooms.map((room: any) => {
           const facilities = room.facilities.map((fac: Rooms.IFacility) => fac.name);
           const facilitiesString = facilities.join(", ");
           return {
             ...room,
-            
+
             image: room.images[0],
             facilities: facilitiesString,
           };
@@ -144,12 +144,12 @@ export class RoomsComponent {
     // row ? (this.FacilityId = row._id) : null;
     const dialogRef = this._dialog.open(ViewRoomComponent, {
       data: data,
-      
+
       width: '30%',
     });
     console.log(data.row)
-    
- 
+
+
 }
  pageNumber(event: number) {
     this.pageNum = event;
@@ -160,8 +160,6 @@ export class RoomsComponent {
     this.pageSizing = event;
     this.geAllRooms();
   }
-
-}
 
 
   openDeleteRoom(id: number): void {
@@ -191,4 +189,7 @@ export class RoomsComponent {
     })
   }
 }
+
+
+
 

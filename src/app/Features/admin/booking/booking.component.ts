@@ -99,14 +99,14 @@ export class BookingComponent {
 
     if (data.opInfo == 'View') {
 
-      this.openViewUser( data.row);
+      this.openViewBooking( data.row);
     }
     // if (data.opInfo === 'Delete') {
     //   this.openDeleteDialog(data.row._id)
     // }
   }
 
-  openViewUser(data:Booking.IBooking) {
+  openViewBooking(data:Booking.IBooking) {
     const dialogRef = this._dialog.open(ViewBookingDialogComponent, {
       data: data,
 
