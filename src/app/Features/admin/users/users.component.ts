@@ -5,6 +5,7 @@ import { Table } from 'src/app/shared/components/table/model/Table.namespace';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ViewUserDialogComponent } from './components/view-user-dialog/view-user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { NotifyService } from 'src/app/common';
 
 @Component({
   selector: 'app-users',
@@ -51,7 +52,8 @@ export class UsersComponent {
   ];
 
   constructor( private UsersService: UsersService,
-    public _dialog: MatDialog
+    public _dialog: MatDialog,
+    private _NotifyService:NotifyService
 
     ){}
 
@@ -87,7 +89,7 @@ export class UsersComponent {
         // !this.data.length ? (this.noData = true) : (this.noData = false);
       },
       error: (err: HttpErrorResponse) => {
-        // this._NotifyService.ServerError(err.error.message);
+        this._NotifyService.ServerError(err.error.message);
         console.log(err);
 
       },
