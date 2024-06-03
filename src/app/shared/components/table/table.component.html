@@ -2,14 +2,17 @@
   <table class="native-table">
     <thead class="tableHeader">
       <tr>
+        <!-- //it is done how to create headers -->
         <th *ngFor="let col of columns" class="fluid-padding">
           {{ col.header }}
         </th>
+        <!-- //adding actions in my header -->
         <th class="fluid-padding" *ngIf="operators && operators.length">Actions</th>
       </tr>
     </thead>
     <tbody class="tableBody">
       <ng-container *ngIf="data && data.length">
+        <!-- data which i recived from facilites for example -->
         <tr *ngFor="let row of data">
           <td class="fluid-md-padding" *ngFor="let col of columns">
 

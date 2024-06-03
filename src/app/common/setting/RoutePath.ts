@@ -9,7 +9,8 @@ forgetPass:'forget-pass'
 public static Dashboard={
   Dashboard:'dashboard'
 }
-public static Admin={
+
+ public static Admin={
   Facilities:{
     FacilitiesList:'facilities',
 
@@ -25,9 +26,11 @@ public static Admin={
   Ads:{
     AdsList: "ads",
   },
+
   Booking:{
     bookingList:"booking"
   }
-
+  Users:{
+    usersList: "users",
 }
 }
