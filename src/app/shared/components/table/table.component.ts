@@ -19,18 +19,12 @@ export class TableComponent {
   @Output() operationData = new EventEmitter()
   @Output() pageSizeChanged = new EventEmitter<number>();
   @Output() pageIndexChanged = new EventEmitter<number>();
-  constructor() {
-    
-    
+  constructor() {  
+
   }
 
   selectedOp(operator: any): (row: any)=>void{
-    debugger
-
-    
     return this.defaultAction(operator.title);
-    
-    
   }
 
   defaultAction(opInfo: string){

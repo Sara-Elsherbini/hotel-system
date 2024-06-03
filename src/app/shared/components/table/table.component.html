@@ -33,7 +33,7 @@
               - </span>
           </td>
 
-          <td class="fluid-md-padding" *ngIf="operators && operators.length">
+          <td class="fluid-md-padding" *ngIf="operators && operators.length>1">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
               <mat-icon>more_horiz</mat-icon>
             </button>
@@ -44,6 +44,20 @@
               </button>
             </mat-menu>
           </td>
+
+          <td class="fluid-md-padding" *ngIf="operators && operators.length==1">
+            <button *ngFor="let operator of operators" (click)="selectedOp(operator)(row)">
+              <mat-icon>{{ operator.icon }}</mat-icon>
+              <span>{{ operator.title }}</span>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item *ngFor="let operator of operators" (click)="selectedOp(operator)(row)">
+                <mat-icon>{{ operator.icon }}</mat-icon>
+                <span>{{ operator.title }}</span>
+              </button>
+            </mat-menu>
+          </td>
+
         </tr>
       </ng-container>
 
