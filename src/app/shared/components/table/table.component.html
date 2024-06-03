@@ -46,8 +46,8 @@
           </td>
 
           <td class="fluid-md-padding" *ngIf="operators && operators.length==1">
-            <button *ngFor="let operator of operators" (click)="selectedOp(operator)(row)">
-              <div class="d-flex justify-content-center align-content-center">
+            <button class="bg-transparent" *ngFor="let operator of operators" (click)="selectedOp(operator)(row)">
+              <div class="d-flex justify-content-center align-content-center ">
                 <mat-icon class="me-1">{{ operator.icon }}</mat-icon>
                 <span>{{ operator.title }}</span>
               </div>
