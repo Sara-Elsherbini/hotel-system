@@ -44,7 +44,8 @@ export class HomeComponent {
         this._NotifyService.Error(err.error.message);
       },
       complete: () => {
-        this.renderHotelChart()
+        this.renderHotelChart();
+        this.renderUserCharts()
       },
     });
   }
@@ -95,5 +96,45 @@ if (ctx) {
     options: options,
   });
 }
+  }
+
+  renderUserCharts(){
+    if (this.users==0) {
+      this.zeroCount++
+    }
+    if (this.admins==0) {
+      this.zeroCount++
+    }
+    if (this.zeroCount>=1) {
+      return
+    }
+    const data ={
+      labels: ['Users','admins'],
+      datasets: [
+        {
+          data: [this.users, this.admins],
+          backgroundColor: ['#2cd339','#24a5db'],
+          hoverOffset: 4,
+        }
+      ]
+     }
+     const options = {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'User chart',
+        },
+      },
+    };
+
+    const ctx = document.getElementById('userCharts') as HTMLCanvasElement;
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: options,
+      });
+    }
   }
 }

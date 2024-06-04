@@ -1,41 +1,41 @@
 <section class="container">
 
   <section class="my-5">
-    <div class="row d-md-flex g-md-5">
-      <div class="col-md-4 ">
+    <div class="row my-5 d-md-flex g-md-5">
+      <div class="col-md-4 my-2">
         <div class="bg-dark d-flex justify-content-between rounded">
-          <div class=" text-white m-4">
+          <div class=" text-white my-4 mx-3">
             <span>Facilities</span><br>
             <span>{{facilities}}</span>
            </div>
            <div class="m-4">
-           <span><i class="fa-regular fa-window-restore bg-white fa-2x"></i></span>
+           <a routerLink="/dashboard/facilities"><i class="fa-regular fa-window-restore bg-white fa-2x"></i></a>
            </div>
         </div>
 
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 my-2">
         <div class="bg-dark d-flex justify-content-between rounded">
-          <div class=" text-white m-4">
+          <div class=" text-white my-4 mx-3">
             <span>Rooms</span><br>
             <span>{{rooms}}</span>
            </div>
            <div class="m-4">
-            <span><i class="fa-solid fa-house-user bg-white fa-2x"></i></span>
+            <a routerLink="/dashboard/rooms"><i class="fa-solid fa-house-user bg-white fa-2x"></i></a>
            </div>
         </div>
 
       </div>
 
-      <div class="col-md-4 ">
+      <div class="col-md-4 my-2">
         <div class="bg-dark d-flex justify-content-between rounded">
-          <div class=" text-white m-4">
+          <div class=" text-white my-4 mx-3">
             <span>Ads</span><br>
             <span>{{ads}}</span>
            </div>
            <div class="m-4">
-             <span><i class="fa-solid fa-wand-magic-sparkles bg-white fa-2x"></i></span>
+             <a routerLink="/dashboard/ads"><i class="fa-solid fa-wand-magic-sparkles bg-white fa-2x"></i></a>
            </div>
         </div>
 
@@ -44,10 +44,19 @@
     </div>
   </section>
 
-  <section>
-    <div class="chart-container">
-      <canvas  id="hotelChart" width="1000" height="300" ></canvas>
-   </div>
+  <section class="my-5">
+    <div class="charts  d-flex gap-5">
+      <div class="global-charts bg-light w-50">
+        <h5 class="m-2">Gobal charts for hotal</h5>
+        <canvas  id="hotelChart" width="800" height="250" ></canvas>
+     </div>
+
+     <div class="user-charts bg-light w-50">
+      <h5 class="m-2">Users & Admins charts</h5>
+      <canvas  id="userCharts" width="1500" height="250" ></canvas>
+     </div>
+    </div>
+
   </section>
 
 </section>
