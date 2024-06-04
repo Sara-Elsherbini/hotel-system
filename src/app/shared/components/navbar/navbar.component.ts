@@ -57,17 +57,6 @@ export class NavbarComponent implements OnInit {
     // const dialogRef = this.dialog.open(ChangePasswordComponent);
   }
 
-<<<<<<< HEAD
-
-
-  onclick(){
-    let elms = document.querySelector(".cdk-overlay-container");
-    console.log(elms?.innerHTML);
-  }
-
-
-=======
->>>>>>> 03b595f557947413d254ce437fb9a3976b901a60
   logout() {
     this._tokenService.logout()
   }

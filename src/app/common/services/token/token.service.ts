@@ -36,7 +36,7 @@ export class TokenService {
     this.setToken((({ token }) => token)(data))
     this.setUser((({ user }) => user)(data))
   }
-  
+
   setToken(token: string){
     localStorage.setItem("token", token);
   }
@@ -80,13 +80,7 @@ export class TokenService {
     this.routeTologin();
   }
 
-<<<<<<< HEAD
-  public routeTologin() {
-    this.router.navigate(["/auth"]);
-    //window.location.reload();
-=======
   routeTologin() {
     this.router.navigate(["/auth"]);
->>>>>>> 03b595f557947413d254ce437fb9a3976b901a60
   }
 }

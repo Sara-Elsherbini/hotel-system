@@ -47,10 +47,10 @@ export class BookingComponent {
       icon: 'visibility',
       title: 'View',
     },
-    {
-      icon: 'delete',
-      title: 'Delete',
-    },
+    // {
+    //   icon: 'delete',
+    //   title: 'Delete',
+    // },
   ];
  constructor(private _BookingService:BookingService,
   private _NotifyService: NotifyService,
