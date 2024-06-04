@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from './components/table/table.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { DeleteComponent } from './components/delete/delete.component';
@@ -19,15 +18,20 @@ import { DialogModule } from '@angular/cdk/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import { NavbarDropdownComponent } from './components/navbar-dropdown/navbar-dropdown.component';
+import { ViewvalueComponent } from './components/viewvalue/viewvalue.component';
+import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
 
   declarations: [
     SidebarComponent,
-    NavbarComponent,
     TableComponent,
     DeleteComponent,
     NoDataComponent,
     SharedHeaderComponent,
+    ProfileComponent,
+    NavbarDropdownComponent,
+    ViewvalueComponent,
   ],
   imports: [
     CommonModule,
@@ -57,7 +61,6 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     TableComponent,
     SidebarComponent,
-    NavbarComponent,
     RouterModule,
     MatMenuModule,
     DeleteComponent,
@@ -68,7 +71,8 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     MatDialogModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    NavbarDropdownComponent,
   ],
 })
 export class SharedModule { }
