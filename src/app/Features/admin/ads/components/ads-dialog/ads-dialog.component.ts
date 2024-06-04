@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import Ads from '../../model/Ads.namespace';
+import Ads from '../../model/Ads';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpEndPoints } from 'src/app/common/setting/HttpEndPoients';
@@ -42,7 +42,7 @@ export class AdsDialogComponent {
         return { _id: _id, discount: room.discount, isActive: isActive, room: room._id }
       })(this.data.row))
 
-    
+
   }
 
   onNoClick(): void {
