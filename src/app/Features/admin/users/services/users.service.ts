@@ -15,4 +15,8 @@ export class UsersService {
   getAllUsers(params:Users.IParams):Observable<Users.IUserResponse>{
     return this._HttpClient.get<Users.IUserResponse>(HttpEndPoints.Users.usersList,{params:params})
    }
+
+   addUser(formData: FormData){
+    return this._HttpClient.post(HttpEndPoints.Users.usersList, formData)
+   }
 }

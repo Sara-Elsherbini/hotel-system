@@ -1,0 +1,145 @@
+
+
+<!-- <ngx-dropzone  (change)="onSelect($event)" [multiple]="true">
+    <ngx-dropzone-label><i class="fa-solid fa-upload"></i> Upload Your Photo</ngx-dropzone-label> -->
+    <!-- <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+        <ngx-dropzone-label></ngx-dropzone-label>
+    </ngx-dropzone-preview> -->
+
+    <!-- <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+    </ngx-dropzone-image-preview>
+
+    
+</ngx-dropzone> -->
+
+<div class="conatiner p-3">
+    <form [formGroup]="addUserForm"  (ngSubmit)="onAddUser(addUserForm)" action="">
+        <div class="row justify-content-center align-items-center mb-1">
+            <div class="col-md-4 mt-2">
+                <div>
+                    <ngx-dropzone  (change)="onSelect($event)" [multiple]="true">
+                        <ngx-dropzone-label><i class="fa-solid fa-upload"></i> Upload Your Photo</ngx-dropzone-label>
+                        <!-- <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                            <ngx-dropzone-label></ngx-dropzone-label>
+                        </ngx-dropzone-preview> -->
+    
+                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true" (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                        </ngx-dropzone-image-preview>
+    
+                        
+                    </ngx-dropzone>
+                </div>
+            </div>
+        </div>
+        
+        
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                <input formControlName="userName"  type="text" class="form-control" placeholder="user name">
+            </div>
+            <!-- <div  *ngIf="registerForm.get('userName')?.touched && registerForm.get('userName')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+                <p *ngIf="registerForm.get('userName')?.errors?.['required']" class="m-0 ">User Name is required</p>
+                <p *ngIf="registerForm.get('userName')?.errors?.['pattern']" class="m-0">must end with number</p>
+            </div> -->
+        </div>
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
+                <input formControlName="email"  type="text" class="form-control" placeholder="email">
+            </div>
+            <!-- <div  *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+                <p *ngIf="registerForm.get('email')?.errors?.['required']" class="m-0 ">Email is required.</p>
+                <p *ngIf="registerForm.get('email')?.errors?.['email']" class="m-0">Please enter a valid email address.</p>
+            </div> -->
+        </div>
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-flag"></i></span>
+                <input formControlName="country"  type="text" class="form-control" placeholder="country">
+            </div>
+            <!-- <div *ngIf="registerForm.get('country')?.touched && registerForm.get('country')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+                <p *ngIf="registerForm.get('country')?.getError('required')">Country is requierd</p>
+            </div> -->
+        </div>
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                <input formControlName="phoneNumber"  type="text" class="form-control" placeholder="phone number">
+            </div>
+            <!-- <div *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+                <p *ngIf="registerForm.get('phoneNumber')?.getError('required')">phone Number is requierd</p>
+                <p *ngIf="registerForm.get('phoneNumber')?.getError('pattern')">Enter a valid phone number</p>
+    
+             </div> -->
+        </div>
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                <input formControlName="password"  type="text" class="form-control" placeholder="password">
+            </div>
+    
+            <!-- <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+                <p *ngIf="registerForm.get('password')?.getError('required')">password is required</p>
+                <p *ngIf="registerForm.get('password')?.getError('pattern')">Enter a valid password</p>
+            </div> -->
+        </div>
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                <input formControlName="confirmPassword"  type="text" class="form-control" placeholder="confirm password">
+            </div>
+            <!-- <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('required')">confirmPassword is requierd</p>
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('pattern')">you must match the password</p>
+            </div> -->
+        </div>
+
+        <div class="col-md-12">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                <input formControlName="role"  type="text" class="form-control" placeholder="role">
+            </div>
+            <!-- <div *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('required')">confirmPassword is requierd</p>
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('pattern')">you must match the password</p>
+            </div> -->
+        </div>
+    </div>
+    
+    
+    <!-- <div  *ngIf="signInForm.get('email')?.touched && signInForm.get('email')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+        <p *ngIf="signInForm.get('email')?.errors?.['required']" class="m-0 ">Email is required.</p>
+        <p *ngIf="signInForm.get('email')?.errors?.['email']" class="m-0">Please enter a valid email address.</p>
+    </div> -->
+    
+    
+    
+    <!-- <div *ngIf="signInForm.get('password')?.touched && signInForm.get('password')?.errors" class="alert alert-danger p-2 mt-2 w-100">
+        <p *ngIf="signInForm.get('password')?.errors?.['required']" class="m-0">password is required.</p>
+        <p *ngIf="signInForm.get('password')?.errors?.['pattern']" class="m-0">Password must start with a capital letter,And contain numbers, min char 6, max 20</p>
+    </div> -->
+    
+    <div class="d-flex justify-content-center align-items-center">
+    <button class="primary w-75 text-center"  type="submit">Add</button>
+
+    </div>
+      
+      
+   
+        
+    
+        
+        
+                
+    
+    
+    
+    
+    </form>
+    
+</div>

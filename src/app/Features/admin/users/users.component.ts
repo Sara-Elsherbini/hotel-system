@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NotifyService } from 'src/app/common';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { Router } from '@angular/router';
+import { AddUserComponent } from './components/add-user/add-user.component';
 import { ProfileComponent } from 'src/app/shared/components/profile/profile.component';
 
 @Component({
@@ -127,5 +128,14 @@ export class UsersComponent {
   pageSize(event: number) {
     this.pageSizing = event;
     this.getUsers();
+  }
+
+  openAddUser(){
+    const dialogRef = this._dialog.open(AddUserComponent)
+
+    dialogRef.afterClosed().subscribe(()=>{
+      this.getUsers();
+    })
+
   }
 }
