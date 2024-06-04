@@ -1,3 +1,4 @@
+// import { IUser } from './../../rooms/models/rooms';
 export namespace Users {
     export interface IUserResponse {
         success: boolean;
@@ -27,6 +28,18 @@ export namespace Users {
 
     }
 
+    export interface IAddUser{
+      userName: string;
+      email: string;
+      phoneNumber: number;
+      country: string;
+      role: string;
+      profileImage: string;
+      password:number;
+      confirmPassword:number;
+
+    }
+
     export interface IDataMode {
       mode: string;
       row: IUser
@@ -37,4 +50,12 @@ export namespace Users {
         [Key:string]:any
       }
 
-  }
+   
+
+      // export interface CreateUserResponse {
+      //   success: boolean;
+      //   message: string;
+      //   // data:IUserRes
+      // }
+
+       }

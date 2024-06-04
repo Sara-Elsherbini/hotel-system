@@ -5,6 +5,12 @@
       <p>You can check all details</p>
     </div>
 
+    <div>
+      <button (click)="openAddUser()" class="primary" >
+        Add new user
+      </button>
+    </div>
+
   </div>
   <app-table  (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)" [totalCount]="UsersList?.totalCount" *ngIf="noData==false" [columns]="columns" [data]="data"
    [operators]="operators" ></app-table>

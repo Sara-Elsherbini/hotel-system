@@ -32,5 +32,10 @@ export class HttpEndPoints {
    
   }
 
+  public static AddUsers={
+    addUser:'admin/users',
+   
+  }
+
 }
 
