@@ -5,3 +5,10 @@
   border-radius:15px ;
 
 }
+@media screen and (max-width: 768px) {
+  .auth{
+    .auth-right-side{
+      display: none !important;
+    }
+  }
+}

@@ -36,7 +36,7 @@ export class TokenService {
     this.setToken((({ token }) => token)(data))
     this.setUser((({ user }) => user)(data))
   }
-  
+
   setToken(token: string){
     localStorage.setItem("token", token);
   }

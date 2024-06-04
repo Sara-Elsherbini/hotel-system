@@ -1,13 +1,13 @@
 import { Rooms } from "../../rooms/models/rooms";
 
-namespace Ads {
+export namespace Ads {
 
     export interface IAdsForm{
         room?: string,
         discount: number,
         isActive: boolean
     }
-    
+
     interface ICreatedBy {
         _id: string,
         userName: string

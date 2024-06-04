@@ -67,7 +67,7 @@ export class AddEditRoomComponent implements OnInit {
   myData.append('price', data.value.price);
   myData.append('discount', data.value.discount);
   myData.append('capacity', data.value.capacity);
-    myData.append('imgs', this.imgSrc);
+  myData.append('imgs', this.imgSrc);
 
     if (this.roomId) {
       this._RoomsService.editRoom(myData, this.roomId).subscribe({
@@ -119,7 +119,9 @@ export class AddEditRoomComponent implements OnInit {
             this.files.push(val)
           })
 
+
         });
+        console.log(this.files);
 
 
       },
@@ -133,7 +135,7 @@ export class AddEditRoomComponent implements OnInit {
           price: this.roomData.data.room.price,
           capacity: this.roomData.data.room.capacity,
           discount: this.roomData.data.room.discount,
-          imgs: this.roomData.data.room.imagePath,
+          imgs: this.roomData.data.room.images,
           facilities: allFacilities
         });
       },
