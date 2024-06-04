@@ -1,0 +1,22 @@
+<div class="native-dropdown">
+    <button class="d-flex align-items-center justify-content-between btn dropdown-toggle text-capitalize"
+        [matMenuTriggerFor]="menu">
+        <div class="profilePic">
+            <img [src]="imgUrl" />
+        </div>
+        <div class="px-2 pe-4">
+            {{ UserName }}
+        </div>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button class="menu-item" mat-menu-item (click)="profileDialog()">
+            Profile
+        </button>
+        <button class="menu-item" mat-menu-item (click)="changePasswordDialog()">
+            Change Password
+        </button>
+        <button class="menu-item" mat-menu-item (click)="logout()">
+            Logout
+        </button>
+    </mat-menu>
+</div>

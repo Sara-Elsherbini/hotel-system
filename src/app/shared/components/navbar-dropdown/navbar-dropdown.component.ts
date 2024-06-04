@@ -1,26 +1,25 @@
-import { Component, OnInit} from '@angular/core';
-import { NotifyService } from 'src/app/common';
-// import { AuthService } from 'src/app/auth/service/auth.service';
+import { Component } from '@angular/core';
 import { TokenService } from 'src/app/common/services/token/token.service';
-// import { MatDialog } from '@angular/material/dialog';
-
-
+import { NotifyService } from 'src/app/common';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-navbar-dropdown',
+  templateUrl: './navbar-dropdown.component.html',
+  styleUrls: ['./navbar-dropdown.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarDropdownComponent {
 
   UserName: string = "";
-  userData!:any;
+  userData!: any;
   imgUrl: string = "";
 
   constructor(
     private _tokenService: TokenService,
     private _NotifyService: NotifyService,
-    ) {
+    private dialog: MatDialog,
+  ) {
   }
 
   ngOnInit(): void {
@@ -32,24 +31,19 @@ export class NavbarComponent implements OnInit {
     this._tokenService.getCurrentUser().subscribe({
       next: (res: any) => {
         this.userData = res.data.user;
-        this.imgUrl =  this.userData.profileImage;
+        this.imgUrl = this.userData.profileImage;
       },
       error: (err) => {
-        const errMes=err.error.message;
+        const errMes = err.error.message;
         this._NotifyService.ServerError(errMes);
       }
     })
   }
 
   profileDialog() {
-    // const dialogRef = this.dialog.open(ProfileComponent, {
-    //   data: this.userData
-    // });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //   }
-    // });
+    this.dialog.open(ProfileComponent, {
+      data: this.userData
+    });
   }
 
 
@@ -60,6 +54,5 @@ export class NavbarComponent implements OnInit {
   logout() {
     this._tokenService.logout()
   }
-
 
 }

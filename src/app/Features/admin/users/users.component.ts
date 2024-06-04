@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NotifyService } from 'src/app/common';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { Router } from '@angular/router';
+import { ProfileComponent } from 'src/app/shared/components/profile/profile.component';
 
 @Component({
   selector: 'app-users',
@@ -106,10 +107,8 @@ export class UsersComponent {
   }
   openViewUser(data:Users.IDataMode) {
     data.row ? (this.userId = data.row._id) : null;
-    const dialogRef = this._dialog.open(ViewUserDialogComponent, {
-      data: data,
-
-      width: '30%',
+    const dialogRef = this._dialog.open(ProfileComponent, {
+      data: data.row,
     });
 
     dialogRef.afterClosed().subscribe((result:any) => {

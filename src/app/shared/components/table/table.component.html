@@ -46,19 +46,12 @@
           </td>
 
           <td class="fluid-md-padding" *ngIf="operators && operators.length==1">
-            <button class="bg-transparent" *ngFor="let operator of operators" (click)="selectedOp(operator)(row)">
+            <button class="bg-transparent" (click)="selectedOp(operators[0])(row)">
               <div class="d-flex justify-content-center align-content-center ">
-                <mat-icon class="me-1">{{ operator.icon }}</mat-icon>
-                <span>{{ operator.title }}</span>
+                <mat-icon class="me-1">{{ operators[0].icon }}</mat-icon>
+                <span>{{ operators[0].title }}</span>
               </div>
-
             </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item *ngFor="let operator of operators" (click)="selectedOp(operator)(row)">
-                <mat-icon>{{ operator.icon }}</mat-icon>
-                <span>{{ operator.title }}</span>
-              </button>
-            </mat-menu>
           </td>
 
         </tr>

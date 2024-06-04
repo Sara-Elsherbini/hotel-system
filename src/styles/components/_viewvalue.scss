@@ -1,0 +1,39 @@
+.view-group {
+  position: relative;
+  border: 1px solid hsla(0, 0%, 40%, 0.5);
+  border-radius: 5px;
+  margin: 1rem auto;
+  .view-header {
+    position: absolute;
+    top: 0;
+    left: 4%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: hsla(0, 0%, 20%, 0.65);
+    line-height: 1rem;
+    padding-inline: 0.25rem;
+  }
+  .view-value-group {
+    $padding: 0.6rem 0.5rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    :is(.view-icon, .view-value){
+        margin: 0;
+    }
+    .view-icon {
+      width: 2.25rem;
+      color: rgb(50, 82, 223);
+      font-size: 1rem;
+      border-right: 1px solid hsla(0, 0%, 40%, 0.5);
+      padding-block: 0.3rem;
+
+      display: grid;
+      place-items: center;
+    }
+    .view-value {
+      color: hsla(0, 0%, 20%, 0.8);
+      padding: $padding;
+    }
+  }
+}
