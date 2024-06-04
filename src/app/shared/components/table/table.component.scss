@@ -1,1 +1,21 @@
 // @use "../../../assets/styles/style.scss";
+
+
+  @media screen and (max-width: 775px) {
+
+    .native-table {
+      overflow-x: auto; /* Enable horizontal scrolling */
+      display: block;
+      width: 100%; /* Make table fill its container */
+      white-space: nowrap; /* Prevent table cells from wrapping */
+    }
+  
+    
+  
+    .tableHeader th,
+    .tableBody td {
+      padding: 8px; /* Adjust padding as needed */
+      text-align: left; /* Align text to the left */
+    }
+
+  }
