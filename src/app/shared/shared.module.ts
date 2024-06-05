@@ -21,6 +21,8 @@ import {MatCardModule} from '@angular/material/card';
 import { NavbarDropdownComponent } from './components/navbar-dropdown/navbar-dropdown.component';
 import { ViewvalueComponent } from './components/viewvalue/viewvalue.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SharedCardComponent } from './components/shared-card/shared-card.component';
+import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
 
   declarations: [
@@ -32,6 +34,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     ProfileComponent,
     NavbarDropdownComponent,
     ViewvalueComponent,
+    SharedCardComponent
   ],
   imports: [
     CommonModule,
@@ -50,7 +53,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormsModule,
     MatDialogModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   exports: [
     NoDataComponent,
@@ -73,6 +77,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatSelectModule,
     MatCardModule,
     NavbarDropdownComponent,
+    SharedCardComponent,
+    MatDividerModule
   ],
 })
 export class SharedModule { }

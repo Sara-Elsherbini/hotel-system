@@ -1,3 +1,4 @@
+import { SharedCardComponent } from './../../../shared/components/shared-card/shared-card.component';
 import { Component, Inject } from '@angular/core';
 import { FacilitiesService } from './services/facilities.service';
 import { Facilities } from './models/facilites';
@@ -7,6 +8,8 @@ import { Table } from 'src/app/shared/components/table/model/Table';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditFacilitiesDialog } from './components/add-edit-facilities/add-edit-facilitiesDialog';
+import { Card } from 'src/app/shared/components/shared-card/models/shared-card';
+
 
 @Component({
   selector: 'app-facilities',
@@ -20,6 +23,7 @@ export class FacilitiesComponent {
   pageNum: number = 1;
   pageSizing: number = 10;
   noData: Boolean = false;
+  isGrid:boolean=false;
   columns: Table.IColumn[] = [
     {
       header: 'Name',
@@ -40,6 +44,26 @@ export class FacilitiesComponent {
       isDate: true,
     },
   ];
+  cards:Card.ICard[]=[
+    {
+      key: 'Name',
+      property: 'name',
+    },
+    {
+      key: 'Created By',
+      property: 'createdBy',
+    },
+    {
+      key: 'Created at',
+      property: 'createdAt',
+      isDate: true,
+    },
+    {
+      key: 'Updated at',
+      property: 'updatedAt',
+      isDate: true,
+    },
+  ]
   operators: Table.IOperators[] = [
     {
       icon: 'edit_square',
@@ -127,7 +151,6 @@ export class FacilitiesComponent {
     });
   }
   runOp(data: any) {
-
     console.log(data);
     if (data.opInfo == 'Edit') {
       this.openAddEditFacility('Edit', data.row);
