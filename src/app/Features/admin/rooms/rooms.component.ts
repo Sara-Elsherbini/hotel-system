@@ -172,8 +172,8 @@ export class RoomsComponent {
     // row ? (this.FacilityId = row._id) : null;
     const dialogRef = this._dialog.open(ViewRoomComponent, {
       data: data,
-
-      width: '30%',
+      // width: '50%',
+      minWidth: "50%",
     });
     console.log(data.row)
 

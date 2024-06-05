@@ -82,7 +82,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     NavbarDropdownComponent,
     SharedCardComponent,
     MatDividerModule,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ViewvalueComponent
   ],
 })
 export class SharedModule { }

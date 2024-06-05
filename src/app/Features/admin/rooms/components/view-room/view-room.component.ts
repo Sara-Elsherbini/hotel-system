@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { single } from 'rxjs';
 
 @Component({
   selector: 'app-view-room',
@@ -9,11 +10,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class ViewRoomComponent {
   constructor(
     private dialogRef: MatDialogRef<ViewRoomComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data)
-
-
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -22,11 +20,12 @@ export class ViewRoomComponent {
 
 
   customOptions: any = {
-    loop: true,
+    loop: false,
+    center: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
-    dots: true,
+    dots: false,
     navSpeed: 700,
     navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
     responsive: {
@@ -43,6 +42,7 @@ export class ViewRoomComponent {
         items: 4
       }
     },
+    autoWidth: true,
     nav: true
   }
 }
