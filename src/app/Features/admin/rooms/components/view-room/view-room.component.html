@@ -1,4 +1,35 @@
 
+<section>
+    <div class="container p-2">
+        <div class="title d-flex justify-content-between align-items-center mx-2 my-3">
+            <h2 class="fw-bold main-title">Room Details</h2>
+            <div class="close" (click)="onNoClick()" style="cursor: pointer;"><i
+                    class="fa-regular fa-circle-xmark fs-3 text-danger"></i></div>
+        </div>
+        <div class="row align-items-center justify-content-around m-3">
+            <div class="col-md-6">
+                <owl-carousel-o class="w-100" [options]="customOptions">
+                    <ng-container *ngFor="let image of data.row.images">
+                        <ng-template carouselSlide>
+                            <img [src]="image" >
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+            <div class="col-md-6 text-start">
+                <h3>{{ data.row.roomNumber }}</h3>
+                <app-viewvalue [title]="'Room Capacity'" [icon]="'fa-light fa-user-group'" [value]="data.row.capacity"></app-viewvalue>
+                <app-viewvalue [title]="'Price'" [icon]="'fa-light fa-money-bill'"
+                    [value]="data.row.price" [pipe]="'currency'"></app-viewvalue>
+                <app-viewvalue [title]="'Discount'" [icon]="'fa-light fa-solid fa-tag'"
+                    [value]="data.row.discount*0.001" [pipe]="'percent'"></app-viewvalue>
+                <app-viewvalue [title]="'Created by'" [icon]="'fa-light fa-flag'" [value]="data.row.createdBy.userName"></app-viewvalue>
+            </div>
+        </div>
+    </div>
+</section>
+
+
   <div class="container p-2  ">
 <div class="row m-0">
     <div class="col-md-12 p-0">
@@ -34,3 +65,4 @@
 
 
 </div>
+

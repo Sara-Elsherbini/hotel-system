@@ -16,7 +16,7 @@
   .view-value-group {
     $padding: 0.6rem 0.5rem;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     :is(.view-icon, .view-value){
         margin: 0;

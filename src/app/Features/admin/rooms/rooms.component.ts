@@ -184,7 +184,12 @@ export class RoomsComponent {
     const dialogRef = this._dialog.open(ViewRoomComponent, {
       data: data,
 
+      // width: '50%',
+      minWidth: "50%",
+
+
       width: '35%',
+
     });
     console.log(data.row)
 
