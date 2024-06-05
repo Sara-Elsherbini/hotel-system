@@ -3,8 +3,6 @@ import { TokenService } from 'src/app/common/services/token/token.service';
 import { NotifyService } from 'src/app/common';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileComponent } from '../profile/profile.component';
-import { ChangePasswordComponent } from '../change-password/change-password.component';
-import { IChangePassword, UserService } from 'src/app/common/services/user/user.service';
 
 @Component({
   selector: 'app-navbar-dropdown',
@@ -19,7 +17,6 @@ export class NavbarDropdownComponent {
 
   constructor(
     private _tokenService: TokenService,
-    private _userservice: UserService,
     private _NotifyService: NotifyService,
     private dialog: MatDialog,
   ) {
@@ -31,7 +28,7 @@ export class NavbarDropdownComponent {
   }
 
   getImageUrl() {
-    this._userservice.getCurrentUser().subscribe({
+    this._tokenService.getCurrentUser().subscribe({
       next: (res: any) => {
         this.userData = res.data.user;
         this.imgUrl = this.userData.profileImage;
@@ -49,26 +46,9 @@ export class NavbarDropdownComponent {
     });
   }
 
+
   changePasswordDialog() {
-    const dialogRef = this.dialog.open(ChangePasswordComponent, {width:"30%"});
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) this.onChangePassword(result);
-    })
-  }
-
-  onChangePassword(data: IChangePassword) {
-
-    this._userservice.onChangePassword(data).subscribe({
-      next: (res: any) => {
-        this._NotifyService.Success("Password Changed Successfully");
-      },
-      error: (err) => {
-        const errMes = err.error.message;
-        this._NotifyService.ServerError(errMes);
-      }
-    })
-
+    // const dialogRef = this.dialog.open(ChangePasswordComponent);
   }
 
   logout() {

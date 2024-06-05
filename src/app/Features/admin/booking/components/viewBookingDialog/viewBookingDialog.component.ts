@@ -6,15 +6,18 @@ import { Booking } from '../../models/booking';
   templateUrl: './viewBookingDialog.component.html',
   styleUrls: ['./viewBookingDialog.component.scss']
 })
-export class ViewBookingDialogComponent {
+export class ViewBookingDialogComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<ViewBookingDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Booking.IBooking
+    @Inject(MAT_DIALOG_DATA) public data:Booking.IBooking
   ) {
+        console.log(data);
 
   }
 
+  ngOnInit() {
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }

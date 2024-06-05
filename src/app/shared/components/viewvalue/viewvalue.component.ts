@@ -1,7 +1,4 @@
-import { PercentPipe } from '@angular/common';
-import { Component, Input, Pipe } from '@angular/core';
-
-type _PIPE = "percent" | "currency" | 'date' | 'upperCase' | "titlecase";
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-viewvalue',
@@ -12,5 +9,4 @@ export class ViewvalueComponent {
   @Input() title!: string;
   @Input() value!: string | number;
   @Input() icon!: string;
-  @Input() pipe!: _PIPE;
 }

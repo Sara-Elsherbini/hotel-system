@@ -4,13 +4,6 @@
         <p class="view-icon">
             <i *ngIf="icon" [class]="icon"></i>
         </p>
-        <ng-container *ngIf="pipe">
-            <p class="view-value" *ngIf="pipe == 'percent'">{{value | percent}}</p>
-            <p class="view-value" *ngIf="pipe == 'currency'">{{value | currency}}</p>
-            <p class="view-value" *ngIf="pipe == 'date'">{{value | date:'fullDate'}}</p>
-            <p class="view-value" *ngIf="pipe == 'upperCase'">{{value.toString() | uppercase}}</p>
-            <p class="view-value" *ngIf="pipe == 'titlecase'">{{value.toString() | titlecase}}</p>
-        </ng-container>
-        <p *ngIf="!pipe" class="view-value">{{value}}</p>
+        <p class="view-value">{{value}}</p>
     </div>
 </div>

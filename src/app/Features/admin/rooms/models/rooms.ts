@@ -27,7 +27,7 @@ export interface IRoom {
     discount:   number;
     facilities: IFacility[];
     createdBy:  IUser;
-    images:     [];
+    images:    any;
     createdAt:  Date;
     updatedAt:  Date;
 }
