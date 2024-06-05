@@ -7,7 +7,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { TableComponent } from './components/table/table.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { DeleteComponent } from './components/delete/delete.component';
@@ -18,15 +17,24 @@ import { SharedHeaderComponent } from './components/shared-header/shared-header.
 import { DialogModule } from '@angular/cdk/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
+import { NavbarDropdownComponent } from './components/navbar-dropdown/navbar-dropdown.component';
+import { ViewvalueComponent } from './components/viewvalue/viewvalue.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SharedCardComponent } from './components/shared-card/shared-card.component';
+import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
 
   declarations: [
     SidebarComponent,
-    NavbarComponent,
     TableComponent,
     DeleteComponent,
     NoDataComponent,
     SharedHeaderComponent,
+    ProfileComponent,
+    NavbarDropdownComponent,
+    ViewvalueComponent,
+    SharedCardComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +52,9 @@ import { MatSelectModule } from '@angular/material/select';
     DialogModule,
     FormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatDividerModule
   ],
   exports: [
     NoDataComponent,
@@ -55,7 +65,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     TableComponent,
     SidebarComponent,
-    NavbarComponent,
     RouterModule,
     MatMenuModule,
     DeleteComponent,
@@ -65,7 +74,11 @@ import { MatSelectModule } from '@angular/material/select';
     DialogModule,
     FormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    NavbarDropdownComponent,
+    SharedCardComponent,
+    MatDividerModule
   ],
 })
 export class SharedModule { }

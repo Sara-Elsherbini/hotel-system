@@ -32,6 +32,7 @@ public static Dashboard={
   },
   Users:{
     usersList: "users",
+     ViewUsers: "users"
   }
 
 }

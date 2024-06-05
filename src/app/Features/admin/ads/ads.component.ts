@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import Ads from './model/Ads.namespace';
+import { Card } from 'src/app/shared/components/shared-card/models/shared-card';
+import { Component, HostListener } from '@angular/core';
+import Ads from './model/Ads';
 import { AdsDialogComponent } from './components/ads-dialog/ads-dialog.component';
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Table } from 'src/app/shared/components/table/model/Table';
 import { AdsService } from './services/ads.service';
 import { NotifyService } from 'src/app/common';
 import { MatDialog } from '@angular/material/dialog';
@@ -22,7 +23,8 @@ export class AdsComponent {
 
   pageNum: number = 1;
   pageSizing: number = 10;
-
+  isGrid:boolean=false;
+  disableTableButton:boolean=false;
   rooms = [];
   columns: Table.IColumn[] = [
     {
@@ -51,6 +53,35 @@ export class AdsComponent {
       isBoolean: true
     }
   ];
+
+  cards: Card.ICard[] = [
+    {
+      key: 'Room Name',
+      property: 'roomName',
+    },
+    {
+      key: 'Price',
+      property: 'roomPrice',
+    },
+    {
+      key: 'Discount',
+      property: 'roomDiscount',
+    },
+    {
+      key: 'Capacity',
+      property: 'roomCapacity',
+    },
+    {
+      key: 'Created By',
+      property: 'createdBy',
+    },
+    {
+      key: 'Active',
+      property: 'isActive',
+      isBoolean: true
+    }
+  ];
+
   operators: Table.IOperators[] = [
     {
       icon: 'edit_square',
@@ -200,6 +231,7 @@ export class AdsComponent {
   openDeleteAd(id: string): void {
     const dialogRef = this._dialog.open(DeleteComponent, {
       data: { id: id },
+      width: '30%',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -223,4 +255,21 @@ export class AdsComponent {
       }
     })
   }
+
+
+
+  @HostListener('window:resize',['$event'])
+  onResize(event:Event){
+  this.checkBodyWidth()
+  }
+  private checkBodyWidth() {
+    if (window.innerWidth <= 991) {
+      this.isGrid = true;
+      this.disableTableButton = true;
+    } else {
+      this.disableTableButton = false;
+    }
+  }
+
+
 }

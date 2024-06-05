@@ -36,7 +36,7 @@ export class SidebarComponent {
     },
     {
       text: 'Rooms',
-      icon: 'fa-solid fa-person-shelter',
+      icon: 'fa-solid fa-house-user',
       link: this.RoutePaths.Admin.Room.RoomList,
     },
     {

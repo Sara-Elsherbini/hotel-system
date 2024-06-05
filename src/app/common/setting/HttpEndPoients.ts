@@ -1,11 +1,10 @@
 export class HttpEndPoints {
   public static Auth = {
+    general: 'admin/users',
     login: 'admin/users/login',
     register: 'admin/users',
     forgetPass: 'admin/users/forgot-password',
     resetPass: 'admin/users/reset-password'
-
-
   }
 
   public static Facilities = {
@@ -34,8 +33,23 @@ export class HttpEndPoints {
 
   }
 
+
   public static Users = {
     usersList: 'admin/users',
+
+
+  public static Users={
+    usersList:'admin/users',
+
+  }
+  public static Home={
+    Dashboard:'admin/dashboard',
+
+  }
+
+  public static AddUsers={
+    addUser:'admin/users',
+   
 
   }
 

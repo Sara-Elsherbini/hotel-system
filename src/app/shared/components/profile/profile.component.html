@@ -1,0 +1,20 @@
+<section>
+  <div class="container p-2">
+    <div class="title d-flex justify-content-between d-flex mx-2 my-3">
+      <h2 class="fw-bold main-title">User Details</h2>
+      <div class="close" (click)="onNoClick()" style="cursor: pointer;"><i class="fa-regular fa-circle-xmark fa-2x text-danger"></i></div>
+    </div>
+    <div class="row align-items-center justify-content-around m-3">
+      <div class="col-md-6">
+        <img class="p-1 w-100" [src]="data.profileImage ? data.profileImage : dummyImage" alt="image" />
+      </div>
+      <div class="col-md-6 text-start">
+        <h3>{{ data.userName }}</h3>
+        <app-viewvalue [title]="'Email'" [icon]="'fa-light fa-solid fa-at'" [value]="data.email"></app-viewvalue>
+        <app-viewvalue [title]="'Phone Number'" [icon]="'fa-light fa-mobile'" [value]="data.phoneNumber"></app-viewvalue>
+        <app-viewvalue [title]="'Role'" [icon]="'fa-light fa-user-group'" [value]="data.role"></app-viewvalue>
+        <app-viewvalue [title]="'Country'" [icon]="'fa-light fa-flag'" [value]="data.country"></app-viewvalue>
+      </div>
+    </div>
+  </div>
+</section>

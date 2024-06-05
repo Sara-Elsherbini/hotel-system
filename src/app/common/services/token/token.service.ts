@@ -1,69 +1,86 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { RoleEnum } from '../../Enums/RoleEnum.enum';
+import { HttpClient } from '@angular/common/http';
+import { HttpEndPoints } from '../../setting/HttpEndPoients';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 // import { jwtDecode } from 'jwt-decode';
+
+interface IUser{
+  _id: string,
+  userName: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
-  constructor( private router: Router) { }
+  constructor( private router: Router, private _httpClient: HttpClient) { }
 
-  public isAuthenticated(): boolean {
+  isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
     return token !== null;
     // return !this.jwtHelper.isTokenExpired(token);
   }
 
-  public isAdmin():boolean {
-    return this.getRole() === "admin";
+  isAdmin():boolean {
+    return this.getRole() === RoleEnum.ADMIN;
   }
 
-  public isUser():boolean{
-    return this.getRole() === "user";
+  isUser():boolean{
+    return this.getRole() === RoleEnum.USER;
   }
 
-  public setUserData(data: any) {
-    localStorage.setItem("token", (({ token }) => token)(data));
-    // localStorage.setItem("_id", )
+  setUserData(data: any) {
+    this.setToken((({ token }) => token)(data))
+    this.setUser((({ user }) => user)(data))
   }
 
-  public getToken(): string {
+  setToken(token: string){
+    localStorage.setItem("token", token);
+  }
+
+  setUser(user:IUser){
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+
+  getToken(): string {
     return localStorage.getItem('token') || "";
   }
 
-  public deserilizeToken(token: string): any {
-    // return jwtDecode(token);
+  getUser(): any{
+    let user = localStorage.getItem("user") || ""
+    return JSON.parse(user);
   }
 
-  public getID() {
-    let token = this.getToken();
-    return this.deserilizeToken(token)["userId"];
+  getID() {
+    let user = this.getUser();
+    return user["_id"];
   }
 
-  public getName() {
-    let token = this.getToken();
-    return this.deserilizeToken(token)["userName"];
+  getName() {
+    let user = this.getUser();
+    return user["userName"];
   }
 
-  public getEmail() {
-    let token = this.getToken();
-    return this.deserilizeToken(token)["userEmail"];
+  getRole() {
+    let user = this.getUser();
+    return user["role"];
   }
 
-  public getRole() {
-    let token = this.getToken();
-    return this.deserilizeToken(token)["userGroup"];
+  getCurrentUser(){
+    let id = this.getID();
+    let endpoint = `${this.isAdmin() ? "admin": "portal"}/users/${id}`
+    return this._httpClient.get(endpoint);
   }
 
-  public logout() {
+  logout() {
     localStorage.removeItem("token");
     this.routeTologin();
   }
 
-  public routeTologin() {
-    this.router.navigate(["/auth/login"]);
-    //window.location.reload();
+  routeTologin() {
+    this.router.navigate(["/auth"]);
   }
 }

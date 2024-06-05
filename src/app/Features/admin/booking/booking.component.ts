@@ -1,11 +1,14 @@
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
-import { Component } from '@angular/core';
+import { Card } from 'src/app/shared/components/shared-card/models/shared-card';
+import { Table } from 'src/app/shared/components/table/model/Table';
+import { Component, HostListener } from '@angular/core';
 import { Booking } from './models/booking';
 import { BookingService } from './services/booking.service';
 import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ViewBookingDialogComponent } from './components/viewBookingDialog/viewBookingDialog.component';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -17,6 +20,8 @@ export class BookingComponent {
   bookingData: Booking.IBooking[] = [];
   pageNum: number = 1;
   pageSizing: number = 10;
+  isGrid :boolean= false;
+  disableTableButton  :boolean= false;
   columns: Table.IColumn[] = [
     {
       header: 'Room number',
@@ -42,19 +47,46 @@ export class BookingComponent {
       property: 'user',
     }
   ];
+  cards: Card.ICard[] = [
+    {
+      key: 'Room number',
+      property: 'room',
+    },
+    {
+      key: 'Price',
+      property: 'roomPrice',
+    },
+
+    {
+      key: 'Start date',
+      property: 'startDate',
+      isDate:true
+    },
+    {
+      key: 'End date',
+      property: 'endDate',
+      isDate:true
+    },
+    {
+      key: 'User',
+      property: 'user',
+    }
+  ];
   operators: Table.IOperators[] = [
     {
       icon: 'visibility',
       title: 'View',
     },
-    {
-      icon: 'delete',
-      title: 'Delete',
-    },
+    // {
+    //   icon: 'delete',
+    //   title: 'Delete',
+    // },
   ];
+
   constructor(private _BookingService: BookingService,
     private _NotifyService: NotifyService, private __dialog: MatDialog
   ) { }
+
 
   ngOnInit(): void {
     this.getBooking();
@@ -94,7 +126,8 @@ export class BookingComponent {
       complete: () => { },
     });
   }
-  runOp(data: any) {
+  runOp(data:any) {
+
 
     console.log(data);
     // if (data.opInfo == 'Edit') {
@@ -137,6 +170,44 @@ export class BookingComponent {
         this.deleteBooking(id)
       }
     })
+  }
+
+
+    if (data.opInfo == 'View') {
+
+      this.openViewBooking( data.row);
+    }
+    // if (data.opInfo === 'Delete') {
+    //   this.openDeleteDialog(data.row._id)
+    // }
+  }
+
+  openViewBooking(data:Booking.IBooking) {
+    const dialogRef = this._dialog.open(ViewBookingDialogComponent, {
+      data: data,
+
+      width: '30%',
+    });
+
+    dialogRef.afterClosed().subscribe((result:any) => {
+      console.log('result', result);
+    });
+
+
+
+  }
+
+  @HostListener('window:resize',['$event'])
+  onResize(event:Event){
+  this.checkBodyWidth()
+  }
+  private checkBodyWidth() {
+    if (window.innerWidth <= 991) {
+      this.isGrid = true;
+      this.disableTableButton = true;
+    } else {
+      this.disableTableButton = false;
+    }
   }
 
 

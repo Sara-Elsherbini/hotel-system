@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Card } from 'src/app/shared/components/shared-card/models/shared-card';
+import { Component, HostListener } from '@angular/core';
 import { RoomsService } from './services/rooms.service';
 import { Rooms } from './models/rooms'
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotifyService } from 'src/app/common';
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Table } from 'src/app/shared/components/table/model/Table';
 import { Router } from '@angular/router';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
+import { ViewRoomComponent } from './components/view-room/view-room.component';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 
@@ -26,6 +29,8 @@ export class RoomsComponent {
   noData: boolean = false
   pageNum: number = 1;
   pageSizing: number = 10;
+  isGrid :boolean= false;
+  disableTableButton  :boolean= false;
   columns: Table.IColumn[] = [
     {
       header: "Room number",
@@ -53,6 +58,34 @@ export class RoomsComponent {
       property: "facilities"
     }
   ]
+  cards: Card.ICard[] = [
+
+    {
+      key: "Image",
+      property: "image",
+      isImage: true
+    },
+    {
+      key: "Room number",
+      property: "roomNumber"
+    },
+    {
+      key: "Price",
+      property: "price"
+    },
+    {
+      key: "Discount",
+      property: "discount"
+    },
+    {
+      key: "Capacity",
+      property: "capacity"
+    },
+    {
+      key: "Facilities",
+      property: "facilities"
+    }
+  ]
   operators: Table.IOperators[] = [
     {
       icon: "edit_square",
@@ -67,7 +100,9 @@ export class RoomsComponent {
       title: "Delete"
     }
   ]
+
   constructor(private _RoomsService: RoomsService, private _NotifyService: NotifyService, private _Router: Router, private _dialog: MatDialog) {
+
 
   }
   ngOnInit(): void {
@@ -80,10 +115,18 @@ export class RoomsComponent {
       size: this.pageSizing
     }
     this._RoomsService.getAllRooms(param).subscribe({
-      next: (res: Rooms.IRoomsRes) => {
 
+      next:(res:Rooms.IRoomsRes)=>{
+        this.data=res.data.rooms;
+        console.log(this.data);
+        this.roomList=res.data;
+        console.log(this.roomList);
+        // let tableData = res.data.rooms.map((room: any)=>{
+        //   let facilitiesString = "";
+        //   room.facilities.forEach((fac: { [x: string]: string; }) => {
+        //     facilitiesString += fac["name"] + ", ";
+        //   });
 
-        this.roomList = res.data;
         let tableData = res.data.rooms.map((room: any) => {
           let facilitiesString = "";
           room.facilities.forEach((fac: { [x: string]: string; }) => {
@@ -105,7 +148,6 @@ export class RoomsComponent {
           !this.data.length ? this.noData = true : this.noData = false;
         })
 
-
       },
       error: (err: HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message)
@@ -126,14 +168,29 @@ export class RoomsComponent {
       this._Router.navigateByUrl(`dashboard/rooms/edit/${id}`);
     }
     if (data.opInfo == 'View') {
-      // this.openAddEditFacility('View', data.row);
+    this.openViewUser(data);
     }
     if (data.opInfo === 'Delete') {
       this.openDeleteDialog(data.row._id)
     }
   }
 
-  pageNumber(event: number) {
+
+
+
+
+  openViewUser(data:any) {
+    // row ? (this.FacilityId = row._id) : null;
+    const dialogRef = this._dialog.open(ViewRoomComponent, {
+      data: data,
+
+      width: '35%',
+    });
+    console.log(data.row)
+
+
+}
+ pageNumber(event: number) {
     this.pageNum = event;
     this.geAllRooms();
   }
@@ -143,9 +200,12 @@ export class RoomsComponent {
     this.geAllRooms();
   }
 
-  openDeleteDialog(id: number): void {
+
+  openDeleteRoom(id: number): void {
+
     const dialogRef = this._dialog.open(DeleteComponent, {
       data: { id: id },
+      width: '30%',
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -168,4 +228,21 @@ export class RoomsComponent {
       }
     })
   }
+
+  @HostListener('window:resize',['$event'])
+  onResize(event:Event){
+  this.checkBodyWidth()
+  }
+  private checkBodyWidth() {
+    if (window.innerWidth <= 991) {
+      this.isGrid = true;
+      this.disableTableButton = true;
+    } else {
+      this.disableTableButton = false;
+    }
+  }
 }
+
+
+
+

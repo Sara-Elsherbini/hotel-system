@@ -1,0 +1,36 @@
+
+  <div class="container p-2  ">
+<div class="row m-0">
+    <div class="col-md-12 p-0">
+        <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let image of data.row.images">
+                <ng-template carouselSlide >
+                    <img [src]="image" class="" >
+                </ng-template>
+            </ng-container>
+
+
+
+      </owl-carousel-o>
+    </div>
+    <div class="col-md-12 p-0">
+        <div class="room-details py-4">
+            <p class="mb-0"><strong>User Name:</strong> {{ data.row.createdBy.userName }}</p>
+            <hr>
+            <p class="mb-0"><strong>Room Number:</strong> {{ data.row.roomNumber }}</p>
+            <hr>
+            <p class="mb-0"><strong>Discount:</strong> {{ data.row.discount*0.001|percent }}</p>
+            <hr>
+            <p class="mb-0"><strong>Price:</strong> {{ data.row.price|currency }}</p>
+            <hr>
+            <p class="mb-0"><strong>Capacity of Room:</strong> {{ data.row.capacity }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="button border-top-1 text-end">
+    <button class="btn btn-outline-primary pointer-event "(click)="onNoClick()" cdkFocusInitial>cancle</button>
+  </div>
+
+
+</div>

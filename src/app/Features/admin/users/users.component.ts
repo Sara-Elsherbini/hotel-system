@@ -1,11 +1,16 @@
+import { Card } from 'src/app/shared/components/shared-card/models/shared-card';
 import { UsersService } from './services/users.service';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Users } from './models/users';
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Table } from 'src/app/shared/components/table/model/Table';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ViewUserDialogComponent } from './components/view-user-dialog/view-user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NotifyService } from 'src/app/common';
+import { RoutePaths } from 'src/app/common/setting/RoutePath';
+import { Router } from '@angular/router';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { ProfileComponent } from 'src/app/shared/components/profile/profile.component';
 
 @Component({
   selector: 'app-users',
@@ -18,10 +23,9 @@ export class UsersComponent {
   pageSizing: number = 10;
   noData: Boolean = false;
   data: Users.IUser[] = [];
-
-  // totalCount:number=0
-
-
+  userId:string=''
+  isGrid :boolean= false;
+  disableTableButton  :boolean= false;
   columns: Table.IColumn[] = [
     {
       header: 'Name',
@@ -42,6 +46,27 @@ export class UsersComponent {
       // isDate: true,
     },
   ];
+
+  cards: Card.ICard[] = [
+    {
+      key: 'Name',
+      property: 'userName',
+    },
+    {
+      key: 'Email',
+      property: 'email',
+    },
+    {
+      key: 'Phone number',
+      property: 'phoneNumber',
+      // isDate: true,
+    },
+    {
+      key: 'Country',
+      property: 'country',
+      // isDate: true,
+    },
+  ];
   operators: Table.IOperators[] = [
 
     {
@@ -53,7 +78,8 @@ export class UsersComponent {
 
   constructor( private UsersService: UsersService,
     public _dialog: MatDialog,
-    private _NotifyService:NotifyService
+    private _NotifyService:NotifyService,
+    private _Router:Router
 
     ){}
 
@@ -103,24 +129,19 @@ export class UsersComponent {
     this.openViewUser(data);
 
   }
-  openViewUser(data:any) {
-    // row ? (this.FacilityId = row._id) : null;
-    const dialogRef = this._dialog.open(ViewUserDialogComponent, {
-      data: data,
-
-      width: '30%',
+  openViewUser(data:Users.IDataMode) {
+    data.row ? (this.userId = data.row._id) : null;
+    const dialogRef = this._dialog.open(ProfileComponent, {
+      data: data.row,
+      width: '50%',
     });
-    console.log(data.row)
-
 
     dialogRef.afterClosed().subscribe((result:any) => {
       console.log('result', result);
-      // if (result) {
-      //   if (!this.FacilityId) {
-      //     this.addFacility(result);
-      //   } else this.editFacility(result);
-      // }
     });
+
+
+
   }
 
   pageNumber(event: number) {
@@ -131,5 +152,26 @@ export class UsersComponent {
   pageSize(event: number) {
     this.pageSizing = event;
     this.getUsers();
+  }
+
+  openAddUser(){
+    const dialogRef = this._dialog.open(AddUserComponent)
+
+    dialogRef.afterClosed().subscribe(()=>{
+      this.getUsers();
+    })
+
+  }
+  @HostListener('window:resize',['$event'])
+  onResize(event:Event){
+  this.checkBodyWidth()
+  }
+  private checkBodyWidth() {
+    if (window.innerWidth <= 991) {
+      this.isGrid = true;
+      this.disableTableButton = true;
+    } else {
+      this.disableTableButton = false;
+    }
   }
 }

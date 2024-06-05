@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import Ads from '../model/Ads.namespace';
+import Ads from '../model/Ads';
 import { Observable } from 'rxjs';
 import { HttpEndPoints } from 'src/app/common/setting/HttpEndPoients';
 
