@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Card } from 'src/app/shared/components/shared-card/models/shared-card';
+import { Component, HostListener } from '@angular/core';
 import Ads from './model/Ads';
 import { AdsDialogComponent } from './components/ads-dialog/ads-dialog.component';
 import { Table } from 'src/app/shared/components/table/model/Table';
@@ -22,7 +23,8 @@ export class AdsComponent {
 
   pageNum: number = 1;
   pageSizing: number = 10;
-
+  isGrid:boolean=false;
+  disableTableButton:boolean=false;
   rooms = [];
   columns: Table.IColumn[] = [
     {
@@ -51,6 +53,35 @@ export class AdsComponent {
       isBoolean: true
     }
   ];
+
+  cards: Card.ICard[] = [
+    {
+      key: 'Room Name',
+      property: 'roomName',
+    },
+    {
+      key: 'Price',
+      property: 'roomPrice',
+    },
+    {
+      key: 'Discount',
+      property: 'roomDiscount',
+    },
+    {
+      key: 'Capacity',
+      property: 'roomCapacity',
+    },
+    {
+      key: 'Created By',
+      property: 'createdBy',
+    },
+    {
+      key: 'Active',
+      property: 'isActive',
+      isBoolean: true
+    }
+  ];
+
   operators: Table.IOperators[] = [
     {
       icon: 'edit_square',
@@ -212,6 +243,19 @@ export class AdsComponent {
         this.getAds()
       }
     })
+  }
+
+  @HostListener('window:resize',['$event'])
+  onResize(event:Event){
+  this.checkBodyWidth()
+  }
+  private checkBodyWidth() {
+    if (window.innerWidth <= 991) {
+      this.isGrid = true;
+      this.disableTableButton = true;
+    } else {
+      this.disableTableButton = false;
+    }
   }
 
 }
