@@ -118,7 +118,7 @@ export class BookingComponent {
 
       },
       complete: () => {
-        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this._NotifyService.Success(`Booking Deleted Successfuly`);
         this.getBooking()
       }
     })

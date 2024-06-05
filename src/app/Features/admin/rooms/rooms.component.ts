@@ -163,7 +163,7 @@ export class RoomsComponent {
 
       },
       complete: () => {
-        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this._NotifyService.Success(`Room Deleted Successfuly`);
         this.geAllRooms()
       }
     })

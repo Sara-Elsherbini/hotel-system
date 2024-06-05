@@ -218,7 +218,7 @@ export class AdsComponent {
 
       },
       complete: () => {
-        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this._NotifyService.Success(`Ads Deleted Successfuly`);
         this.getAds()
       }
     })
