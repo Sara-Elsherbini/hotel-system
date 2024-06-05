@@ -9,6 +9,20 @@
   <p class="text-muted mt-0">You can check all details</p>
 </div>
 
-<app-table [columns]="columns" [totalCount]="roomList.totalCount"  [data]="data" [operators]="operators"
+<div class="grid d-flex gap-3 mx-5 my-3 justify-content-end">
+  <button (click)="isGrid=false" [disabled]="!!disableTableButton">
+    <i class="fa-solid fa-table-cells fa-2x"></i>
+  </button>
+  <button (click)="isGrid=true">
+    <i  class="fa-solid fa-grip fa-2x"></i>
+  </button>
+
+</div>
+
+<app-shared-card *ngIf="!noData&&isGrid" [ICard]="cards" [totalCount]="roomList.totalCount"  [data]="data" [operators]="operators"
+(pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)">
+
+</app-shared-card>
+<app-table *ngIf="!noData&&!isGrid" [columns]="columns" [totalCount]="roomList.totalCount"  [data]="data" [operators]="operators"
 (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)"></app-table>
 <app-no-data *ngIf="noData==true"></app-no-data>

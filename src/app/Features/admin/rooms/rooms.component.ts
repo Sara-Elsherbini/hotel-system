@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Card } from 'src/app/shared/components/shared-card/models/shared-card';
+import { Component, HostListener } from '@angular/core';
 import { RoomsService } from './services/rooms.service';
 import { Rooms } from './models/rooms'
 import { HttpErrorResponse } from '@angular/common/http';
@@ -24,6 +25,8 @@ export class RoomsComponent {
   noData: boolean = false
   pageNum: number = 1;
   pageSizing: number = 10;
+  isGrid :boolean= false;
+  disableTableButton  :boolean= false;
   columns: Table.IColumn[] = [
     {
       header: "Room number",
@@ -48,6 +51,33 @@ export class RoomsComponent {
     },
     {
       header: "Facilities",
+      property: "facilities"
+    }
+  ]
+  cards: Card.ICard[] = [
+    {
+      key: "Room number",
+      property: "roomNumber"
+    },
+    {
+      key: "Image",
+      property: "image",
+      isImage: true
+    },
+    {
+      key: "Price",
+      property: "price"
+    },
+    {
+      key: "Discount",
+      property: "discount"
+    },
+    {
+      key: "Capacity",
+      property: "capacity"
+    },
+    {
+      key: "Facilities",
       property: "facilities"
     }
   ]
@@ -184,6 +214,19 @@ export class RoomsComponent {
         this.geAllRooms()
       }
     })
+  }
+
+  @HostListener('window:resize',['$event'])
+  onResize(event:Event){
+  this.checkBodyWidth()
+  }
+  private checkBodyWidth() {
+    if (window.innerWidth <= 991) {
+      this.isGrid = true;
+      this.disableTableButton = true;
+    } else {
+      this.disableTableButton = false;
+    }
   }
 }
 

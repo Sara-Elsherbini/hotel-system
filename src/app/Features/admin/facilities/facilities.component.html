@@ -21,7 +21,6 @@
 
     </div>
 
-
   <app-shared-card  *ngIf="noData==false&&isGrid" [totalCount]="FacilitiesList?.totalCount" [ICard]="cards"  [data]="data"
   [operators]="operators" (operationData)="runOp($event)" (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)"></app-shared-card>
   <app-table *ngIf="noData==false &&!isGrid" [totalCount]="FacilitiesList?.totalCount" [columns]="columns" [data]="data"
