@@ -23,6 +23,9 @@ import { ViewvalueComponent } from './components/viewvalue/viewvalue.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SharedCardComponent } from './components/shared-card/shared-card.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { LandingNavbarComponent } from './components/landing-navbar/landing-navbar.component';
+
 @NgModule({
 
   declarations: [
@@ -34,7 +37,9 @@ import {MatDividerModule} from '@angular/material/divider';
     ProfileComponent,
     NavbarDropdownComponent,
     ViewvalueComponent,
-    SharedCardComponent
+    SharedCardComponent,
+    ChangePasswordComponent,
+    LandingNavbarComponent
   ],
   imports: [
     CommonModule,
@@ -78,7 +83,10 @@ import {MatDividerModule} from '@angular/material/divider';
     MatCardModule,
     NavbarDropdownComponent,
     SharedCardComponent,
-    MatDividerModule
+    MatDividerModule,
+    ChangePasswordComponent,
+    ViewvalueComponent,
+    LandingNavbarComponent
   ],
 })
 export class SharedModule { }
