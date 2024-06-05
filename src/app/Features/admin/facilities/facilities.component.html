@@ -11,13 +11,13 @@
     </div>
   </div>
 
-    <div class="grid d-flex gap-3 mx-5 justify-content-end">
-      <span>
-        <i (click)="isGrid=false" class="fa-solid fa-table-cells fa-2x"></i>
-      </span>
-      <span>
-        <i (click)="isGrid=true" class="fa-solid fa-grip fa-2x"></i>
-      </span>
+    <div class="grid d-flex gap-3 mx-5 my-3 justify-content-end">
+      <button (click)="isGrid=false" [disabled]="!!disableTableButton">
+        <i class="fa-solid fa-table-cells fa-2x"></i>
+      </button>
+      <button (click)="isGrid=true">
+        <i  class="fa-solid fa-grip fa-2x"></i>
+      </button>
 
     </div>
 

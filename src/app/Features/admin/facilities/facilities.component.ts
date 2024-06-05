@@ -1,5 +1,5 @@
 import { SharedCardComponent } from './../../../shared/components/shared-card/shared-card.component';
-import { Component, Inject } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
 import { FacilitiesService } from './services/facilities.service';
 import { Facilities } from './models/facilites';
 import { NotifyService } from 'src/app/common';
@@ -24,6 +24,7 @@ export class FacilitiesComponent {
   pageSizing: number = 10;
   noData: Boolean = false;
   isGrid:boolean=false;
+  disableTableButton:boolean=false;
   columns: Table.IColumn[] = [
     {
       header: 'Name',
@@ -216,6 +217,18 @@ export class FacilitiesComponent {
           this.getFacilities();
         },
       });
+  }
+@HostListener('window:resize',['$event'])
+  onResize(event:Event){
+  this.checkBodyWidth()
+  }
+  private checkBodyWidth() {
+    if (window.innerWidth <= 991) {
+      this.isGrid = true;
+      this.disableTableButton = true;
+    } else {
+      this.disableTableButton = false;
+    }
   }
 }
 
