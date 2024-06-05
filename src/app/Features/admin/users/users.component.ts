@@ -1,5 +1,6 @@
+import { Card } from 'src/app/shared/components/shared-card/models/shared-card';
 import { UsersService } from './services/users.service';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Users } from './models/users';
 import { Table } from 'src/app/shared/components/table/model/Table';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -22,8 +23,9 @@ export class UsersComponent {
   pageSizing: number = 10;
   noData: Boolean = false;
   data: Users.IUser[] = [];
- userId:string=''
-
+  userId:string=''
+  isGrid :boolean= false;
+  disableTableButton  :boolean= false;
   columns: Table.IColumn[] = [
     {
       header: 'Name',
@@ -40,6 +42,27 @@ export class UsersComponent {
     },
     {
       header: 'Country',
+      property: 'country',
+      // isDate: true,
+    },
+  ];
+
+  cards: Card.ICard[] = [
+    {
+      key: 'Name',
+      property: 'userName',
+    },
+    {
+      key: 'Email',
+      property: 'email',
+    },
+    {
+      key: 'Phone number',
+      property: 'phoneNumber',
+      // isDate: true,
+    },
+    {
+      key: 'Country',
       property: 'country',
       // isDate: true,
     },
@@ -137,5 +160,17 @@ export class UsersComponent {
       this.getUsers();
     })
 
+  }
+  @HostListener('window:resize',['$event'])
+  onResize(event:Event){
+  this.checkBodyWidth()
+  }
+  private checkBodyWidth() {
+    if (window.innerWidth <= 991) {
+      this.isGrid = true;
+      this.disableTableButton = true;
+    } else {
+      this.disableTableButton = false;
+    }
   }
 }

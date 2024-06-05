@@ -1,5 +1,7 @@
 
-<div class="d-flex justify-content-between align-items-center my-3">
+<section>
+
+  <div class="d-flex justify-content-between align-items-center my-3">
     <div>
       <h2 class="h4">Users Table Details</h2>
       <p>You can check all details</p>
@@ -12,6 +14,22 @@
     </div>
 
   </div>
+  <div class="grid d-flex gap-3 mx-5 my-3 justify-content-end">
+    <button (click)="isGrid=false" [disabled]="!!disableTableButton">
+      <i class="fa-solid fa-table-cells fa-2x"></i>
+    </button>
+    <button (click)="isGrid=true">
+      <i  class="fa-solid fa-grip fa-2x"></i>
+    </button>
+
+  </div>
+
+  <app-shared-card *ngIf="!noData&&isGrid" [ICard]="cards" [totalCount]="UsersList?.totalCount"  [data]="data" [operators]="operators"
+  (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)">
+
+</app-shared-card>
   <app-table  (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)" [totalCount]="UsersList?.totalCount" *ngIf="noData==false" [columns]="columns" [data]="data"
    [operators]="operators" ></app-table>
   <app-no-data *ngIf="noData==true"></app-no-data>
+
+</section>
