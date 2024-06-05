@@ -29,11 +29,14 @@ export class HttpEndPoints {
   }
   public static booking = {
     bookingList: 'admin/booking',
+    bookingdelete: 'admin/booking/',
+
+
   }
 
-  public static Users={
-    usersList:'admin/users',
-   
+  public static Users = {
+    usersList: 'admin/users',
+
   }
 
 }

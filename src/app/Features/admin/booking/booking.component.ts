@@ -4,6 +4,8 @@ import { Booking } from './models/booking';
 import { BookingService } from './services/booking.service';
 import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -11,8 +13,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class BookingComponent {
   noData: Boolean = false;
-  bookingList:Booking.IBookingData|any;
-  bookingData:Booking.IBooking[]=[];
+  bookingList: Booking.IBookingData | any;
+  bookingData: Booking.IBooking[] = [];
   pageNum: number = 1;
   pageSizing: number = 10;
   columns: Table.IColumn[] = [
@@ -28,12 +30,12 @@ export class BookingComponent {
     {
       header: 'Start date',
       property: 'startDate',
-      isDate:true
+      isDate: true
     },
     {
       header: 'End date',
       property: 'endDate',
-      isDate:true
+      isDate: true
     },
     {
       header: 'User',
@@ -50,9 +52,9 @@ export class BookingComponent {
       title: 'Delete',
     },
   ];
- constructor(private _BookingService:BookingService,
-  private _NotifyService: NotifyService,
-  ){}
+  constructor(private _BookingService: BookingService,
+    private _NotifyService: NotifyService, private __dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.getBooking();
@@ -76,15 +78,15 @@ export class BookingComponent {
         console.log(res);
 
         this.bookingList = res.data;
-        const tableData = res.data.booking.map((item:any) => ({
+        const tableData = res.data.booking.map((item: any) => ({
           ...item,
           room: item.room.roomNumber,
-          user:item.user.userName
+          user: item.user.userName
         }));
         this.bookingData = tableData;
-// //
-//         console.log(this.data)
-//         !this.data.length ? (this.noData = true) : (this.noData = false);
+        // //
+        //         console.log(this.data)
+        //         !this.data.length ? (this.noData = true) : (this.noData = false);
       },
       error: (err: HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message);
@@ -94,7 +96,7 @@ export class BookingComponent {
   }
   runOp(data: any) {
 
-    // console.log(data);
+    console.log(data);
     // if (data.opInfo == 'Edit') {
     //   this.openAddEditFacility('Edit', data.row);
     //   console.log('1', data.row._id);
@@ -103,8 +105,39 @@ export class BookingComponent {
 
     //   this.openAddEditFacility('View', data.row);
     // }
-    // if (data.opInfo === 'Delete') {
-    //   this.openDeleteDialog(data.row._id)
-    // }
+    if (data.opInfo === 'Delete') {
+      this.deleteBooking(data.row._id)
+    }
   }
+
+  deleteBooking(id: number) {
+    this._BookingService.deleteBooking(id).subscribe({
+      next: (res) => { },
+      error: (error: HttpErrorResponse) => {
+        this._NotifyService.ServerError(error.error.message)
+
+      },
+      complete: () => {
+        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this.getBooking()
+      }
+    })
+  }
+
+  openDeleteBooking(id: number): void {
+    console.log(id);
+
+    const dialogRef = this.__dialog.open(DeleteComponent, {
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // this(id)
+        // console.log(result);
+        this.deleteBooking(id)
+      }
+    })
+  }
+
+
 }
