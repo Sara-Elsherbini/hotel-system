@@ -16,8 +16,8 @@ export namespace Booking{
     startDate:  Date;
     endDate:    Date;
     totalPrice: number;
-    user:       string;
-    room:       string;
+    user:       IUser;
+    room:       IRoom;
     status:     string;
     createdAt:  Date;
     updatedAt:  Date;
