@@ -14,17 +14,22 @@ a{
 }
 
 :is(.auth, .landing-navbar) {
-  .title {
+  .title{
     color: $primary-color;
-    span {
-      color: $main-color !important;
+    span{
+      color: $main-color!important;
     }
   }
+  p{
+    a{
+      color: $danger-Color;
+    }
+   }
 }
-
-mat-icon {
+mat-icon{
   color: $primary-color !important;
 }
 .main-title{
   color: $primary-color;
 }
+

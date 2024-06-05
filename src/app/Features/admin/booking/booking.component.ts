@@ -137,6 +137,10 @@ export class BookingComponent {
 
       this.openViewBooking( data.row);
     }
+    if (data.opInfo == 'View') {
+
+      this.openViewBooking( data.row);
+    }
   }
 
   deleteBooking(id: number) {
@@ -152,21 +156,20 @@ export class BookingComponent {
       }
     })
   }
-
+  
   openDeleteBooking(id: number): void {
-    console.log(id);
-
     const dialogRef = this._dialog.open(DeleteComponent, {
       data: { id: id },
     });
+    
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.deleteBooking(id)
+        this.deleteBooking(id);
       }
     })
+  
   }
 
-  
 
   openViewBooking(data:Booking.IBooking) {
     const dialogRef = this._dialog.open(ViewBookingDialogComponent, {
