@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Table } from './model/Table.namespace';
+import { Table } from './model/Table';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -19,7 +19,7 @@ export class TableComponent {
   @Output() operationData = new EventEmitter()
   @Output() pageSizeChanged = new EventEmitter<number>();
   @Output() pageIndexChanged = new EventEmitter<number>();
-  constructor() {  
+  constructor() {
 
   }
 

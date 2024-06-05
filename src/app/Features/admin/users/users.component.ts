@@ -1,7 +1,7 @@
 import { UsersService } from './services/users.service';
 import { Component } from '@angular/core';
 import { Users } from './models/users';
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Table } from 'src/app/shared/components/table/model/Table';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ViewUserDialogComponent } from './components/view-user-dialog/view-user-dialog.component';
 import { MatDialog } from '@angular/material/dialog';

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import Ads from './model/Ads';
 import { AdsDialogComponent } from './components/ads-dialog/ads-dialog.component';
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Table } from 'src/app/shared/components/table/model/Table';
 import { AdsService } from './services/ads.service';
 import { NotifyService } from 'src/app/common';
 import { MatDialog } from '@angular/material/dialog';

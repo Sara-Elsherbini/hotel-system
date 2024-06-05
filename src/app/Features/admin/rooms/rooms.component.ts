@@ -3,7 +3,7 @@ import { RoomsService } from './services/rooms.service';
 import { Rooms } from './models/rooms'
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotifyService } from 'src/app/common';
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Table } from 'src/app/shared/components/table/model/Table';
 import { Router } from '@angular/router';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { ViewRoomComponent } from './components/view-room/view-room.component';
