@@ -6,7 +6,7 @@
         <mat-card-content>
           <ng-container *ngFor="let item of ICard">
             <span *ngIf="item.isImage">
-              <img mat-card-sm-image [src]="row[item.property]" >
+              <img class="img w-100" mat-card-sm-image [src]="row[item.property]" >
             </span>
 
             <span *ngIf="item.isDate"><b>{{ item.key }}:</b> {{ row[item.property] | date:"fullDate"}}</span>

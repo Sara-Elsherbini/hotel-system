@@ -55,14 +55,15 @@ export class RoomsComponent {
     }
   ]
   cards: Card.ICard[] = [
-    {
-      key: "Room number",
-      property: "roomNumber"
-    },
+
     {
       key: "Image",
       property: "image",
       isImage: true
+    },
+    {
+      key: "Room number",
+      property: "roomNumber"
     },
     {
       key: "Price",
