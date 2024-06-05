@@ -1,34 +1,19 @@
-<!-- <mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>This card indeterminates progress bar.</p>
-
-  </mat-card-content>
-</mat-card> -->
-
-
-
-
-
-<mat-card class="example-card p-2">
-  <a class="text-end d-block " (click)="onNoClick()"><i class="fa-regular close fa-2x fa-circle-xmark text-danger"></i></a>
-
-  <mat-card-header>
-
-      <mat-card-title><h2 class="main-title">Book details</h2></mat-card-title>
-
-  </mat-card-header>
-  <mat-card-content>
-    <div class="data font">
-      <span class="h3 fs-4">Name :</span><span class="fs-5 ps-2">{{data.room}}</span><br>
-      <p class="h4">User : <span class="dark-blue">{{data.user}} </span></p>
-      <p class="h4">Price : <span class="dark-blue">{{data.totalPrice}} </span></p>
-      <p class="h4">status : <span class="dark-blue">{{data.status}} </span></p>
-      <p class="h4">Updated at : <span class="dark-blue">{{data.updatedAt|date}} </span></p>
-      <hr>
+<section>
+  <div class="container p-2">
+    <div class="title d-flex justify-content-between align-items-center mx-2 my-3">
+      <h2 class="fw-bold main-title">Booking Details</h2>
+      <div class="close" (click)="onNoClick()" style="cursor: pointer;"><i
+          class="fa-regular fa-circle-xmark fs-3 text-danger"></i></div>
+    </div>
+    <div class="row align-items-center justify-content-around m-3">
+      <div class="col-md-12 text-start">
+        <h3>{{ data.room }}</h3>
+        <app-viewvalue [title]="'User'" [icon]="'fa-light fa-user-group'" [value]="data.user"></app-viewvalue>
+        <app-viewvalue [title]="'Price'" [icon]="'fa-light fa-money-bill'" [value]="data.totalPrice"
+          [pipe]="'currency'"></app-viewvalue>
+        <app-viewvalue [title]="'Status'" [icon]="'fa-light fa-flag'" [value]="data.status"
+          [pipe]="'titlecase'"></app-viewvalue>
+      </div>
+    </div>
   </div>
-  </mat-card-content>
-</mat-card>
+</section>
