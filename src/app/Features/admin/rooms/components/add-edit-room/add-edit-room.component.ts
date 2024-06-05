@@ -6,7 +6,7 @@ import { FacilitiesService } from '../../../facilities/services/facilities.servi
 import { Facilities } from '../../../facilities/models/facilites';
 import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import {Rooms} from '../../models/rooms'
 @Component({
   selector: 'app-add-edit-room',
   templateUrl: './add-edit-room.component.html',
@@ -110,6 +110,8 @@ export class AddEditRoomComponent implements OnInit {
     this._RoomsService.getRoomById(id).subscribe({
       next: (res) => {
         this.roomData = res;
+        console.log("res",res);
+
         console.log(this.roomData);
         console.log(this.roomData.data.room.images);
 

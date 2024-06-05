@@ -28,7 +28,7 @@
   (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)">
 
 </app-shared-card>
-  <app-table  (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)" [totalCount]="UsersList?.totalCount" *ngIf="noData==false" [columns]="columns" [data]="data"
+  <app-table  *ngIf="!noData&&!isGrid"  (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)" (operationData)="runOp($event)" [totalCount]="UsersList?.totalCount" [columns]="columns" [data]="data"
    [operators]="operators" ></app-table>
   <app-no-data *ngIf="noData==true"></app-no-data>
 
