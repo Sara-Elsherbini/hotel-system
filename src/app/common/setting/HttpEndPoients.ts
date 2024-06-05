@@ -11,21 +11,32 @@ export class HttpEndPoints {
     FacilitiesList: 'admin/room-facilities',
     addFacilities: 'admin/room-facilities',
     editFacilities: 'admin/room-facilities',
-    FacilitiesDelete: 'admin/room-facilities/',
+    deleteFacilities: 'admin/room-facilities/',
   }
   public static Rooms = {
     RoomsList: 'admin/rooms',
     addRoom: 'admin/rooms',
     editRoom: 'admin/rooms',
     deleteRoom: 'admin/rooms/',
+
   }
 
   public static Ads = {
     AdsGeneral: 'admin/ads',
+    deleteAds: 'admin/ads/',
+
   }
   public static booking = {
     bookingList: 'admin/booking',
+    bookingdelete: 'admin/booking/',
+
+
   }
+
+
+  public static Users = {
+    usersList: 'admin/users',
+
 
   public static Users={
     usersList:'admin/users',
@@ -39,6 +50,7 @@ export class HttpEndPoints {
   public static AddUsers={
     addUser:'admin/users',
    
+
   }
 
 }

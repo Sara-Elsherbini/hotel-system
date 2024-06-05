@@ -28,8 +28,12 @@ export class FacilitiesService {
   }
 
   deleteFacility(facilitieID: number): Observable<{ raw: [], affected: number }> {
-    return this._HttpClient.delete<{ raw: [], affected: number }>(HttpEndPoints.Facilities.FacilitiesDelete + facilitieID)
+    return this._HttpClient.delete<{ raw: [], affected: number }>(HttpEndPoints.Facilities.deleteFacilities + facilitieID)
   }
+
+}
+
 
 
 }
+

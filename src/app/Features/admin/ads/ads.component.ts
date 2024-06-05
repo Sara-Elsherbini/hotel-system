@@ -153,8 +153,8 @@ export class AdsComponent {
     if (data.opInfo === 'Delete') {
       this.openDeleteAd(data.row._id)
     }
-
   }
+
 
   openAdDialog(mode: string, row?: Ads.IAds) {
     const dialogRef = this._dialog.open(AdsDialogComponent, {
@@ -216,6 +216,17 @@ export class AdsComponent {
       }
     })
   }
+  openDeleteDialog(id: string): void {
+    const dialogRef = this._dialog.open(DeleteComponent, {
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteAd(id)
+        // console.log(result);
+      }
+    })
+  }
 
   openDeleteAd(id: string): void {
     const dialogRef = this._dialog.open(DeleteComponent, {
@@ -239,11 +250,13 @@ export class AdsComponent {
 
       },
       complete: () => {
-        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this._NotifyService.Success(`Ads Deleted Successfuly`);
         this.getAds()
       }
     })
   }
+
+
 
   @HostListener('window:resize',['$event'])
   onResize(event:Event){
@@ -257,5 +270,6 @@ export class AdsComponent {
       this.disableTableButton = false;
     }
   }
+
 
 }
