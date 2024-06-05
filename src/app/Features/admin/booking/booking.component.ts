@@ -1,4 +1,4 @@
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Table } from 'src/app/shared/components/table/model/Table';
 import { Component } from '@angular/core';
 import { Booking } from './models/booking';
 import { BookingService } from './services/booking.service';

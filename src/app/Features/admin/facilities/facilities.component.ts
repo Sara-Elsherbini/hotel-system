@@ -3,7 +3,7 @@ import { FacilitiesService } from './services/facilities.service';
 import { Facilities } from './models/facilites';
 import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Table } from 'src/app/shared/components/table/model/Table.namespace';
+import { Table } from 'src/app/shared/components/table/model/Table';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditFacilitiesDialog } from './components/add-edit-facilities/add-edit-facilitiesDialog';
