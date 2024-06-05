@@ -1,15 +1,31 @@
+<section>
+  <div class="d-flex justify-content-between align-items-center my-3">
+    <div>
+      <h2 class="h4">Facilities Table Details</h2>
+      <p>You can check all details</p>
+    </div>
+    <div>
+      <button class="primary" (click)="openAddEditFacility('AddEdit')">
+        Add New Facility
+      </button>
+    </div>
+  </div>
 
-<div class="d-flex justify-content-between align-items-center my-3">
-  <div>
-    <h2 class="h4">Facilities Table Details</h2>
-    <p>You can check all details</p>
-  </div>
-  <div>
-    <button class="primary" (click)="openAddEditFacility('AddEdit')">
-      Add New Facility
-    </button>
-  </div>
-</div>
-<app-table *ngIf="noData==false" [totalCount]="FacilitiesList?.totalCount" [columns]="columns" [data]="data"
- [operators]="operators" (operationData)="runOp($event)" (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)"></app-table>
-<app-no-data *ngIf="noData==true"></app-no-data>
+    <div class="grid d-flex gap-3 mx-5 my-3 justify-content-end">
+      <button (click)="isGrid=false" [disabled]="!!disableTableButton">
+        <i class="fa-solid fa-table-cells fa-2x"></i>
+      </button>
+      <button (click)="isGrid=true">
+        <i  class="fa-solid fa-grip fa-2x"></i>
+      </button>
+
+    </div>
+
+
+  <app-shared-card  *ngIf="noData==false&&isGrid" [totalCount]="FacilitiesList?.totalCount" [ICard]="cards"  [data]="data"
+  [operators]="operators" (operationData)="runOp($event)" (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)"></app-shared-card>
+  <app-table *ngIf="noData==false &&!isGrid" [totalCount]="FacilitiesList?.totalCount" [columns]="columns" [data]="data"
+   [operators]="operators" (operationData)="runOp($event)" (pageIndexChanged)="pageNumber($event)" (pageSizeChanged)="pageSize($event)"></app-table>
+  <app-no-data *ngIf="noData==true"></app-no-data>
+</section>
+

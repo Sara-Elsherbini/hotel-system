@@ -1,0 +1,30 @@
+<section>
+
+  <div class="row  mx-2">
+    <div class="col-xl-3 col-md-4 my-2" *ngFor="let row of data">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <ng-container *ngFor="let item of ICard">
+            <span *ngIf="item.isDate"><b>{{ item.key }}:</b> {{ row[item.property] | date:"fullDate"}}</span>
+            <span *ngIf="!item.isImage&&!item.isDate" ><b>{{ item.key }}:</b> {{ row[item.property] }}</span>
+            <br>
+          </ng-container>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions *ngIf="operators && operators.length">
+          <ng-container *ngFor="let operator of operators" >
+            <button mat-button (click)="selectedOp(operator)(row)">
+              <mat-icon>{{ operator.icon }}</mat-icon>
+            </button>
+          </ng-container>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <mat-paginator *ngIf="totalCount" #paginator class="demo-paginator" (page)="handlePageEvent($event)"
+    [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25]" [pageIndex]="pageIndex"
+    aria-label="Select page">
+  </mat-paginator>
+
+</section>
