@@ -171,7 +171,7 @@ export class RoomsComponent {
     this.openViewUser(data);
     }
     if (data.opInfo === 'Delete') {
-      this.deleteRoom(data.row._id)
+      this.openDeleteRoom(data.row._id);
     }
   }
 

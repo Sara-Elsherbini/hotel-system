@@ -5,6 +5,15 @@ a{
   .full-height{
     height: 95vh;
    }
+
+  p {
+    a {
+      color: $danger-Color;
+    }
+   }
+}
+
+:is(.auth, .landing-navbar) {
   .title{
     color: $primary-color;
     span{

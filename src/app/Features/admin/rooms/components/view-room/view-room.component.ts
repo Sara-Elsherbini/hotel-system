@@ -11,8 +11,6 @@ export class ViewRoomComponent {
     private dialogRef: MatDialogRef<ViewRoomComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any
   ) {
-    console.log(data)
-
 
   }
   onNoClick(): void {

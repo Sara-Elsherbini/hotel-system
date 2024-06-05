@@ -131,7 +131,11 @@ export class BookingComponent {
 
 
     if (data.opInfo === 'Delete') {
-      this.deleteBooking(data.row._id)
+      this.openDeleteBooking(data.row._id)
+    }
+    if (data.opInfo == 'View') {
+
+      this.openViewBooking( data.row);
     }
     if (data.opInfo == 'View') {
 
@@ -152,27 +156,19 @@ export class BookingComponent {
       }
     })
   }
-
-  // openDeleteBooking(id: number): void {
-  //   console.log(id);
-
-  //   const dialogRef = this.__dialog.open(DeleteComponent, {
-  //     data: { id: id },
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result) {
-  //       // this(id)
-  //       // console.log(result);
-  //       this.deleteBooking(id)
-  //     }
-  //   })
-  // }
-
-
-
-    // if (data.opInfo === 'Delete') {
-    //   this.openDeleteDialog(data.row._id)
-    // }
+  
+  openDeleteBooking(id: number): void {
+    const dialogRef = this._dialog.open(DeleteComponent, {
+      data: { id: id },
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteBooking(id);
+      }
+    })
+  
+  }
 
 
   openViewBooking(data:Booking.IBooking) {
