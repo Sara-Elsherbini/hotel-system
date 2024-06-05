@@ -173,7 +173,7 @@ export class RoomsComponent {
     const dialogRef = this._dialog.open(ViewRoomComponent, {
       data: data,
 
-      width: '30%',
+      width: '35%',
     });
     console.log(data.row)
 
