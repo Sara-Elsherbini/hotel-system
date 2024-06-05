@@ -27,7 +27,7 @@
 </app-shared-card>
 
 <app-table
-    *ngIf="noData==false"
+    *ngIf="noData==false&&!isGrid"
     [totalCount]="AdsList?.totalCount"
     [columns]="columns"
     [data]="data"
