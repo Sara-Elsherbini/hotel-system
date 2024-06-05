@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { RoleEnum } from '../../Enums/RoleEnum.enum';
-import { HttpClient } from '@angular/common/http';
-import { HttpEndPoints } from '../../setting/HttpEndPoients';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 // import { jwtDecode } from 'jwt-decode';
 
@@ -16,7 +14,7 @@ interface IUser{
 })
 export class TokenService {
 
-  constructor( private router: Router, private _httpClient: HttpClient) { }
+  constructor( private router: Router) { }
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -67,12 +65,6 @@ export class TokenService {
   getRole() {
     let user = this.getUser();
     return user["role"];
-  }
-
-  getCurrentUser(){
-    let id = this.getID();
-    let endpoint = `${this.isAdmin() ? "admin": "portal"}/users/${id}`
-    return this._httpClient.get(endpoint);
   }
 
   logout() {
