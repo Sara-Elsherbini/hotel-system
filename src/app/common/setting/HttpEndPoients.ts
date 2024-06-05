@@ -27,5 +27,14 @@ export class HttpEndPoints {
     deleteAds: 'admin/ads/',
 
   }
+  public static booking = {
+    bookingList: 'admin/booking',
+  }
+
+  public static Users={
+    usersList:'admin/users',
+   
+  }
 
 }
+

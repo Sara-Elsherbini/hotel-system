@@ -17,6 +17,12 @@ export class SidebarComponent {
   @ViewChild("sect", { static: true }) sect!: ElementRef;
   @Input() height!:string;
 
+  constructor(private _TokenService:TokenService){}
+
+  toggleSidebar() {
+    this.parElm.nativeElement.classList.toggle("active-sidebar")
+    this.opened = !this.opened;
+  }
   menu: IMenu[] = [
     {
       text: 'Home',
@@ -25,27 +31,34 @@ export class SidebarComponent {
     },
     {
       text: 'Facilities',
-      icon: 'fa-thin fa-user-group',
+      icon:  'fa-regular fa-window-restore',
       link: this.RoutePaths.Admin.Facilities.FacilitiesList,
     },
     {
       text: 'Rooms',
-      icon: 'fa-thin fa-objects-column',
+      icon: 'fa-solid fa-person-shelter',
       link: this.RoutePaths.Admin.Room.RoomList,
     },
     {
       text: 'Ads',
-      icon: 'fa-light fa-calendar-range',
+      icon: 'fa-solid fa-wand-magic-sparkles',
       link: this.RoutePaths.Admin.Ads.AdsList,
+    },
+
+    {
+      text: 'Booking',
+      icon: 'fa-solid fa-ticket',
+      link: this.RoutePaths.Admin.Booking.bookingList,
+
+    },
+    {
+      text: 'Users',
+      icon: 'fa-solid fa-users',
+      link: this.RoutePaths.Admin.Users.usersList,
+
     }
 
   ]
 
-  constructor(private _TokenService:TokenService){}
-
-  toggleSidebar() {
-    this.parElm.nativeElement.classList.toggle("active-sidebar")
-    this.opened = !this.opened;
-  }
 
 }
