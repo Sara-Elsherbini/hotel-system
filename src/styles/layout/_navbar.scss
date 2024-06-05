@@ -1,6 +1,32 @@
+@import "../Variables";
+
 .profilePic {
   width: 30px;
   img {
     width: 100%;
+  }
+}
+
+.landing-navbar{
+  background-color: white;
+  color: $main-color;
+  .title{
+    font-size: 26px;
+  }
+  
+  .nav-link{
+    display: block;
+    margin-inline: 1rem;
+  }
+
+  .nav-button{
+    font-size: 1.1rem;
+    button{
+      padding-inline: 1rem;
+    }
+  }
+  
+  .active-route{
+    color: $primary-color !important;
   }
 }
