@@ -11,10 +11,10 @@
 
             <span *ngIf="item.isDate"><b>{{ item.key }}:</b> {{ row[item.property] | date:"fullDate"}}</span>
             <ng-container *ngIf="item.isBoolean">
-              <span *ngIf="row[item.property] === true">Yes</span>
-              <span *ngIf="row[item.property] === false">No</span>
+              <span *ngIf="row[item.property] === true"><b>{{ item.key }}:</b> Yes</span>
+              <span *ngIf="row[item.property] === false"><b>{{ item.key }}:</b> No</span>
             </ng-container>
-            <span *ngIf="!item.isImage&&!item.isDate" ><b>{{ item.key }}:</b> {{ row[item.property] }}</span>
+            <span *ngIf="!item.isImage&&!item.isDate&&!item.isBoolean" ><b>{{ item.key }}:</b> {{ row[item.property] }}</span>
             <br>
           </ng-container>
         </mat-card-content>
