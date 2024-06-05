@@ -122,8 +122,8 @@ export class AdsComponent {
     if (data.opInfo === 'Delete') {
       this.openDeleteAd(data.row._id)
     }
-
   }
+
 
   openAdDialog(mode: string, row?: Ads.IAds) {
     const dialogRef = this._dialog.open(AdsDialogComponent, {
@@ -185,6 +185,17 @@ export class AdsComponent {
       }
     })
   }
+  openDeleteDialog(id: string): void {
+    const dialogRef = this._dialog.open(DeleteComponent, {
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteAd(id)
+        // console.log(result);
+      }
+    })
+  }
 
   openDeleteAd(id: string): void {
     const dialogRef = this._dialog.open(DeleteComponent, {
@@ -212,5 +223,4 @@ export class AdsComponent {
       }
     })
   }
-
 }

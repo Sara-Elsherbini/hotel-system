@@ -6,8 +6,9 @@ import { NotifyService } from 'src/app/common';
 import { Table } from 'src/app/shared/components/table/model/Table.namespace';
 import { Router } from '@angular/router';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
-import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
+
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
@@ -115,9 +116,8 @@ export class RoomsComponent {
     if (data.opInfo == 'View') {
       // this.openAddEditFacility('View', data.row);
     }
-
     if (data.opInfo === 'Delete') {
-      this.openDeleteRoom(data.row._id)
+      this.openDeleteDialog(data.row._id)
     }
   }
 
@@ -131,7 +131,7 @@ export class RoomsComponent {
     this.geAllRooms();
   }
 
-  openDeleteRoom(id: number): void {
+  openDeleteDialog(id: number): void {
     const dialogRef = this._dialog.open(DeleteComponent, {
       data: { id: id },
     });

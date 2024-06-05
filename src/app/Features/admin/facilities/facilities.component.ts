@@ -153,6 +153,19 @@ export class FacilitiesComponent {
     });
   }
 
+  deleteFacilitiy(id: number) {
+    this._FacilitiesService.deleteFacility(id).subscribe({
+      next: (res) => { },
+      error: (error: HttpErrorResponse) => {
+        this._NotifyService.ServerError(error.error.message)
+
+      },
+      complete: () => {
+        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this.getFacilities()
+      }
+    })
+  }
 
   addFacility(CategoryName: string) {
     this._FacilitiesService.onaddFacility(CategoryName).subscribe({
