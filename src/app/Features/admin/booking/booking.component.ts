@@ -84,7 +84,7 @@ export class BookingComponent {
   ];
 
   constructor(private _BookingService: BookingService,
-    private _NotifyService: NotifyService, private __dialog: MatDialog
+    private _NotifyService: NotifyService, private _dialog: MatDialog
   ) { }
 
 
@@ -129,17 +129,13 @@ export class BookingComponent {
   runOp(data:any) {
 
 
-    console.log(data);
-    // if (data.opInfo == 'Edit') {
-    //   this.openAddEditFacility('Edit', data.row);
-    //   console.log('1', data.row._id);
-    // }
-    // if (data.opInfo == 'View') {
 
-    //   this.openAddEditFacility('View', data.row);
-    // }
     if (data.opInfo === 'Delete') {
       this.deleteBooking(data.row._id)
+    }
+    if (data.opInfo == 'View') {
+
+      this.openViewBooking( data.row);
     }
   }
 
@@ -157,30 +153,27 @@ export class BookingComponent {
     })
   }
 
-  openDeleteBooking(id: number): void {
-    console.log(id);
+  // openDeleteBooking(id: number): void {
+  //   console.log(id);
 
-    const dialogRef = this.__dialog.open(DeleteComponent, {
-      data: { id: id },
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // this(id)
-        // console.log(result);
-        this.deleteBooking(id)
-      }
-    })
-  }
+  //   const dialogRef = this.__dialog.open(DeleteComponent, {
+  //     data: { id: id },
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       // this(id)
+  //       // console.log(result);
+  //       this.deleteBooking(id)
+  //     }
+  //   })
+  // }
 
 
-    if (data.opInfo == 'View') {
 
-      this.openViewBooking( data.row);
-    }
     // if (data.opInfo === 'Delete') {
     //   this.openDeleteDialog(data.row._id)
     // }
-  }
+
 
   openViewBooking(data:Booking.IBooking) {
     const dialogRef = this._dialog.open(ViewBookingDialogComponent, {

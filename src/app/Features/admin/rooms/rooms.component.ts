@@ -10,7 +10,7 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { ViewRoomComponent } from './components/view-room/view-room.component';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
+
 
 @Component({
   selector: 'app-rooms',
@@ -171,7 +171,7 @@ export class RoomsComponent {
     this.openViewUser(data);
     }
     if (data.opInfo === 'Delete') {
-      this.openDeleteDialog(data.row._id)
+      this.deleteRoom(data.row._id)
     }
   }
 
