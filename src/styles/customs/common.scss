@@ -1,16 +1,16 @@
-a {
+a{
   text-decoration: none;
 }
-.auth {
-  .full-height {
+.auth{
+  .full-height{
     height: 95vh;
-  }
+   }
 
   p {
     a {
       color: $danger-Color;
     }
-  }
+   }
 }
 
 :is(.auth, .landing-navbar) {
@@ -25,6 +25,6 @@ a {
 mat-icon {
   color: $primary-color !important;
 }
-.main-title {
+.main-title{
   color: $primary-color;
 }

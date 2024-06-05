@@ -10,7 +10,7 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { ViewRoomComponent } from './components/view-room/view-room.component';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
+
 
 @Component({
   selector: 'app-rooms',
@@ -171,7 +171,7 @@ export class RoomsComponent {
     this.openViewUser(data);
     }
     if (data.opInfo === 'Delete') {
-      this.openDeleteDialog(data.row._id)
+      this.openDeleteRoom(data.row._id)
     }
   }
 
@@ -183,13 +183,7 @@ export class RoomsComponent {
     // row ? (this.FacilityId = row._id) : null;
     const dialogRef = this._dialog.open(ViewRoomComponent, {
       data: data,
-<<<<<<< HEAD
-
-      width: '35%',
-=======
-      // width: '50%',
       minWidth: "50%",
->>>>>>> dev
     });
     console.log(data.row)
 

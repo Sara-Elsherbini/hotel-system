@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { single } from 'rxjs';
 
 @Component({
   selector: 'app-view-room',
@@ -12,6 +11,7 @@ export class ViewRoomComponent {
     private dialogRef: MatDialogRef<ViewRoomComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+
   }
   onNoClick(): void {
     this.dialogRef.close();

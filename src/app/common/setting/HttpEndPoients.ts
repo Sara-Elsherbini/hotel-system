@@ -38,20 +38,17 @@ export class HttpEndPoints {
     usersList: 'admin/users',
 
 
-  public static Users={
-    usersList:'admin/users',
-
   }
   public static Home={
     Dashboard:'admin/dashboard',
 
   }
 
-  public static AddUsers={
-    addUser:'admin/users',
-   
+  // public static AddUsers={
+  //   addUser:'admin/users',
 
-  }
+
+  // }
 
 }
 
