@@ -17,8 +17,20 @@
                     <ng-container *ngIf="isLoggedIn">
                         <app-navbar-dropdown></app-navbar-dropdown>
                     </ng-container>
+                    <div class="language">
+                      <select #mylang class="form-select" (change)="onChangeLang(mylang.value)">
+
+                        <option value="en">En</option>
+                        <option value="ar">Ar</option>
+
+                      </select>
+                    </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+

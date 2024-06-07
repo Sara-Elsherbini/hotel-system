@@ -6,9 +6,9 @@ export class RoutePaths {
     forgetPass: 'forget-pass'
   }
 
-  public static Landing = {
-    home: "/home",
-    explore: "/explore",
+  public static User = {
+    home: "home",
+    explore: "explore",
     reviews: "/reviews",
     favorites: "/favorites",
     roomDetails: "/room/:id"

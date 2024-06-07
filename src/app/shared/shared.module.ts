@@ -25,6 +25,7 @@ import { SharedCardComponent } from './components/shared-card/shared-card.compon
 import {MatDividerModule} from '@angular/material/divider';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LandingNavbarComponent } from './components/landing-navbar/landing-navbar.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
 
@@ -59,7 +60,8 @@ import { LandingNavbarComponent } from './components/landing-navbar/landing-navb
     MatDialogModule,
     MatSelectModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    TranslateModule
   ],
   exports: [
     NoDataComponent,
@@ -86,7 +88,8 @@ import { LandingNavbarComponent } from './components/landing-navbar/landing-navb
     MatDividerModule,
     ChangePasswordComponent,
     ViewvalueComponent,
-    LandingNavbarComponent
+    LandingNavbarComponent,
+    TranslateModule
   ],
 })
 export class SharedModule { }

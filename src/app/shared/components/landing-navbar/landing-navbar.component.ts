@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { TokenService } from 'src/app/common';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 
@@ -10,34 +11,43 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
 export class LandingNavbarComponent implements OnInit {
 
   isLoggedIn!: boolean;
-
+  lang:string|any=localStorage.getItem('lang')!==null?localStorage.getItem('lang'):'en'
   menu: {text: string, link: string, isActive: boolean}[] = [
     {
       text: 'Home',
-      link: RoutePaths.Landing.home,
+      link: RoutePaths.User.home,
       isActive: true
     },
     {
       text: 'Explore',
-      link: RoutePaths.Landing.explore,
+      link: RoutePaths.User.explore,
       isActive: true
     },
     {
       text: 'Reviews',
-      link: RoutePaths.Landing.reviews,
+      link: RoutePaths.User.reviews,
       isActive: this._tokenService.isAuthenticated()
     },
     {
       text: 'Favorites',
-      link: RoutePaths.Landing.favorites,
+      link: RoutePaths.User.favorites,
       isActive: this._tokenService.isAuthenticated()
     }
   ]
 
-  constructor(private _tokenService: TokenService){}
+  constructor(private _tokenService: TokenService,private _translate: TranslateService) {
+    // this language will be used as a fallback when a translation isn't found in the current language
 
-  ngOnInit(): void {
+}
+  ngOnInit() {
       this.isLoggedIn = this._tokenService.isAuthenticated();
+      this.onChangeLang(this.lang)
   }
 
+onChangeLang(val:string){
+  this.lang=val
+  this._translate.setDefaultLang(val);
+  this._translate.use(val);
+  localStorage.setItem('lang',this.lang)
+}
 }
