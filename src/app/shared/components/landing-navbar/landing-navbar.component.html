@@ -18,11 +18,16 @@
                         <app-navbar-dropdown></app-navbar-dropdown>
                     </ng-container>
                     <div class="language">
-                      <select #mylang class="form-select" (change)="onChangeLang(mylang.value)">
+                      <!-- <select #mylang class="form-select" (change)="onChangeLang(mylang.value)">
 
                         <option value="en">En</option>
                         <option value="ar">Ar</option>
 
+                      </select> -->
+
+                      <select #mylang class="form-select" (change)="onChangeLang(mylang.value)">
+
+                        <option *ngFor="let lang of languages"  [value]="lang.value">{{lang.name}}</option>
                       </select>
                     </div>
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { TokenService } from 'src/app/common';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 
@@ -9,6 +9,10 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
   styleUrls: ['./landing-navbar.component.scss']
 })
 export class LandingNavbarComponent implements OnInit {
+ languages=[
+ {name:'En',value:'en'},
+ {name:'Ar',value:'ar'}
+ ]
 
   isLoggedIn!: boolean;
   lang:string|any=localStorage.getItem('lang')!==null?localStorage.getItem('lang'):'en'
@@ -35,8 +39,12 @@ export class LandingNavbarComponent implements OnInit {
     }
   ]
 
-  constructor(private _tokenService: TokenService,private _translate: TranslateService) {
-    // this language will be used as a fallback when a translation isn't found in the current language
+  constructor(private _tokenService: TokenService,
+    private _translate: TranslateService,) {
+   _translate.onLangChange.subscribe((event:LangChangeEvent)=>{
+    console.log("myevebt",event);
+
+   })
 
 }
   ngOnInit() {
@@ -44,10 +52,12 @@ export class LandingNavbarComponent implements OnInit {
       this.onChangeLang(this.lang)
   }
 
+
 onChangeLang(val:string){
   this.lang=val
   this._translate.setDefaultLang(val);
   this._translate.use(val);
   localStorage.setItem('lang',this.lang)
 }
+
 }

@@ -1,3 +1,6 @@
 {
-  "hello":"اهلا يكو راوند 3"
+ "home":{
+  "ForgetBusyWork":"انسي ضغوطات العمل",
+  "StartNextVacation":"وابدأ اجازتك"
+ }
 }

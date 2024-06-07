@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { GuestRoutingModule } from './user-routing.module';
 import { userComponent } from './user.component';
 import { SharedModule } from 'src/app/shared/shared.module';

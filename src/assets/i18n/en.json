@@ -1,3 +1,6 @@
 {
-  "hello":"Hello Jsb Round 3"
+  "home":{
+    "ForgetBusyWork":"Forget Busy Work,",
+    "StartNextVacation":"Start Next Vacation"
+   }
 }
