@@ -11,7 +11,7 @@ import { ExplorComponent } from './components/explor/explor.component';
   declarations: [
     userComponent,
     HomeComponent,
-    ExplorComponent
+    ExplorComponent,
   ],
   imports: [
     CommonModule,
