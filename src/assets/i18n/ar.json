@@ -1,6 +1,11 @@
 {
  "home":{
   "ForgetBusyWork":"انسي ضغوطات العمل",
-  "StartNextVacation":"وابدأ اجازتك"
- }
+  "StartNextVacation":"وابدأ اجازتك",
+  "EnjoyYourHolidayWithFamily":"نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة",
+  "HappyMemorable":"لجعل لحظات سعيدة لاتنسي"
+ },
+ "details":{},
+ "explor":{}
+
 }

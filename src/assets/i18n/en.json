@@ -1,6 +1,10 @@
 {
   "home":{
     "ForgetBusyWork":"Forget Busy Work,",
-    "StartNextVacation":"Start Next Vacation"
-   }
+    "StartNextVacation":"Start Next Vacation",
+    "EnjoyYourHolidayWithFamily":"We Provide What You Need To Enjoy Your Holiday With Family",
+    "HappyMemorable":"Time to make another memorable moments"
+   },
+   "details":{},
+   "explor":{}
 }
