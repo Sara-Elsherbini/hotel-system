@@ -3,7 +3,11 @@
     "ForgetBusyWork":"Forget Busy Work,",
     "StartNextVacation":"Start Next Vacation",
     "EnjoyYourHolidayWithFamily":"We Provide What You Need To Enjoy Your Holiday With Family",
-    "HappyMemorable":"Time to make another memorable moments"
+    "HappyMemorable":"Time to make another memorable moments",
+    "StartBooking":"Start Booking",
+    "PickDate":"Pick a Date",
+    "Capacity":"Capacity",
+    "Explor":"Explor"
    },
    "details":{},
    "explor":{}

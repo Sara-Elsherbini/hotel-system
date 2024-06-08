@@ -1,9 +1,9 @@
-<section class="my-4">
+<section class="my-4 section1">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6 ">
-        <div>
-          <h1 class="main-color">{{"home.ForgetBusyWork"|translate}}<br>
+    <div class="row ">
+      <div class="col-md-6">
+        <div class="">
+          <h1 class="main-color w-100">{{"home.ForgetBusyWork"|translate}}<br>
             {{"home.StartNextVacation"|translate}}
           </h1>
           <p class="light-color"> {{"home.EnjoyYourHolidayWithFamily"|translate}}<br>
@@ -11,8 +11,42 @@
           </p>
         </div>
 
-        <div>
-         <h5></h5>
+        <div class="mt-5 ">
+
+          <h5 class="main-color">{{"home.StartBooking"|translate}}</h5>
+          <div>
+            <p class="main-color">{{"home.PickDate"|translate}}</p>
+            <mat-form-field class="w-75">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date">
+                <input matEndDate placeholder="End date">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+
+          </div>
+          <div class="w-75">
+            <span>{{'home.Capacity'|translate}}</span>
+            <br>
+            <mat-form-field class="example-full-width w-100">
+
+              <mat-icon class="bg-danger-color text-white" matPrefix>remove</mat-icon>
+              <input type="tel" matInput placeholder="555-555-1234">
+              <mat-icon class="bg-green text-white h-100" matSuffix>add</mat-icon>
+            </mat-form-field>
+          </div>
+
+        </div>
+        <button class="primary w-50 ">{{"home.Explor"|translate}}</button>
+      </div>
+      <div class="col-md-6">
+        <div class=" img-home-border w-75 ">
+          <div class=" img-home w-100 mt-5 ">
+            <img class="img-fluid" src="../../../../../../assets/img/landing1.svg" alt="">
+          </div>
+
         </div>
 
       </div>
@@ -20,4 +54,3 @@
 
   </div>
 </section>
-
