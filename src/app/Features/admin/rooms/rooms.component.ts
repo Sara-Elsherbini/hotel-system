@@ -10,6 +10,8 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { ViewRoomComponent } from './components/view-room/view-room.component';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
+
+
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
@@ -21,7 +23,9 @@ export class RoomsComponent {
     totalCount: 0,
   };
 
-  data: Rooms.IRoom[] = [];
+  // data: Rooms.IRoom[] = [];
+  // noData: boolean = false
+  data: Rooms.IRoom[] | any = [];
   noData: boolean = false
   pageNum: number = 1;
   pageSizing: number = 10;
@@ -124,24 +128,32 @@ export class RoomsComponent {
         //   });
 
         let tableData = res.data.rooms.map((room: any) => {
-          const facilities = room.facilities.map((fac: Rooms.IFacility) => fac.name);
-          const facilitiesString = facilities.join(", ");
-          return {
-            ...room,
+          let facilitiesString = "";
+          room.facilities.forEach((fac: { [x: string]: string; }) => {
+            facilitiesString += fac["name"] + ", ";
+          });
 
-            image: room.images[0],
-            facilities: facilitiesString,
-          };
-        });
-        this.data = tableData;
-        !this.data.length ? this.noData = true : this.noData = false;
+          this.roomList = res.data;
+          let tableData = res.data.rooms.map((room: Rooms.IRoom) => {
+            const facilities = room.facilities.map((fac: Rooms.IFacility) => fac.name);
+            const facilitiesString = facilities.join(", ");
+
+            return {
+              ...room,
+              image: room.images[0],
+              facilities: facilitiesString,
+            };
+          });
+          this.data = tableData;
+          !this.data.length ? this.noData = true : this.noData = false;
+        })
+
       },
       error: (err: HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message)
       },
       complete: () => {
       }
-
     })
   }
 
@@ -158,7 +170,6 @@ export class RoomsComponent {
     if (data.opInfo == 'View') {
     this.openViewUser(data);
     }
-
     if (data.opInfo === 'Delete') {
       this.openDeleteRoom(data.row._id)
     }
@@ -172,7 +183,6 @@ export class RoomsComponent {
     // row ? (this.FacilityId = row._id) : null;
     const dialogRef = this._dialog.open(ViewRoomComponent, {
       data: data,
-      // width: '50%',
       minWidth: "50%",
     });
     console.log(data.row)
@@ -191,6 +201,7 @@ export class RoomsComponent {
 
 
   openDeleteRoom(id: number): void {
+
     const dialogRef = this._dialog.open(DeleteComponent, {
       data: { id: id },
       width: '30%',
@@ -211,7 +222,7 @@ export class RoomsComponent {
 
       },
       complete: () => {
-        this._NotifyService.Success(`Facilitie Deleted Successfuly`);
+        this._NotifyService.Success(`Room Deleted Successfuly`);
         this.geAllRooms()
       }
     })

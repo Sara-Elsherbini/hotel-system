@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { single } from 'rxjs';
 
 @Component({
   selector: 'app-view-room',
@@ -12,6 +11,7 @@ export class ViewRoomComponent {
     private dialogRef: MatDialogRef<ViewRoomComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -27,6 +27,7 @@ export class ViewRoomComponent {
     pullDrag: true,
     dots: false,
     navSpeed: 700,
+    // navigator: true,
     navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
     responsive: {
       0: {

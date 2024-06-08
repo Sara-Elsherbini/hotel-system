@@ -133,6 +133,7 @@ export class UsersComponent {
     data.row ? (this.userId = data.row._id) : null;
     const dialogRef = this._dialog.open(ProfileComponent, {
       data: data.row,
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result:any) => {

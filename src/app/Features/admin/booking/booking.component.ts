@@ -5,8 +5,10 @@ import { Booking } from './models/booking';
 import { BookingService } from './services/booking.service';
 import { NotifyService } from 'src/app/common';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewBookingDialogComponent } from './components/viewBookingDialog/viewBookingDialog.component';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -14,8 +16,8 @@ import { ViewBookingDialogComponent } from './components/viewBookingDialog/viewB
 })
 export class BookingComponent {
   noData: Boolean = false;
-  bookingList:Booking.IBookingData|any;
-  bookingData:Booking.IBooking[]=[];
+  bookingList: Booking.IBookingData | any;
+  bookingData: Booking.IBooking[] = [];
   pageNum: number = 1;
   pageSizing: number = 10;
   isGrid :boolean= false;
@@ -33,12 +35,12 @@ export class BookingComponent {
     {
       header: 'Start date',
       property: 'startDate',
-      isDate:true
+      isDate: true
     },
     {
       header: 'End date',
       property: 'endDate',
-      isDate:true
+      isDate: true
     },
     {
       header: 'User',
@@ -80,10 +82,11 @@ export class BookingComponent {
     //   title: 'Delete',
     // },
   ];
- constructor(private _BookingService:BookingService,
-  private _NotifyService: NotifyService,
-  public _dialog: MatDialog
-  ){}
+
+  constructor(private _BookingService: BookingService,
+    private _NotifyService: NotifyService, private _dialog: MatDialog
+  ) { }
+
 
   ngOnInit(): void {
     this.getBooking();
@@ -107,15 +110,15 @@ export class BookingComponent {
         console.log(res);
 
         this.bookingList = res.data;
-        const tableData = res.data.booking.map((item:any) => ({
+        const tableData = res.data.booking.map((item: any) => ({
           ...item,
           room: item.room.roomNumber,
-          user:item.user.userName
+          user: item.user.userName
         }));
         this.bookingData = tableData;
-// //
-//         console.log(this.data)
-//         !this.data.length ? (this.noData = true) : (this.noData = false);
+        // //
+        //         console.log(this.data)
+        //         !this.data.length ? (this.noData = true) : (this.noData = false);
       },
       error: (err: HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message);
@@ -125,14 +128,45 @@ export class BookingComponent {
   }
   runOp(data:any) {
 
+
+
+    if (data.opInfo === 'Delete') {
+      this.openDeleteBooking(data.row._id)
+    }
     if (data.opInfo == 'View') {
 
       this.openViewBooking( data.row);
     }
-    // if (data.opInfo === 'Delete') {
-    //   this.openDeleteDialog(data.row._id)
-    // }
   }
+
+  deleteBooking(id: number) {
+    this._BookingService.deleteBooking(id).subscribe({
+      next: (res) => { },
+      error: (error: HttpErrorResponse) => {
+        this._NotifyService.ServerError(error.error.message)
+
+      },
+      complete: () => {
+        this._NotifyService.Success(`Booking Deleted Successfuly`);
+        this.getBooking()
+      }
+    })
+  }
+
+  openDeleteBooking(id: number): void {
+    console.log(id);
+
+    const dialogRef = this._dialog.open(DeleteComponent, {
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteBooking(id)
+      }
+    })
+  }
+
+  
 
   openViewBooking(data:Booking.IBooking) {
     const dialogRef = this._dialog.open(ViewBookingDialogComponent, {
@@ -161,5 +195,6 @@ export class BookingComponent {
       this.disableTableButton = false;
     }
   }
+
 
 }

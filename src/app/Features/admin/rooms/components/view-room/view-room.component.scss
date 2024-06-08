@@ -4,3 +4,8 @@ p{
 .close{
   cursor: pointer;
 }
+
+img{
+  object-fit: cover;
+  aspect-ratio: 2/ 1; //w=2h
+}

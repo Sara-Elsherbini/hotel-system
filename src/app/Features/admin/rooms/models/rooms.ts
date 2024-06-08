@@ -9,6 +9,15 @@ export namespace Rooms {
     rooms:      IRoom[];
     totalCount: number;
 }
+export interface IRoomdDetails {
+  success: boolean;
+  message: string;
+  data:    ISingleRoom;
+}
+
+export interface ISingleRoom {
+  room: IRoom;
+}
 
 export interface IRoom {
     _id:        string;
@@ -18,7 +27,7 @@ export interface IRoom {
     discount:   number;
     facilities: IFacility[];
     createdBy:  IUser;
-    images:     string[];
+    images:    any;
     createdAt:  Date;
     updatedAt:  Date;
 }
