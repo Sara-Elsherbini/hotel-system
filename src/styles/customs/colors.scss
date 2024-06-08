@@ -1,8 +1,17 @@
 @import "../Variables";
 
 .main-color{
-  color:#152C5B;;
+  color:$main-color;
 }
 .light-color{
-  color: #B0B0B0;
+  color: $light-color
+}
+.bg-danger-color{
+  background-color:$danger-Color;
+}
+.bg-green{
+  background-color:$green-color;
+}
+.bg-accent{
+  background-color: $accent-color;
 }
