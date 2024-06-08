@@ -7,7 +7,9 @@
   "StartBooking":"احجز الان",
   "PickDate":"اختر الموعد",
   "Capacity":"عدد الأفراد",
-  "Explor":"استكشف"
+  "Explor":"استكشف",
+  "Person":"فرد",
+  "MostPopularAds":"الإعلانات الأكثر شعبية"
  },
  "details":{},
  "explor":{}

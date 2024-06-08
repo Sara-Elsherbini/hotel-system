@@ -7,7 +7,9 @@
     "StartBooking":"Start Booking",
     "PickDate":"Pick a Date",
     "Capacity":"Capacity",
-    "Explor":"Explor"
+    "Explor":"Explor",
+    "Person":"person",
+    "MostPopularAds":"Most Popular Ads"
    },
    "details":{},
    "explor":{}
