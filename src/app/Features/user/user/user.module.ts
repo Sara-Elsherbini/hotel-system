@@ -12,7 +12,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   declarations: [
     userComponent,
     HomeComponent,
-    ExplorComponent
+    ExplorComponent,
   ],
   imports: [
     CommonModule,
