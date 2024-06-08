@@ -45,9 +45,6 @@ export class AuthComponent {
   this._AuthService.login(data.value).subscribe({
     next:(res:Auth.ILoginRes)=>{
       this.role=res.data.user.role
-      // localStorage.setItem('token',res.data.token);
-      // let user=JSON.stringify(res.data.user)
-      // localStorage.setItem('user',user);
       this._tokenService.setUserData(res.data);
 
     },
@@ -60,6 +57,8 @@ export class AuthComponent {
     complete:()=>{this._NotifyService.Success("Data is Sent Successfully");
     if (this.role==RoleEnum.ADMIN) {
       this._Router.navigateByUrl(this.RoutePaths.Dashboard.Dashboard)
+    }else if (this.role==RoleEnum.USER) {
+      this._Router.navigateByUrl(this.RoutePaths.User.home)
     }
 
     }

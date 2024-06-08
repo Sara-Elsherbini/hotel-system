@@ -1,0 +1,17 @@
+{
+ "home":{
+  "ForgetBusyWork":"انسي ضغوطات العمل",
+  "StartNextVacation":"وابدأ اجازتك",
+  "EnjoyYourHolidayWithFamily":"نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة",
+  "HappyMemorable":"لجعل لحظات سعيدة لاتنسي",
+  "StartBooking":"احجز الان",
+  "PickDate":"اختر الموعد",
+  "Capacity":"عدد الأفراد",
+  "Explor":"استكشف",
+  "Person":"فرد",
+  "MostPopularAds":"الإعلانات الأكثر شعبية"
+ },
+ "details":{},
+ "explor":{}
+
+}

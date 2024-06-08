@@ -6,12 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { GlobalInterceptor } from './core/interceptor/global.interceptor';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { SpinnerInterceptor } from './core/interceptor/spinner.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { UserModule } from './Features/user/user/user.module';
 // import { FacilitiesModule } from './Features/admin/facilities/facilities.component';
-
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
+
+
   declarations: [
     AppComponent
   ],
@@ -21,7 +28,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    
+    UserModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+      }
+  }),
+
+
   ],
   providers: [
     {
