@@ -10,13 +10,13 @@
     </button>
     <mat-menu #menu="matMenu">
         <button class="menu-item" mat-menu-item (click)="profileDialog()">
-            Profile
+            {{"layout.navbar.dropdown.profile" | translate}}
         </button>
         <button class="menu-item" mat-menu-item (click)="changePasswordDialog()">
-            Change Password
+            {{"layout.navbar.dropdown.change_password" | translate}}
         </button>
         <button class="menu-item" mat-menu-item (click)="logout()">
-            Logout
+            {{"layout.navbar.dropdown.logout" | translate}}
         </button>
     </mat-menu>
 </div>

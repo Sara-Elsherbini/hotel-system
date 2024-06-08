@@ -1,21 +1,65 @@
 {
- "home":{
-  "ForgetBusyWork":"انسي ضغوطات العمل",
-  "StartNextVacation":"وابدأ اجازتك",
-  "EnjoyYourHolidayWithFamily":"نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة",
-  "HappyMemorable":"لجعل لحظات سعيدة لاتنسي",
-  "StartBooking":"احجز الان",
-  "PickDate":"اختر الموعد",
-  "Capacity":"عدد الأفراد",
-  "Explor":"استكشف",
-  "Person":"فرد",
-  "MostPopularAds":"الإعلانات الأكثر شعبية",
-  "HousesBeautyBackyard":"منازل ذات فناء خلفي جميل",
-  "HotelLargeLivingRoom":"فنادق بها غرفة معيشة كبيرة",
-  "WhatgreatTripMyFamily":"يالها من رحله رائعه حقا",
-  "IShouldTryAgainNextTimesoon":"سوف تتكرر قريبا"
- },
- "details":{},
- "explor":{}
-
+    "home": {
+        "ForgetBusyWork": "انسي ضغوطات العمل",
+        "StartNextVacation": "وابدأ اجازتك",
+        "EnjoyYourHolidayWithFamily": "نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة",
+        "HappyMemorable": "لجعل لحظات سعيدة لاتنسي",
+        "StartBooking": "احجز الان",
+        "PickDate": "اختر الموعد",
+        "Capacity": "عدد الأفراد",
+        "Explor": "استكشف",
+        "Person": "فرد",
+        "MostPopularAds": "الإعلانات الأكثر شعبية"
+    },
+    "details": {},
+    "explor": {},
+    "layout": {
+        "navbar": {
+            "links": {
+                "Home": "الصفحة الرئيسية",
+                "Explore": "تصفح",
+                "Reviews": "التقيمات",
+                "Favorites": "المفضلة"
+            },
+            "buttons": {
+                "Register": "تسجيل حساب",
+                "Login": "تسجيل الدخول"
+            },
+            "dropdown": {
+                "profile": "الصفحة الشخصية",
+                "change_password": "تغير كلمة السر",
+                "logout": "تسجيل الخروج"
+            }
+        },
+        "footer": {
+            "paragraph": "نحن نمنحك عطلة ولا أجمل على الفور ولا تنسى.",
+            "sections": {
+                "ForBeginners": {
+                    "title": "لاصدقائنا الجدد",
+                    "links": {
+                        "NewAccount": "حساب جديد",
+                        "StartBooking": "إبدا حجز غرفة الان",
+                        "UsePayments": "وسائل الدفع"
+                    }
+                },
+                "ExploreUs": {
+                    "title": "تعرف علينا",
+                    "links": {
+                        "OurCareers": "مسيرتنا",
+                        "Privacy": "الخصوصية",
+                        "Terms": "القواعد والاحكام"
+                    }
+                },
+                "ConnectUs": {
+                    "title": "تواصل معنا",
+                    "links": {
+                        "Email": "support@staycation.id",
+                        "Phone": "021 - 2208 - 1996",
+                        "Address": "ستاي كاشن, القاهرة, مصر"
+                    }
+                }
+            }
+        }
+    },
+    "general": {}
 }

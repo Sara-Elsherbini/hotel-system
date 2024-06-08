@@ -8,11 +8,11 @@
                 <div class="d-flex align-items-center justify-content-between">
                     <ng-container *ngFor="let item of menu">
                         <a *ngIf="item.isActive" [routerLink]="item.link" class="nav-link"
-                            routerLinkActive="active-route">{{item.text}}</a>
+                            routerLinkActive="active-route">{{ "layout.navbar.links." + item.text | translate}}</a>
                     </ng-container>
                     <ng-container *ngIf="!isLoggedIn">
-                        <a [routerLink]="['/auth', 'register']" class="nav-link nav-button"><button class="primary">Register</button></a>
-                        <a [routerLink]="['/auth']" class="nav-link nav-button"><button class="primary">Login</button></a>
+                        <a [routerLink]="['/auth', 'register']" class="nav-link nav-button"><button class="primary">{{"layout.navbar.links.Register" | translate}}</button></a>
+                        <a [routerLink]="['/auth']" class="nav-link nav-button"><button class="primary">{{"layout.navbar.links.Login" | translate}}</button></a>
                     </ng-container>
                     <ng-container *ngIf="isLoggedIn">
                         <app-navbar-dropdown></app-navbar-dropdown>
