@@ -13,7 +13,7 @@ a{
    }
 }
 
-:is(.auth, .landing-navbar) {
+:is(.auth, .landing-navbar, .landing-footer) {
   .title{
     color: $primary-color;
     span{

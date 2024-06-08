@@ -24,7 +24,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SharedCardComponent } from './components/shared-card/shared-card.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { LandingNavbarComponent } from './components/landing-navbar/landing-navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -39,8 +38,7 @@ import { TranslateModule } from '@ngx-translate/core';
     NavbarDropdownComponent,
     ViewvalueComponent,
     SharedCardComponent,
-    ChangePasswordComponent,
-    LandingNavbarComponent
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,
@@ -88,7 +86,6 @@ import { TranslateModule } from '@ngx-translate/core';
     MatDividerModule,
     ChangePasswordComponent,
     ViewvalueComponent,
-    LandingNavbarComponent,
     TranslateModule
   ],
 })

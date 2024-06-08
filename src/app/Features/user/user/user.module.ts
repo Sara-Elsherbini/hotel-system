@@ -7,12 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { ExplorComponent } from './components/explor/explor.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { LandingNavbarComponent } from './components/landing-navbar/landing-navbar.component';
 
 @NgModule({
   declarations: [
     userComponent,
     HomeComponent,
-    ExplorComponent
+    ExplorComponent,
+    LandingNavbarComponent
   ],
   imports: [
     CommonModule,
