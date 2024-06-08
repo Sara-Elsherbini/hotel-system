@@ -47,7 +47,8 @@ export class HttpEndPoints {
 
  public static User={
   home:{
-   GetAllads:'portal/ads'
+   GetAllads:'portal/ads',
+   Getallroom:'portal/rooms/available'
   }
  }
 

@@ -28,7 +28,7 @@ position: relative;
       right: 0;
       bottom: 100%;
       transition: bottom 400ms;
-      background-color:rgba(21, 44, 91, 0.278);
+      background-color:rgba(21, 44, 91, 0.2);
       border-radius: 15px!important;
     }
     img{
@@ -49,5 +49,15 @@ position: relative;
   .rest-img-ads{
     height: 16rem;
      border-radius: 15px;
+  }
+  .badge {
+    border-radius: 0px, 15px, 0px, 15px;
+  }
+
+}
+.card {
+  img{
+    width: 100%;
+    aspect-ratio: 3/2;
   }
 }
