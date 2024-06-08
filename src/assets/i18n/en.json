@@ -6,5 +6,24 @@
     "HappyMemorable":"Time to make another memorable moments"
    },
    "details":{},
-   "explor":{}
+   "explor":{},
+
+    "footer":{
+      "stayCation":"Staycation",
+      "kaboom":"We kaboom your beauty holiday instantly and memorable.",
+      "beginners":"For Beginners",
+      "newAccouant":"New Account",
+      "bookingRoom":"Start Booking a Room",
+      "usePayment":"Use Payments",
+      "exploreUs":"Explore Us",
+      "ourCareers":"Our Careers",
+      "privacy":"privacy",
+      "terms":"Terms & Conditions",
+      "connectUs":"Connect Us",
+      "copyRights":"Copyright 2019 • All rights reserved • Staycation"
+
+    }
+
+  
+
 }
