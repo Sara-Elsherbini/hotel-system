@@ -25,8 +25,8 @@ export class RoomsService {
 
     return this._HttpClient.get<Rooms.IRoomdDetails>(`${HttpEndPoints.Rooms.editRoom}/${id}`)
   }
-  deleteRoom(facilitieID: number): Observable<{ raw: [], affected: number }> {
-    return this._HttpClient.delete<{ raw: [], affected: number }>(HttpEndPoints.Rooms.deleteRoom + facilitieID)
+  deleteRoom(ID: number): Observable<{ raw: [], affected: number }> {
+    return this._HttpClient.delete<{ raw: [], affected: number }>(HttpEndPoints.Rooms.deleteRoom + ID)
   }
 
 }

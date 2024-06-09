@@ -1,3 +1,40 @@
-<p>
-  explor works!
-</p>
+<section class="explore">
+  <div class="container">
+    <div class="exploreTitle ">
+      <h1 class="text-center py-5" style="color:  #152C5B;">Explore ALL Rooms </h1>
+    </div>
+    <div class="links d-flex ">
+      <a class="me-2 text-muted" routerLink="home">Home /</a>
+      <a class="me-2 text-muted">Explore</a>
+    </div>
+    <div class="explore">
+      <h1 class="h4 mt-1" style="color:#152C5B;">All Rooms</h1>
+      <div class="row py-3">
+        <div class="col-md-3" *ngFor="let exploreList of data">
+          <div class="exploreBox">
+            <div class="exploreImg position-relative ">
+              <img matCardImage [src]="exploreList.image" class="img-fluid"
+                style=" border-radius: 30px; padding: 20px 10px;">
+              <div class="position-absolute" style="top: 20px; right: 10px;">
+                <p class="  text-white px-4  py-2" style=" border-radius:0px 15px 0px 15px; background-color: #FF498B;">
+                  {{exploreList.price|currencyint}}
+                  per
+                  night</p>
+              </div>
+
+              <div class="position-absolute text-white " style="bottom: 3px; left: 20px;">
+                <p class="m-0">{{exploreList.facilities.name}}</p>
+                <p class=""></p>
+              </div>
+            </div>
+            <div class="exploreContent">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</section>
