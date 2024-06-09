@@ -9,9 +9,9 @@ export class RoutePaths {
   public static User = {
     home: "home",
     explore: "explore",
-    reviews: "/reviews",
-    favorites: "/favorites",
-    roomDetails: "/room/:id"
+    reviews: "reviews",
+    favorites: "favorites",
+    roomDetails: "room/:id"
   }
 
   public static Dashboard = {

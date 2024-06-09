@@ -16,4 +16,8 @@ export class UserService {
   getAllRooms(): Observable<Rooms.IRoomsRes> {
     return this._HttpClient.get<Rooms.IRoomsRes>(HttpEndPoints.User.home.Getallroom);
   }
+
+  getRoomById(id: number): Observable<Rooms.IRoomdDetails>{
+    return this._HttpClient.get<Rooms.IRoomdDetails>(`${HttpEndPoints.User.home.GetRoomById}/${id}`);
+  }
 }
