@@ -6,7 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NotifyService } from 'src/app/common';
 import{Rooms} from '../../../../admin/rooms/models/rooms'
 import { MatDialog } from '@angular/material/dialog';
-import { FavPopComponent } from '../fav-pop/fav-pop.component';
+import { MustLoginDialog } from '../MustLoginDialog/MustLoginDialog';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 
@@ -31,16 +31,7 @@ export class HomeComponent implements OnInit {
     capacity: new FormControl(0,[Validators.required]),
 })
   constructor(private AuthService:AuthService,private _UserService:UserService,private router: Router,private _NotifyService:NotifyService, private dialogRef:MatDialog) {
-    this.AuthService.role
-    console.log(this.AuthService.role );
-
-
    }
-
-
-
-
-
   ngOnInit() {
     this.AuthService.getProfile()
 
@@ -48,7 +39,6 @@ export class HomeComponent implements OnInit {
     this.getRoom()
   }
   onExplor(data:FormGroup){
-   console.log("data",data.value);
 
   }
   getCapacity(){
@@ -71,8 +61,6 @@ export class HomeComponent implements OnInit {
         this.firstAds=res.data.ads[0];
         this.SecondAds=res.data.ads[1]
         this.adsList = res.data.ads.slice(2, 6);
-        console.log('adsList',this.adsList);
-
       },
       error: (err:HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message)
@@ -83,8 +71,6 @@ export class HomeComponent implements OnInit {
   getRoom() {
     this._UserService.getAllRooms().subscribe({
       next: (res) => {
-        console.log(res);
-
         this.beautyroomList=res.data.rooms.slice(0,4);
         this.largeroomList=res.data.rooms.slice(4,8)
       },
@@ -96,38 +82,28 @@ export class HomeComponent implements OnInit {
 
 
   checkIslogged(id:string){
-    debugger
-    console.log(this.AuthService.role);
+
 
     if( this.AuthService.role == "user"){
-
-
-      console.log("logged in user");
-
       this._UserService.addRoomFav(id).subscribe({
         next:(res)=>{
-          console.log(res);
         this._NotifyService.Success('Room added to favorites successfully')
 
         },
 
-       error:(err)=>{
+       error:(err:HttpErrorResponse)=>{
         this._NotifyService.ServerError(err.error.message)
-        console.log(err);
-
 
        }
       })
 
 
     }else{
-      console.log('not login user');
-
       this.openDialog()
     }
   }
   openDialog(){
-    this.dialogRef.open(FavPopComponent)
+    this.dialogRef.open(MustLoginDialog)
   }
 
 

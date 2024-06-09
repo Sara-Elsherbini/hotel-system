@@ -8,7 +8,7 @@ import { ExplorComponent } from './components/explor/explor.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { currencyintyPipe } from './pipe/currency.pipe';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { FavPopComponent } from './components/fav-pop/fav-pop.component';
+import { MustLoginDialog } from './components/MustLoginDialog/MustLoginDialog';
 import { LandingNavbarComponent } from './components/landing-navbar/landing-navbar.component';
 import { DetailsComponent } from './components/details/details.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     userComponent,
     HomeComponent,
     ExplorComponent,
-    FavPopComponent,
+    MustLoginDialog,
     currencyintyPipe,
     LandingNavbarComponent,
     DetailsComponent,
