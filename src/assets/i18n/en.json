@@ -1,14 +1,83 @@
 {
-  "home":{
-    "ForgetBusyWork":"Forget Busy Work,",
-    "StartNextVacation":"Start Next Vacation",
-    "EnjoyYourHolidayWithFamily":"We Provide What You Need To Enjoy Your Holiday With Family",
-    "HappyMemorable":"Time to make another memorable moments",
-    "StartBooking":"Start Booking",
-    "PickDate":"Pick a Date",
-    "Capacity":"Capacity",
-    "Explor":"Explor"
-   },
-   "details":{},
-   "explor":{}
+  "home": {
+    "ForgetBusyWork": "Forget Busy Work,",
+    "StartNextVacation": "Start Next Vacation",
+    "EnjoyYourHolidayWithFamily": "We Provide What You Need To Enjoy Your Holiday With Family",
+    "HappyMemorable": "Time to make another memorable moments",
+    "StartBooking": "Start Booking",
+    "PickDate": "Pick a Date",
+    "Capacity": "Capacity",
+    "Explor": "Explor",
+    "Person": "person",
+    "MostPopularAds": "Most Popular Ads",
+    "HousesBeautyBackyard": "Houses With Beauty Backyard",
+    "HotelLargeLivingRoom": "Hotels with large living room",
+    "WhatgreatTripMyFamily": "What a great trip with my family and",
+    "IShouldTryAgainNextTimesoon": "i should try again next time soon"
+  },
+  "layout": {
+    "navbar": {
+      "links": {
+        "Home": "Home",
+        "Explore": "Explore",
+        "Reviews": "Reviews",
+        "Favorites": "Favorites"
+      },
+      "buttons": {
+        "Register": "Register",
+        "Login": "Login"
+      },
+      "dropdown": {
+        "profile": "Profile Account",
+        "change_password": "Change Password",
+        "logout": "Logout"
+      }
+    },
+    "footer": {
+      "paragraph": "We kaboom your beauty holiday instantly and memorable.",
+      "sections": {
+        "ForBeginners": {
+          "title": "For Beginners",
+          "links": {
+            "NewAccount": "New Account",
+            "StartBooking": "Start Booking a Room",
+            "UsePayments": "Use Payments"
+          }
+        },
+        "ExploreUs": {
+          "title": "Explore Us",
+          "links": {
+            "OurCareers": "Our Careers",
+            "Privacy": "Privacy",
+            "Terms": "Terms & Conditions"
+          }
+        },
+        "ConnectUs": {
+          "title": "Connect Us",
+          "links": {
+            "Email": "support@staycation.id",
+            "Phone": "021 - 2208 - 1996",
+            "Address": "Staycation, Kemang, Jakarta"
+          }
+        }
+      }
+    }
+  },
+
+  "footer": {
+    "stayCation": "Staycation",
+    "kaboom": "We kaboom your beauty holiday instantly and memorable.",
+    "beginners": "For Beginners",
+    "newAccouant": "New Account",
+    "bookingRoom": "Start Booking a Room",
+    "usePayment": "Use Payments",
+    "exploreUs": "Explore Us",
+    "ourCareers": "Our Careers",
+    "privacy": "privacy",
+    "terms": "Terms & Conditions",
+    "connectUs": "Connect Us",
+    "copyRights": "Copyright 2019 • All rights reserved • Staycation"
+  },
+  "details": {},
+  "explor": {}
 }

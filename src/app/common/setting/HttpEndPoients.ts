@@ -1,4 +1,5 @@
 export class HttpEndPoints {
+
   public static Auth = {
     general: 'admin/users',
     login: 'admin/users/login',
@@ -44,6 +45,7 @@ export class HttpEndPoints {
 
   }
 
+
   // public static AddUsers={
   //   addUser:'admin/users',
 
@@ -52,5 +54,15 @@ export class HttpEndPoints {
   public static ExplorRoom = {
     UsersRoom: 'portal/rooms/available'
   }
+
+ public static User={
+  home:{
+   GetAllads:'portal/ads',
+   Getallroom:'portal/rooms/available',
+   GetRoomById:'portal/rooms'
+  }
+ }
+
+
 }
 

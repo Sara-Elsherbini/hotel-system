@@ -1,3 +1,6 @@
+
+@import "../../../../../../styles/Variables";
+
 .section1{
 h1{
 font-size: 3.2rem!important;
@@ -8,12 +11,53 @@ font-size: 3.2rem!important;
 
 .img-home-border{
   // border: 2px solid #E5E5E5;
-   background-color: red;
+  //  background-color: red;
   margin-top: 10px;
 
 position: relative;
 }
-.img-home{
-  position: absolute;
-  top: -33px;
+// .img-home{
+//   position: absolute;
+//   top: -33px;
+// }
+
+.ads{
+  .img-about {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.025);
+    .layer {
+      right: 0;
+      bottom: 100%;
+      transition: bottom 400ms;
+      background-color:rgba(21, 44, 91, 0.2);
+      border-radius: 15px!important;
+    }
+    img{
+      transition: transform 400ms;
+    }
+  }
+  .img-about:hover .layer {
+    bottom: 0;
+
+  }
+  .img-about:hover img {
+   transform: scale(1.1);
+  }
+  .first-img-ads{
+    height: 35rem!important;
+    border-radius: 15px;
+  }
+  .rest-img-ads{
+    height: 16rem;
+     border-radius: 15px;
+  }
+  .badge {
+    border-radius: 0px, 15px, 0px, 15px;
+  }
+
+}
+.card {
+  img{
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
 }
