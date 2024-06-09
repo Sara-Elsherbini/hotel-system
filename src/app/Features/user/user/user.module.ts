@@ -7,12 +7,14 @@ import { HomeComponent } from './components/home/home.component';
 import { ExplorComponent } from './components/explor/explor.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { FavPopComponent } from './components/fav-pop/fav-pop.component';
 
 @NgModule({
   declarations: [
     userComponent,
     HomeComponent,
     ExplorComponent,
+    FavPopComponent,
   ],
   imports: [
     CommonModule,
