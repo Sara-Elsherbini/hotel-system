@@ -39,8 +39,8 @@ export class HttpEndPoints {
 
 
   }
-  public static Home={
-    Dashboard:'admin/dashboard',
+  public static Home = {
+    Dashboard: 'admin/dashboard',
 
   }
 
@@ -49,6 +49,8 @@ export class HttpEndPoints {
 
 
   // }
-
+  public static ExplorRoom = {
+    UsersRoom: 'portal/rooms/available'
+  }
 }
 
