@@ -1,5 +1,4 @@
 {
-
   "home": {
     "ForgetBusyWork": "Forget Busy Work,",
     "StartNextVacation": "Start Next Vacation",
@@ -10,10 +9,12 @@
     "Capacity": "Capacity",
     "Explor": "Explor",
     "Person": "person",
-    "MostPopularAds": "Most Popular Ads"
+    "MostPopularAds": "Most Popular Ads",
+    "HousesBeautyBackyard": "Houses With Beauty Backyard",
+    "HotelLargeLivingRoom": "Hotels with large living room",
+    "WhatgreatTripMyFamily": "What a great trip with my family and",
+    "IShouldTryAgainNextTimesoon": "i should try again next time soon"
   },
-  "details": {},
-  "explor": {},
   "layout": {
     "navbar": {
       "links": {
@@ -34,8 +35,8 @@
     },
     "footer": {
       "paragraph": "We kaboom your beauty holiday instantly and memorable.",
-      "sections" : {
-        "ForBeginners":{
+      "sections": {
+        "ForBeginners": {
           "title": "For Beginners",
           "links": {
             "NewAccount": "New Account",
@@ -43,7 +44,7 @@
             "UsePayments": "Use Payments"
           }
         },
-        "ExploreUs":{
+        "ExploreUs": {
           "title": "Explore Us",
           "links": {
             "OurCareers": "Our Careers",
@@ -51,7 +52,7 @@
             "Terms": "Terms & Conditions"
           }
         },
-        "ConnectUs":{
+        "ConnectUs": {
           "title": "Connect Us",
           "links": {
             "Email": "support@staycation.id",
@@ -62,45 +63,21 @@
       }
     }
   },
-  "general": {}
+
+  "footer": {
+    "stayCation": "Staycation",
+    "kaboom": "We kaboom your beauty holiday instantly and memorable.",
+    "beginners": "For Beginners",
+    "newAccouant": "New Account",
+    "bookingRoom": "Start Booking a Room",
+    "usePayment": "Use Payments",
+    "exploreUs": "Explore Us",
+    "ourCareers": "Our Careers",
+    "privacy": "privacy",
+    "terms": "Terms & Conditions",
+    "connectUs": "Connect Us",
+    "copyRights": "Copyright 2019 • All rights reserved • Staycation"
+  },
+  "details": {},
+  "explor": {}
 }
-
-  "home":{
-    "ForgetBusyWork":"Forget Busy Work,",
-    "StartNextVacation":"Start Next Vacation",
-    "EnjoyYourHolidayWithFamily":"We Provide What You Need To Enjoy Your Holiday With Family",
-    "HappyMemorable":"Time to make another memorable moments",
-    "StartBooking":"Start Booking",
-    "PickDate":"Pick a Date",
-    "Capacity":"Capacity",
-    "Explor":"Explor",
-    "Person":"person",
-    "MostPopularAds":"Most Popular Ads",
-    "HousesBeautyBackyard":"Houses With Beauty Backyard",
-    "HotelLargeLivingRoom":"Hotels with large living room",
-    "WhatgreatTripMyFamily":"What a great trip with my family and",
-    "IShouldTryAgainNextTimesoon":"i should try again next time soon"
-   },
-   "details":{},
-   "explor":{},
-
-    "footer":{
-      "stayCation":"Staycation",
-      "kaboom":"We kaboom your beauty holiday instantly and memorable.",
-      "beginners":"For Beginners",
-      "newAccouant":"New Account",
-      "bookingRoom":"Start Booking a Room",
-      "usePayment":"Use Payments",
-      "exploreUs":"Explore Us",
-      "ourCareers":"Our Careers",
-      "privacy":"privacy",
-      "terms":"Terms & Conditions",
-      "connectUs":"Connect Us",
-      "copyRights":"Copyright 2019 • All rights reserved • Staycation"
-
-    }
-
-  
-
-}
-
