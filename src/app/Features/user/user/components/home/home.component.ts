@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   capacity:number=0;
   adsList: Ads.IAds[]=[];
   firstAds!:Ads.IAds;
+  SecondAds!:Ads.IAds;
   beautyroomList:Rooms.IRoom[]=[];
   largeroomList:Rooms.IRoom[]=[];
   constructor(private _UserService:UserService,private _NotifyService:NotifyService) { }
@@ -36,7 +37,8 @@ export class HomeComponent implements OnInit {
     this._UserService.getAllAds().subscribe({
       next: (res) => {
         this.firstAds=res.data.ads[0];
-        this.adsList = res.data.ads.slice(1, 5);
+        this.SecondAds=res.data.ads[1]
+        this.adsList = res.data.ads.slice(2, 6);
         console.log('adsList',this.adsList);
 
       },
