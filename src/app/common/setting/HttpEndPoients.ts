@@ -49,6 +49,12 @@ export class HttpEndPoints {
   home:{
    GetAllads:'portal/ads',
    Getallroom:'portal/rooms/available'
+   
+  },
+  fav:{
+    favoriteRooms:'portal/favorite-rooms',
+    deleteFavoriteRooms:'portal/favorite-rooms/${id}',
+
   }
  }
 

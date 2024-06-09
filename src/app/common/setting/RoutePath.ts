@@ -10,7 +10,7 @@ export class RoutePaths {
     home: "home",
     explore: "explore",
     reviews: "/reviews",
-    favorites: "/favorites",
+    favorites: "favorites",
     roomDetails: "/room/:id"
   }
 

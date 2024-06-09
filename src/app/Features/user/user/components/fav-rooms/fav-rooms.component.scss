@@ -1,0 +1,52 @@
+
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  
+ 
+  .content-overlay {
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    color: white;
+    z-index: 2;
+
+  }
+  .content-overlay h1,
+  .content-overlay p {
+    margin: 0;
+  }
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  
+}
+  .heart-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  &:hover {
+    .layer {
+      opacity: 1;
+    }
+    .heart-layer {
+      opacity: 1;
+    }
+    .content-overlay {
+      opacity: 1;
+    }
+  }
+}
