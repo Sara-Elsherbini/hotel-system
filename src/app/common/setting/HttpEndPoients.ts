@@ -59,7 +59,9 @@ export class HttpEndPoints {
   home:{
    GetAllads:'portal/ads',
    Getallroom:'portal/rooms/available',
+   addToFav:'portal/favorite-rooms'
    GetRoomById:'portal/rooms'
+
   }
  }
 
