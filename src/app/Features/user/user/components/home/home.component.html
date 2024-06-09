@@ -14,7 +14,7 @@
               {{"home.HappyMemorable"|translate}}
             </p>
           </div>
-
+          <form [formGroup]="explorForm" (ngSubmit)="onExplor(explorForm)" novalidate>
           <div class="mt-5 ">
 
             <h5 class="main-color">{{"home.StartBooking"|translate}}</h5>
@@ -23,8 +23,8 @@
               <mat-form-field class="w-75">
                 <mat-label>Enter a date range</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
-                  <input matStartDate placeholder="Start date">
-                  <input matEndDate placeholder="End date">
+                  <input matStartDate formControlName="startDate" placeholder="Start date">
+                  <input matEndDate formControlName="endDate" placeholder="End date">
                 </mat-date-range-input>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
@@ -37,7 +37,7 @@
               <mat-form-field class="example-full-width w-100">
 
                 <mat-icon (click)="decrement()" class="bg-danger-color text-white" matPrefix>remove</mat-icon>
-                <input type="number" class="text-center" matInput  [(ngModel)]="capacity">
+                <input type="text" class="text-center" matInput  formControlName="capacity">
 
                 <mat-icon (click)="increment()" class="bg-green text-white h-100" matSuffix >add</mat-icon>
 
@@ -45,7 +45,9 @@
             </div>
 
           </div>
+
           <button class="primary w-50 ">{{"home.Explor"|translate}}</button>
+          </form>
         </div>
         <div class="col-md-6">
           <div class=" img-home-border w-75 ">
@@ -67,11 +69,12 @@
         <div class="col-lg-4">
           <div  class="img-about  overflow-hidden position-relative">
             <div class="position-relative">
-              <img  class=" img-fluid first-img-ads" [src]="firstAds?.room?.images[0]" alt="">
-              <span class="badge bg-accent text-white position-absolute top-0 end-0 p-3">{{firstAds?.room?.price|currency}}</span>
+              <img  class=" img-fluid first-img-ads" [src]="(firstAds?.room?.images[0])?firstAds?.room?.images[0]:SecondAds?.room?.images[0]" alt="">
+              <span class="badge bg-accent text-white position-absolute top-0 end-0 p-3">{{((firstAds?.room?.price)?firstAds?.room?.price:SecondAds?.room?.price)|currency}}</span>
             </div>
 
             <div class="layer position-absolute w-100 h-100  d-flex gap-2 justify-content-center align-items-center ">
+
               <a (click)="checkIslogged(firstAds.room._id)"><i class="fa-solid fa-heart fa-2x text-white"></i></a>
               <a><i  class="fa-solid fa-eye fa-2x text-white"></i></a>
             </div>
@@ -85,7 +88,11 @@
         <img  class="w-100 rest-img-ads" [src]="item?.room?.images[0]" alt="">
          <span class="badge bg-accent text-white position-absolute me-3 top-0 end-0 p-3">{{item?.room?.price|currency}}</span>
         <div class="layer position-absolute w-100 h-100  d-flex gap-2 justify-content-center align-items-center ">
+
           <a (click)="checkIslogged(item.room._id)" ><i class="fa-solid fa-heart fa-2x text-white"></i></a>
+
+         
+
           <a ><i  class="fa-solid fa-eye fa-2x text-white"></i></a>
         </div>
       </div>

@@ -40,9 +40,19 @@ export class HttpEndPoints {
 
 
   }
-  public static Home={
-    Dashboard:'admin/dashboard',
+  public static Home = {
+    Dashboard: 'admin/dashboard',
 
+  }
+
+
+  // public static AddUsers={
+  //   addUser:'admin/users',
+
+
+  // }
+  public static ExplorRoom = {
+    UsersRoom: 'portal/rooms/available'
   }
 
  public static User={
@@ -50,8 +60,11 @@ export class HttpEndPoints {
    GetAllads:'portal/ads',
    Getallroom:'portal/rooms/available',
    addToFav:'portal/favorite-rooms'
+   GetRoomById:'portal/rooms'
+
   }
  }
+
 
 }
 
