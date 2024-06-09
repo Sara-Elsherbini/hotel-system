@@ -1,4 +1,5 @@
 {
+
     "home": {
         "ForgetBusyWork": "انسي ضغوطات العمل",
         "StartNextVacation": "وابدأ اجازتك",
@@ -62,4 +63,43 @@
         }
     },
     "general": {}
+
+ "home":{
+  "ForgetBusyWork":"انسي ضغوطات العمل",
+  "StartNextVacation":"وابدأ اجازتك",
+  "EnjoyYourHolidayWithFamily":"نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة",
+  "HappyMemorable":"لجعل لحظات سعيدة لاتنسي",
+  "StartBooking":"احجز الان",
+  "PickDate":"اختر الموعد",
+  "Capacity":"عدد الأفراد",
+  "Explor":"استكشف",
+  "Person":"فرد",
+  "MostPopularAds":"الإعلانات الأكثر شعبية",
+  "HousesBeautyBackyard":"منازل ذات فناء خلفي جميل",
+  "HotelLargeLivingRoom":"فنادق بها غرفة معيشة كبيرة",
+  "WhatgreatTripMyFamily":"يالها من رحله رائعه حقا",
+  "IShouldTryAgainNextTimesoon":"سوف تتكرر قريبا"
+ },
+ "details":{},
+ "explor":{},
+
+  "footer":{
+      "stayCation":"الإقامة",
+      "kaboom":"نحن نمنحك عطلة جمالك على الفور ولا تنسى.",
+      "beginners":"للمبتدئين",
+      "newAccouant":"حساب جديد",
+      "bookingRoom":"ابدأ بحجز غرفة",
+      "usePayment":"استخدم المدفوعات",
+      "exploreUs":"اكتشفنا",
+      "ourCareers":"مسيرتنا المهنية",
+      "privacy":"خصوصية",
+      "terms":"شروط واحكام",
+      "connectUs":"اتصل بنا",
+      "copyRights":"حقوق الطبع والنشر 2019 • جميع الحقوق محفوظة"
+
+
+
+    }
+
+
 }
