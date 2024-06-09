@@ -25,21 +25,21 @@ export class HomeComponent implements OnInit {
   SecondAds!:Ads.IAds;
   beautyroomList:Rooms.IRoom[]=[];
   largeroomList:Rooms.IRoom[]=[];
-
-  constructor(private AuthService:AuthService,private _UserService:UserService,private router: Router,private _NotifyService:NotifyService, private dialogRef:MatDialog) {
-    this.AuthService.role 
-    console.log(this.AuthService.role );
-    
-    
-   }
-
   explorForm = new FormGroup({
     startDate: new FormControl('',[Validators.required]),
     endDate: new FormControl('',[Validators.required]),
     capacity: new FormControl(0,[Validators.required]),
 })
+  constructor(private AuthService:AuthService,private _UserService:UserService,private router: Router,private _NotifyService:NotifyService, private dialogRef:MatDialog) {
+    this.AuthService.role
+    console.log(this.AuthService.role );
 
-  constructor(private _UserService:UserService,private _NotifyService:NotifyService) { }
+
+   }
+
+
+
+
 
   ngOnInit() {
     this.AuthService.getProfile()
@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
     this._UserService.getAllRooms().subscribe({
       next: (res) => {
         console.log(res);
-        
+
         this.beautyroomList=res.data.rooms.slice(0,4);
         this.largeroomList=res.data.rooms.slice(4,8)
       },
@@ -94,35 +94,35 @@ export class HomeComponent implements OnInit {
     })
   }
 
- 
+
   checkIslogged(id:string){
     debugger
     console.log(this.AuthService.role);
 
     if( this.AuthService.role == "user"){
-      
-      
+
+
       console.log("logged in user");
-      
+
       this._UserService.addRoomFav(id).subscribe({
         next:(res)=>{
           console.log(res);
         this._NotifyService.Success('Room added to favorites successfully')
-         
+
         },
 
        error:(err)=>{
         this._NotifyService.ServerError(err.error.message)
         console.log(err);
 
-        
+
        }
       })
-      
+
 
     }else{
       console.log('not login user');
-      
+
       this.openDialog()
     }
   }
@@ -130,6 +130,6 @@ export class HomeComponent implements OnInit {
     this.dialogRef.open(FavPopComponent)
   }
 
-  
+
 
 }

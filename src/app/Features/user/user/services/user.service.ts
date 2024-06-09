@@ -25,7 +25,7 @@ export class UserService {
 
   addRoomFav(roomId:string){
     return this._HttpClient.post(HttpEndPoints.User.home.addToFav, {roomId})
-
+  }
   getRoomById(id: number): Observable<Rooms.IRoomdDetails>{
     return this._HttpClient.get<Rooms.IRoomdDetails>(`${HttpEndPoints.User.home.GetRoomById}/${id}`);
 
