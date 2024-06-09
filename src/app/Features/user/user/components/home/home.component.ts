@@ -3,7 +3,8 @@ import { UserService } from '../../services/user.service';
 import {  Ads} from '../../../../admin/ads/model/Ads'
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotifyService } from 'src/app/common';
-import{Rooms} from '../../../../admin/rooms/models/rooms'
+import{Rooms} from '../../../../admin/rooms/models/rooms';
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,19 +17,32 @@ export class HomeComponent implements OnInit {
   SecondAds!:Ads.IAds;
   beautyroomList:Rooms.IRoom[]=[];
   largeroomList:Rooms.IRoom[]=[];
+  explorForm = new FormGroup({
+    startDate: new FormControl('',[Validators.required]),
+    endDate: new FormControl('',[Validators.required]),
+    capacity: new FormControl(0,[Validators.required]),
+})
+
   constructor(private _UserService:UserService,private _NotifyService:NotifyService) { }
 
   ngOnInit() {
     this.getAds()
     this.getRoom()
   }
+  onExplor(data:FormGroup){
+   console.log("data",data.value);
+
+  }
+  getCapacity(){
+    this.capacity = this.explorForm.get('capacity')?.value as number ||0
+  }
 
   increment(){
-    this.capacity++;
+    this.explorForm.get('capacity')?.setValue(++this.capacity);
   }
   decrement(){
     if (this.capacity>0) {
-      this.capacity--;
+      this.explorForm.get('capacity')?.setValue(--this.capacity)
     }
 
   }

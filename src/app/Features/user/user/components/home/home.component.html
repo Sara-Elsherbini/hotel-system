@@ -14,7 +14,7 @@
               {{"home.HappyMemorable"|translate}}
             </p>
           </div>
-
+          <form [formGroup]="explorForm" (ngSubmit)="onExplor(explorForm)" novalidate>
           <div class="mt-5 ">
 
             <h5 class="main-color">{{"home.StartBooking"|translate}}</h5>
@@ -23,8 +23,8 @@
               <mat-form-field class="w-75">
                 <mat-label>Enter a date range</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
-                  <input matStartDate placeholder="Start date">
-                  <input matEndDate placeholder="End date">
+                  <input matStartDate formControlName="startDate" placeholder="Start date">
+                  <input matEndDate formControlName="endDate" placeholder="End date">
                 </mat-date-range-input>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
@@ -37,7 +37,7 @@
               <mat-form-field class="example-full-width w-100">
 
                 <mat-icon (click)="decrement()" class="bg-danger-color text-white" matPrefix>remove</mat-icon>
-                <input type="number" class="text-center" matInput  [(ngModel)]="capacity">
+                <input type="text" class="text-center" matInput  formControlName="capacity">
 
                 <mat-icon (click)="increment()" class="bg-green text-white h-100" matSuffix >add</mat-icon>
 
@@ -47,7 +47,7 @@
           </div>
 
           <button class="primary w-50 ">{{"home.Explor"|translate}}</button>
-
+          </form>
         </div>
         <div class="col-md-6">
           <div class=" img-home-border w-75 ">
