@@ -1,9 +1,11 @@
-<div class="view-group">
-    <label class="view-header">{{title}}</label>
+<div [class]="'view-group ' + customClass">
+    <label class="view-header">{{title | titlecase}}</label>
     <div class="view-value-group">
         <p class="view-icon">
             <i *ngIf="icon" [class]="icon"></i>
+            <ng-content *ngIf="!icon" select=".view-img"></ng-content>
         </p>
+        <ng-content select=".view-value"></ng-content>
         <ng-container *ngIf="pipe">
             <p class="view-value" *ngIf="pipe == 'percent'">{{value | percent}}</p>
             <p class="view-value" *ngIf="pipe == 'currency'">{{value | currency}}</p>
@@ -13,4 +15,5 @@
         </ng-container>
         <p *ngIf="!pipe" class="view-value">{{value}}</p>
     </div>
+    <ng-content select=".view-prefix"></ng-content>
 </div>
