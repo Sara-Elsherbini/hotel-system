@@ -5,7 +5,7 @@ button {
   border-radius: 4px;
   transition: $main-transtion;
   cursor: pointer;
-  &:disabled{
+  &:disabled {
     cursor: not-allowed;
   }
   &.primary {
@@ -17,6 +17,17 @@ button {
       background-color: transparent;
       color: $primary-color;
       border: $border-style $primary-color;
+    }
+  }
+  &.showmore {
+    background-color: transparent;
+    color: $primary-color;
+    padding: 0.7rem 0.5rem;
+    width: 100%;
+    border: $border-style $primary-color;
+    &:hover {
+      background-color: $primary-color;
+      color: #fff;
     }
   }
 }

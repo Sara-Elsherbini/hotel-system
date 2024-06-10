@@ -11,8 +11,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MustLoginDialog } from './components/MustLoginDialog/MustLoginDialog';
 import { LandingNavbarComponent } from './components/landing-navbar/landing-navbar.component';
 import { DetailsComponent } from './components/details/details.component';
-import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ReviewsComponent } from './components/details/reviews/reviews.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommentsComponent } from './components/details/comments/comments.component';
+
 @NgModule({
   declarations: [
     userComponent,
@@ -22,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     currencyintyPipe,
     LandingNavbarComponent,
     DetailsComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    CommentsComponent
 
 
   ],

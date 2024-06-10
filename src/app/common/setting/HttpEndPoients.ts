@@ -61,6 +61,12 @@ export class HttpEndPoints {
   }
  }
 
+ public static Review = {
+  Default: "portal/room-reviews"
+ }
 
+ public static Comment = {
+  Default: "portal/room-comments"
+ }
 }
 
