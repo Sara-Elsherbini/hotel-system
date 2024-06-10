@@ -85,5 +85,8 @@
         "connectUs": "اتصل بنا",
         "copyRights": "حقوق الطبع والنشر 2019 • جميع الحقوق محفوظة"
     },
+    "favourats":{
+      "Favorites":"المفضلة"
+    },
     "general": {}
 }

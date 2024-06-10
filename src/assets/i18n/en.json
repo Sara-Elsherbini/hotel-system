@@ -84,5 +84,8 @@
     "terms": "Terms & Conditions",
     "connectUs": "Connect Us",
     "copyRights": "Copyright 2019 • All rights reserved • Staycation"
+  },
+  "favourats":{
+    "Favorites":"Your Favorites"
   }
 }

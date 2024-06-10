@@ -40,6 +40,8 @@ export class UserService {
   }
 
   deleteFavRoom(id: string): Observable<UserModel.IFavResponse>{
-    return this._HttpClient.delete<UserModel.IFavResponse>(HttpEndPoints.User.fav.deleteFavoriteRooms + id);
+    let endPoient=HttpEndPoints.User.fav.deleteFavoriteRooms
+    endPoient=endPoient.replace(':id',id)
+    return this._HttpClient.delete<UserModel.IFavResponse>(endPoient);
   }
 }
