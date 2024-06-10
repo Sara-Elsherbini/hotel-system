@@ -5,6 +5,7 @@ import { HttpEndPoints } from 'src/app/common/setting/HttpEndPoients';
 import { Rooms } from 'src/app/Features/admin/rooms/models/rooms';
 import { Observable } from 'rxjs';
 import { Ads } from '../../../admin/ads/model/Ads';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,15 @@ export class UserService {
     return this._HttpClient.get<Rooms.IRoomdDetails>(`${HttpEndPoints.User.home.GetRoomById}/${id}`);
 
 
+  }
+
+
+  getAllFavRooms(): Observable<User.IFavResponse> {
+    return this._HttpClient.get
+    <User.IFavResponse>(HttpEndPoints.User.fav.favoriteRooms);
+  }
+
+  deleteFavRoom(id: string): Observable<User.IFavResponse>{
+    return this._HttpClient.delete<User.IFavResponse>(HttpEndPoints.User.fav.deleteFavoriteRooms + id);
   }
 }

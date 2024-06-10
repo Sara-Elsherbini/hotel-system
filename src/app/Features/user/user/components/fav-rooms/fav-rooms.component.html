@@ -1,0 +1,18 @@
+<div class="row">
+  <ng-container *ngFor="let fav of favroomList">
+    <div class="col-lg-4" *ngFor="let room of fav.rooms">
+      <div class="image-container">
+        <div class="content-overlay rounded-3">
+          <h1>Ocean Land</h1>
+          <p>Bandung, Indonesia</p>
+        </div>
+        <img class="w-100 rounded-3" [src]="room.images[0]" alt="" />
+
+        <div class="layer rounded-3"></div>
+        <div class="heart-layer">
+          <a  (click)="DeleteFavRoom(room._id)" href=""><i class="fa-solid fa-trash trash fa-2x text-white"></i></a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
