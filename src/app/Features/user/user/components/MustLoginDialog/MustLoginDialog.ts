@@ -10,10 +10,12 @@ import { TokenService } from 'src/app/common';
   styleUrls: ['./MustLoginDialog.scss']
 })
 export class MustLoginDialog {
-  // constructor(private router: Router, private DialogRef:DialogRef){}
   constructor(public dialogRef: MatDialogRef<MustLoginDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any, public _MatDialog: MatDialog, private _Router: Router,private _TokenService:TokenService
-  ) { }
+  ) {
+    console.log(data);
+
+   }
   navigateToLogin(){
          this._TokenService.logout()
          this.dialogRef.close();

@@ -14,7 +14,7 @@
               {{"home.HappyMemorable"|translate}}
             </p>
           </div>
-          <form [formGroup]="explorForm" (ngSubmit)="onExplor(explorForm)" novalidate>
+          <form [formGroup]="explorForm" (ngSubmit)="onExplor()" novalidate>
           <div class="mt-5 ">
 
             <h5 class="main-color">{{"home.StartBooking"|translate}}</h5>
@@ -46,7 +46,7 @@
 
           </div>
 
-          <button class="primary w-50 ">{{"home.Explor"|translate}}</button>
+          <button [disabled]="explorForm.invalid" class="primary w-50 ">{{"home.Explor"|translate}}</button>
           </form>
         </div>
         <div class="col-md-6">
@@ -90,8 +90,6 @@
         <div class="layer position-absolute w-100 h-100  d-flex gap-2 justify-content-center align-items-center ">
 
           <a (click)="checkIslogged(item.room._id)" ><i class="fa-solid fa-heart fa-2x text-white"></i></a>
-
-         
 
           <a ><i  class="fa-solid fa-eye fa-2x text-white"></i></a>
         </div>

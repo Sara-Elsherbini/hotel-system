@@ -51,10 +51,6 @@ export class HttpEndPoints {
 
 
   // }
-  public static ExplorRoom = {
-    UsersRoom: 'portal/rooms/available'
-  }
-
  public static User={
   home:{
    GetAllads:'portal/ads',

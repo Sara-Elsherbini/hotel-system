@@ -1,4 +1,4 @@
-export namespace ExploreUser {
+export namespace UserModel {
 
  export interface IUserRoomsRes {
   success: boolean;
@@ -36,8 +36,8 @@ export namespace ExploreUser {
  export interface IParams {
   page: number;
   size: number;
-  // startDate: any;
-  // endDate: any;
+  startDate?: Date|string;
+  endDate?: Date|string;
   [Key: string]: any
  }
 }
