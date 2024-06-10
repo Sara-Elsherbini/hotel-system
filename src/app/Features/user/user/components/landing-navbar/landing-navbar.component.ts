@@ -27,11 +27,11 @@ export class LandingNavbarComponent implements OnInit {
       link: RoutePaths.User.explore,
       isActive: true
     },
-    {
-      text: 'Reviews',
-      link: RoutePaths.User.reviews,
-      isActive: this._tokenService.isAuthenticated()
-    },
+    // {
+    //   text: 'Reviews',
+    //   link: RoutePaths.User.reviews,
+    //   isActive: this._tokenService.isAuthenticated()
+    // },
     {
       text: 'Favorites',
       link: RoutePaths.User.favorites,
