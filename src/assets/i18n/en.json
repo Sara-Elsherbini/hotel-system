@@ -11,7 +11,42 @@
     "Person": "person",
     "MostPopularAds": "Most Popular Ads"
   },
-  "details": {},
+  "details": {
+    "list": {
+      "Home": "Home",
+      "RoomDetails": "Room Details"
+    },
+    "address": "City, Country",
+    "paragraphs": {
+      "p1": "Minimal techno is a minimalist subgenre of techno music. It is characterized by a stripped-down aesthetic that exploits the use of repetition and understated development. Minimal techno is thought to have been originally developed in the early 1990s by Detroit-based producers Robert Hood and Daniel Bell.",
+      "p2": "Such trends saw the demise of the soul-infused techno that typified the original Detroit sound. Robert Hood has noted that he and Daniel Bell both realized something was missing from techno in the post-rave era.",
+      "p3": "Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better."
+    },
+    "BookingCard": {
+      "StartBooking": "Start Booking",
+      "PerNight": "per night",
+      "Discount": "Discount",
+      "Off": "Off",
+      "PickDate": {
+        "title": "Pick a Date",
+        "label": "Enter a date range",
+        "StartDate": "Start Date",
+        "EndDate": "End Date"
+      },
+      "button":"Continue Book"
+    },
+    "Reviews": {
+      "Rate": "Rate",
+      "Message": "Message",
+      "Placeholder": "Enter your review",
+      "Button": "Rate"
+    },
+    "Comments": {
+      "Title": "Add Your Comment",
+      "Placeholder": "Enter your comment",
+      "Button": "Send"
+    }
+  },
   "explor": {},
   "layout": {
     "navbar": {
@@ -29,35 +64,6 @@
         "profile": "Profile Account",
         "change_password": "Change Password",
         "logout": "Logout"
-      }
-    },
-    "footer": {
-      "paragraph": "We kaboom your beauty holiday instantly and memorable.",
-      "sections" : {
-        "ForBeginners":{
-          "title": "For Beginners",
-          "links": {
-            "NewAccount": "New Account",
-            "StartBooking": "Start Booking a Room",
-            "UsePayments": "Use Payments"
-          }
-        },
-        "ExploreUs":{
-          "title": "Explore Us",
-          "links": {
-            "OurCareers": "Our Careers",
-            "Privacy": "Privacy",
-            "Terms": "Terms & Conditions"
-          }
-        },
-        "ConnectUs":{
-          "title": "Connect Us",
-          "links": {
-            "Email": "support@staycation.id",
-            "Phone": "021 - 2208 - 1996",
-            "Address": "Staycation, Kemang, Jakarta"
-          }
-        }
       }
     }
   },

@@ -10,7 +10,7 @@ import { Rooms } from 'src/app/Features/admin/rooms/models/rooms';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  roomId!: number;
+  roomId!: string;
   roomData: Rooms.IRoom = {
     _id: '',
     roomNumber: '',
@@ -26,7 +26,7 @@ export class DetailsComponent implements OnInit {
     createdAt: new Date(),
     updatedAt: new Date()
   };
-  dummyImage: string = "assets/img/no-data.svg";
+  dummyImage: string = "assets/img/room-placeholder.png";
 
   constructor(private _ActivatedRoute: ActivatedRoute, private _NotifyService: NotifyService, private _GuestService: UserService) { }
 
@@ -35,7 +35,7 @@ export class DetailsComponent implements OnInit {
     this.getRoomById(this.roomId);
   }
 
-  getRoomById(id: number) {
+  getRoomById(id: string) {
     this._GuestService.getRoomById(id).subscribe({
       next: (res: Rooms.IRoomdDetails) => {
         this.roomData = res.data.room;

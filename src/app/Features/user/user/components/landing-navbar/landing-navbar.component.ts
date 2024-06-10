@@ -42,7 +42,7 @@ export class LandingNavbarComponent implements OnInit {
   constructor(private _tokenService: TokenService,
     private _translate: TranslateService,) {
    _translate.onLangChange.subscribe((event:LangChangeEvent)=>{
-    console.log("myevebt",event);
+    // console.log("myevebt",event);
 
    })
 

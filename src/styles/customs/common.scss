@@ -56,6 +56,35 @@ mat-icon {
   }
 }
 
+[dir=rtl]{
+  .color-main {
+    font-weight: 400;
+    &.sec-title {
+      font-size: 38px !important;
+    }
+    &.third-title{
+      font-size: 32px !important;
+    }
+    &.fourth-title{
+      font-size: 20px !important;
+    }
+  }
+  .regular-text {
+    &.scalable{
+      font-size: 1.25rem;
+    }
+  }
+  
+}
+
+.curser-pointer{
+  cursor: pointer;
+}
+
+.padding-100 {
+  padding-top: 100%;
+}
+
 .regular-text {
   font-size: 1rem;
   color: hsl(0, 0%, 69%);
