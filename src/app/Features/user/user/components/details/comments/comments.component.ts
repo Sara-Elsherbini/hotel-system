@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NoDataComponent } from 'src/app/shared/components/no-data/no-data.component';
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { Review } from '../../../models/review.model';
+import { MustLoginDialog } from '../../MustLoginDialog/MustLoginDialog';
 
 @Component({
   selector: 'app-comments',
@@ -60,8 +61,14 @@ export class CommentsComponent {
       if (this.commentId) this.editComment()
       else this.addComment();
     } else {
-      this._dialog.open(NoDataComponent);
+      // this._dialog.open(NoDataComponent);
+       this.openMustLoginDialog('Login to Add comment.');
     }
+  }
+  openMustLoginDialog(text:string){
+    this._dialog.open(MustLoginDialog,
+      {data:text}
+    )
   }
 
   addComment() {
@@ -78,7 +85,7 @@ export class CommentsComponent {
     })
   }
 
-  editComment() { 
+  editComment() {
     this._CommentsService.editComment(this.commentId as string, this.CommentForm.value).subscribe({
       next: (res) => {
         this._NotifyService.Success("Updated Successfully")
