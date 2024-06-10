@@ -77,6 +77,12 @@ export class HomeComponent implements OnInit {
     }
 
   }
+  view(id:string){
+    let url =RoutePaths.User.roomDetails;
+    url=url.replace(':id',id);
+
+  this._router.navigateByUrl(url);
+  }
 
   getAds() {
     this._UserService.getAllAds().subscribe({
