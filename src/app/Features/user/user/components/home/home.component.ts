@@ -35,7 +35,8 @@ export class HomeComponent implements OnInit {
     endDate: new FormControl('',[Validators.required]),
     capacity: new FormControl(0,[Validators.required]),
 })
-  constructor(private _AuthService:AuthService,private _UserService:UserService,private _router: Router,private _NotifyService:NotifyService, private dialogRef:MatDialog) {
+  constructor(private _AuthService:AuthService,private _UserService:UserService,
+    private _router: Router,private _NotifyService:NotifyService, private _MatDialog:MatDialog) {
    }
   ngOnInit() {
     this._AuthService.getProfile()
@@ -77,12 +78,7 @@ export class HomeComponent implements OnInit {
     }
 
   }
-  view(id:string){
-    let url =RoutePaths.User.roomDetails;
-    url=url.replace(':id',id);
 
-  this._router.navigateByUrl(url);
-  }
 
   getAds() {
     this._UserService.getAllAds().subscribe({
@@ -134,9 +130,14 @@ export class HomeComponent implements OnInit {
   }
 
   openMustLoginDialog(text:string){
-    this.dialogRef.open(MustLoginDialog,
+    this._MatDialog.open(MustLoginDialog,
       {data:text}
     )
   }
+  view(id:string){
+    let url =RoutePaths.User.roomDetails;
+    url=url.replace(':id',id);
 
+  this._router.navigateByUrl(url);
+  }
 }

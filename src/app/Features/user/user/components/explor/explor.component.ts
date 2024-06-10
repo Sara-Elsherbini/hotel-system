@@ -5,7 +5,14 @@ import { UserModel } from '../../models/user';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NotifyService } from 'src/app/common';
 import { PageEvent } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MustLoginDialog } from '../MustLoginDialog/MustLoginDialog';
+import { RoutePaths } from 'src/app/common/setting/RoutePath';
+import { AuthService } from 'src/app/Features/auth/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { RoleEnum } from 'src/app/common/Enums/RoleEnum.enum';
+
+
 interface IParame{
 capacity:number,
 endDate:Date|string,
@@ -31,18 +38,24 @@ export class ExplorComponent implements OnInit {
     endDate:''
   }
   paramRequired:any
+  RoleEnum=RoleEnum;
   constructor(private _UserService: UserService,private _NotifyService:NotifyService,
-    private _ActivatedRoute:ActivatedRoute
+    private _ActivatedRoute:ActivatedRoute,
+    private _Router:Router,
+    private _AuthService:AuthService,
+    private _MatDialog:MatDialog
   ) {
 
   }
 
   roomsList!: Rooms.IRoomsList
   ngOnInit() {
+    this._AuthService.getProfile()
     this._ActivatedRoute.queryParams.subscribe((params:any) => {
       this.params=params
     });
     this.getExplorRoom();
+
   }
 
   getExplorRoom() {
@@ -90,5 +103,33 @@ export class ExplorComponent implements OnInit {
     this.pageSize = e.pageSize;
     this.pageIndex = e.pageIndex + 1;
     this.getExplorRoom();
+  }
+  checkIslogged(id:string){
+    if( this._AuthService.role == this.RoleEnum.USER){
+      this._UserService.addRoomFav(id).subscribe({
+        next:(res)=>{
+        this._NotifyService.Success('Room added to favorites successfully')
+        },
+
+       error:(err:HttpErrorResponse)=>{
+        this._NotifyService.ServerError(err.error.message)
+       }
+      })
+
+
+    }else{
+      this.openMustLoginDialog('Login to put this in Favorites.')
+    }
+  }
+  openMustLoginDialog(text:string){
+    this._MatDialog.open(MustLoginDialog,
+      {data:text}
+    )
+  }
+  view(id:string){
+    let url =RoutePaths.User.roomDetails;
+    url=url.replace(':id',id);
+
+  this._Router.navigateByUrl(url);
   }
 }
