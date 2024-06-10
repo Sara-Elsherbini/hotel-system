@@ -5,6 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { ExplorComponent } from './components/explor/explor.component';
 import { FavRoomsComponent } from './components/fav-rooms/fav-rooms.component';
+import { DetailsComponent } from './components/details/details.component';
+
 
 
 const routes: Routes = [{ path: '', component: userComponent ,children:[
@@ -12,8 +14,9 @@ const routes: Routes = [{ path: '', component: userComponent ,children:[
   {path:RoutePaths.User.home,component:HomeComponent},
   {path:RoutePaths.User.explore,component:ExplorComponent},
   {path:RoutePaths.User.favorites,component:FavRoomsComponent},
+  {path:RoutePaths.User.roomDetails,component:DetailsComponent}
 
-  
+
 ]}];
 
 @NgModule({

@@ -11,7 +11,7 @@ export class userComponent {
 constructor( _translate:TranslateService){
   _translate.onLangChange.subscribe((event:LangChangeEvent)=>{
         this.lang=event.lang;
-        console.log('lang',this.lang);
+        // console.log('lang',this.lang);
 
   })
 }

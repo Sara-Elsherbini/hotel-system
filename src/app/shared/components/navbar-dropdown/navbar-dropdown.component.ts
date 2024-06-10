@@ -73,6 +73,7 @@ export class NavbarDropdownComponent {
 
   logout() {
     this._tokenService.logout()
+    localStorage.clear()
   }
 
 }

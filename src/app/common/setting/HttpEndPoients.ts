@@ -40,11 +40,17 @@ export class HttpEndPoints {
 
 
   }
-  public static Home={
-    Dashboard:'admin/dashboard',
+  public static Home = {
+    Dashboard: 'admin/dashboard',
 
   }
 
+
+  // public static AddUsers={
+  //   addUser:'admin/users',
+
+
+  // }
  public static User={
   home:{
    GetAllads:'portal/ads',
@@ -54,9 +60,19 @@ export class HttpEndPoints {
   fav:{
     favoriteRooms:'portal/favorite-rooms',
     deleteFavoriteRooms:'portal/favorite-rooms/${id}',
-
+  },
+   Getallroom:'portal/rooms/available',
+   addToFav:'portal/favorite-rooms',
+   GetRoomById:'portal/rooms'
   }
  }
 
+ public static Review = {
+  Default: "portal/room-reviews"
+ }
+
+ public static Comment = {
+  Default: "portal/room-comments"
+ }
 }
 

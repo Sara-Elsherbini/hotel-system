@@ -1,0 +1,98 @@
+.fixed-height {
+  height: 500px;
+}
+
+@media (max-width: 768px) {
+  .fixed-height {
+    height: auto;
+  }
+  .border-center {
+    & > :is(div:first-child, div:last-child) {
+      border: none !important;
+    }
+  }
+  [dir="rtl"] {
+    .border-center {
+      & > :is(div:first-child, div:last-child) {
+        border: none !important;
+      }
+    }
+  }
+}
+
+.price {
+  color: hsl(0, 0%, 69%);
+  font-weight: 200;
+  span {
+    color: hsl(168, 76%, 42%);
+    font-weight: 500;
+  }
+}
+
+.details-daterange {
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      border-radius: var(--mdc-filled-text-field-container-shape, 4px);
+      &.mdc-text-field {
+        &.mdc-text-field--filled {
+          .mat-mdc-form-field-flex {
+            .mat-mdc-form-field-icon-prefix {
+              display: grid;
+              place-items: center;
+              min-height: 56px;
+              background-color: hsl(220, 63%, 22%);
+              padding: 0px;
+              .mdc-icon-button {
+                .mat-datepicker-toggle-default-icon {
+                  color: white;
+                }
+              }
+            }
+            .mat-mdc-form-field-infix {
+              padding-left: 4px;
+            }
+          }
+          .mdc-line-ripple {
+            --mdc-filled-text-field-active-indicator-height: 0px !important;
+            --mdc-filled-text-field-focus-active-indicator-height: 0px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.border-center {
+  & > div:first-child {
+    border-right: 1px solid hsla(0, 0%, 69%, 0.5);
+  }
+  & > div:last-child {
+    border-left: 1px solid hsla(0, 0%, 69%, 0.5);
+  }
+}
+
+[dir="rtl"] {
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      &.mdc-text-field {
+        &.mdc-text-field--filled {
+          .mat-mdc-form-field-flex {
+            .mat-mdc-form-field-infix {
+              padding-right: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .border-center {
+    & > div:first-child {
+      border-right: none;
+      border-left: 1px solid hsla(0, 0%, 69%, 0.5);
+    }
+    & > div:last-child {
+      border-left: none;
+      border-right: 1px solid hsla(0, 0%, 69%, 0.5);
+    }
+  }
+}

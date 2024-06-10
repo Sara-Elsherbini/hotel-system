@@ -1,0 +1,54 @@
+<section>
+    <div class="container">
+        <ng-container *ngIf="isAuth">
+            <div *ngFor="let item of viewReviews" class="row">
+                <app-viewvalue [title]="item.user.userName" [value]="item.review" [customClass]="'my-1'">
+                    <div
+                        class="view-img profilePic col-1 d-flex align-items-center justify-content-center rounded-circle overflow-hidden ratio ratio-1x1">
+                        <img [src]="item.user.profileImage">
+                    </div>
+                    <div class="view-value">
+                        <div class="stars-group">
+                            <i class="star fa-star" *ngFor="let star of starsIndex"
+                                [ngClass]="{'fa-regular': star > item.rating, 'fa-solid': star <= item.rating, 'active': star == item.rating}"></i>
+                        </div>
+                    </div>
+                </app-viewvalue>
+            </div>
+            <button *ngIf="head < allReviews.length" class="showmore" (click)="showMoreReviews()">Show More</button>
+        </ng-container>
+        <form class="row mt-3" [formGroup]="reviewForm" (ngSubmit)="addReview()">
+            <div>
+                <h4 class="color-main third-title">{{'details.Reviews.Rate' | translate}}</h4>
+                <div class="stars-group">
+                    <ng-container *ngFor="let star of starsIndex">
+                        <span class="star" [ngClass]="{'active': star == starValue}" (mouseenter)="setHover(star)"
+                            (mouseleave)="resetHover()">
+                            <label [for]="'star-'+star">
+                                <i class="curser-pointer fa-star"
+                                    [ngClass]="{'fa-regular': (star > starValue) || (star > hoverStar), 'fa-solid': (star <= starValue) || (star <= hoverStar)}"></i>
+                            </label>
+
+                            <input type="radio" [id]="'star-'+star" [value]="star" formControlName="rating" hidden>
+                        </span>
+
+                    </ng-container>
+                </div>
+            </div>
+            <div>
+                <h4 class="color-main third-title">{{'details.Reviews.Message' | translate}}</h4>
+                <mat-form-field appearance="outline" class="w-100">
+                    <textarea matInput placeholder="{{'details.Reviews.Placeholder' | translate}}"
+                        formControlName="review"></textarea>
+                    <mat-error *ngIf="review?.hasError('required')">
+                        Review is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <button type="submit" class="primary px-4" [disabled]="reviewForm.invalid">{{'details.Reviews.Button' | translate}}</button>
+
+            </div>
+        </form>
+    </div>
+</section>

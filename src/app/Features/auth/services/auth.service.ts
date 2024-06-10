@@ -19,7 +19,11 @@ export class AuthService {
     if (localStorage.getItem('token') !== null && localStorage.getItem('user') !== null) {
       let myUser = localStorage.getItem('user') ? localStorage.getItem('user') : ''
       myUser ? this.user = JSON.parse(myUser) : '';
+      console.log(this.user);
+      
       this.role = this.user.role;
+      console.log(this.role);
+      
     }
   }
 
