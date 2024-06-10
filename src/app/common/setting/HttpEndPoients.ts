@@ -59,7 +59,7 @@ export class HttpEndPoints {
   },
   fav:{
     favoriteRooms:'portal/favorite-rooms',
-    deleteFavoriteRooms:'portal/favorite-rooms/:id',
+    deleteFavoriteRooms:'portal/favorite-rooms',
     addToFav:'portal/favorite-rooms',
   },
   }
