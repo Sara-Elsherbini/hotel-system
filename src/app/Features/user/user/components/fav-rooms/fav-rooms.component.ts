@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NotifyService } from 'src/app/common';
 import { UserService } from '../../services/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { User } from '../../models/user';
+import { UserModel } from '../../models/user';
 
 @Component({
   selector: 'app-fav-rooms',
@@ -10,10 +10,10 @@ import { User } from '../../models/user';
   styleUrls: ['./fav-rooms.component.scss']
 })
 export class FavRoomsComponent implements OnInit {
-favroomList:User.FavoriteRoom[]=[];
+favroomList:UserModel.FavoriteRoom[]=[];
 deleteFav:any
   constructor(private _UserService:UserService,private _NotifyService:NotifyService) { }
-  
+
 
   ngOnInit() {
   this.getFavRooms();
@@ -28,7 +28,7 @@ deleteFav:any
       error: (err:HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message)
       }
-    }) 
+    })
   }
 
 
@@ -38,7 +38,7 @@ deleteFav:any
         this.deleteFav = res;
 
       }, error: (err: HttpErrorResponse) => {
-       
+
       }, complete: () => {
         this.getFavRooms();
       }

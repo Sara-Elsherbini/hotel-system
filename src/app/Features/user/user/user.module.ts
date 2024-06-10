@@ -14,14 +14,13 @@ import { DetailsComponent } from './components/details/details.component';
 import { ReviewsComponent } from './components/details/reviews/reviews.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentsComponent } from './components/details/comments/comments.component';
-
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
     userComponent,
     HomeComponent,
     ExplorComponent,
-    addToFavRooms
     FavRoomsComponent,
     MustLoginDialog,
     currencyintyPipe,
@@ -37,7 +36,6 @@ import { CommentsComponent } from './components/details/comments/comments.compon
     SharedModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    addToFavRooms,
     CommonModule,
     FormsModule,
     ReactiveFormsModule

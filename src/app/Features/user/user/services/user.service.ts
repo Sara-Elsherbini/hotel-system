@@ -5,7 +5,7 @@ import { HttpEndPoints } from 'src/app/common/setting/HttpEndPoients';
 import { Rooms } from 'src/app/Features/admin/rooms/models/rooms';
 import { Observable } from 'rxjs';
 import { Ads } from '../../../admin/ads/model/Ads';
-import { User } from '../models/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class UserService {
   }
 
   addRoomFav(roomId:string){
-    return this._HttpClient.post(HttpEndPoints.User.home.addToFav, {roomId})
+    return this._HttpClient.post(HttpEndPoints.User.fav.addToFav, {roomId})
   }
   getRoomById(id: string): Observable<Rooms.IRoomdDetails>{
     return this._HttpClient.get<Rooms.IRoomdDetails>(`${HttpEndPoints.User.home.GetRoomById}/${id}`);
@@ -34,12 +34,12 @@ export class UserService {
   }
 
 
-  getAllFavRooms(): Observable<User.IFavResponse> {
+  getAllFavRooms(): Observable<UserModel.IFavResponse> {
     return this._HttpClient.get
-    <User.IFavResponse>(HttpEndPoints.User.fav.favoriteRooms);
+    <UserModel.IFavResponse>(HttpEndPoints.User.fav.favoriteRooms);
   }
 
-  deleteFavRoom(id: string): Observable<User.IFavResponse>{
-    return this._HttpClient.delete<User.IFavResponse>(HttpEndPoints.User.fav.deleteFavoriteRooms + id);
+  deleteFavRoom(id: string): Observable<UserModel.IFavResponse>{
+    return this._HttpClient.delete<UserModel.IFavResponse>(HttpEndPoints.User.fav.deleteFavoriteRooms + id);
   }
 }

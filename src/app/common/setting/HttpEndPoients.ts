@@ -54,18 +54,16 @@ export class HttpEndPoints {
  public static User={
   home:{
    GetAllads:'portal/ads',
-   Getallroom:'portal/rooms/available'
-   
+   Getallroom:'portal/rooms/available',
+      GetRoomById:'portal/rooms'
   },
   fav:{
     favoriteRooms:'portal/favorite-rooms',
     deleteFavoriteRooms:'portal/favorite-rooms/${id}',
+    addToFav:'portal/favorite-rooms',
   },
-   Getallroom:'portal/rooms/available',
-   addToFav:'portal/favorite-rooms',
-   GetRoomById:'portal/rooms'
   }
- }
+
 
  public static Review = {
   Default: "portal/room-reviews"
