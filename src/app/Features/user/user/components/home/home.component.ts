@@ -20,9 +20,7 @@ import { RoleEnum } from 'src/app/common/Enums/RoleEnum.enum';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  myData:any
   data:any
-  myRole:any
   capacity:number=0;
   adsList: Ads.IAds[]=[];
   firstAds!:Ads.IAds;

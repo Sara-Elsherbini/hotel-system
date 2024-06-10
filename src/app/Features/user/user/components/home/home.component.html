@@ -3,7 +3,6 @@
 <section >
   <div class="container">
     <section class="my-4 section1">
-
       <div class="row ">
         <div class="col-md-6">
           <div class="">
@@ -67,36 +66,60 @@
     <h3 class="main-color">{{'home.MostPopularAds'|translate}}</h3>
       <div class="row ">
         <div class="col-lg-4">
-          <div  class="img-about  overflow-hidden position-relative">
-            <div class="position-relative">
-              <img  class=" img-fluid first-img-ads" [src]="(firstAds?.room?.images[0])?firstAds?.room?.images[0]:SecondAds?.room?.images[0]" alt="">
-              <span class="badge bg-accent text-white position-absolute top-0 end-0 p-3">{{((firstAds?.room?.price)?firstAds?.room?.price:SecondAds?.room?.price)|currency}}</span>
+
+            <div class="myCard position-relative overflow-hidden">
+              <div class="card-wrapper position-relative">
+                <img matCardImage [src]="(firstAds?.room?.images[0])?firstAds?.room?.images[0]:SecondAds?.room?.images[0]" class="img-fluid  first-img-ads w-100 radius-15">
+                <div class="position-absolute top-0 end-0">
+                  <p class="text-white px-4 py-2 bg-accent" style="border-radius:0px 15px 0px 15px">
+                    {{((firstAds?.room?.price)?firstAds?.room?.price:SecondAds?.room?.price)|currency}}
+                    per
+                    night
+                  </p>
+                </div>
+              </div>
+              <div class="layer position-absolute radius-15 w-100 h-100 top-0 start-0 d-flex gap-2 justify-content-center align-items-center">
+                <a (click)="checkIslogged(firstAds.room._id)" class="bg-transparent curser-pointer">
+                  <i class="fa-solid fa-heart fa-2x text-white"></i>
+                </a>
+                <a (click)="view(firstAds.room._id)" class="bg-transparent curser-pointer">
+                  <i class="fa-solid fa-eye fa-2x text-white"></i>
+                </a>
+              </div>
+
             </div>
 
-            <div class="layer position-absolute w-100 h-100  d-flex gap-2 justify-content-center align-items-center ">
-
-              <a (click)="checkIslogged(firstAds.room._id)"><i class="fa-solid fa-heart fa-2x text-white"></i></a>
-              <a  (click)="view(firstAds.room._id)"><i  class="fa-solid fa-eye fa-2x text-white"></i></a>
-            </div>
-          </div>
 
         </div>
     <div class="col-lg-8 my-1">
      <div class="row">
-      <div *ngFor="let item of adsList"  class="col-lg-6 img-about d-flex  overflow-hidden position-relative my-2">
+      <div *ngFor="let item of adsList"  class="col-lg-6  my-2">
+          <div class="myCard position-relative overflow-hidden">
+            <div class="card-wrapper position-relative">
+              <img matCardImage [src]="item?.room?.images[0]" class="img-fluid  rest-img-ads w-100 radius-15">
+              <div class="position-absolute top-0 end-0">
+                <p class="text-white px-4 py-2 bg-accent" style="border-radius:0px 15px 0px 15px">
+                  {{item?.room?.price|currency}}
+                  per
+                  night
+                </p>
+              </div>
+            </div>
+            <div class="layer position-absolute radius-15 w-100 h-100 top-0 start-0 d-flex gap-2 justify-content-center align-items-center">
+              <a (click)="checkIslogged(item.room._id)" class="bg-transparent curser-pointer">
+                <i class="fa-solid fa-heart fa-2x text-white"></i>
+              </a>
+              <a (click)="view(item.room._id)" class="bg-transparent curser-pointer">
+                <i class="fa-solid fa-eye fa-2x text-white"></i>
+              </a>
+            </div>
 
-        <img  class="w-100 rest-img-ads" [src]="item?.room?.images[0]" alt="">
-         <span class="badge bg-accent text-white position-absolute me-3 top-0 end-0 p-3">{{item?.room?.price|currency}}</span>
-        <div class="layer position-absolute w-100 h-100  d-flex gap-2 justify-content-center align-items-center ">
-
-          <a (click)="checkIslogged(item.room._id)" ><i class="fa-solid fa-heart fa-2x text-white"></i></a>
-
-          <a  (click)="view(item.room._id)"><i  class="fa-solid fa-eye fa-2x text-white"></i></a>
+          </div>
         </div>
       </div>
      </div>
     </div>
-    </div>
+
   </section>
   <section class="my-5">
     <h3 class="main-color mt-5">{{'home.HousesBeautyBackyard'|translate}}</h3>
