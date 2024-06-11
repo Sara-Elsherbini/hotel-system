@@ -26,6 +26,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FooterComponent } from './components/footer/footer/footer.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
 
@@ -62,7 +63,7 @@ import { FooterComponent } from './components/footer/footer/footer.component';
     MatCardModule,
     MatDividerModule,
     TranslateModule,
-    
+    MatStepperModule
   ],
   exports: [
     NoDataComponent,
@@ -90,7 +91,8 @@ import { FooterComponent } from './components/footer/footer/footer.component';
     ChangePasswordComponent,
     ViewvalueComponent,
     TranslateModule,
-    FooterComponent
+    FooterComponent,
+    MatStepperModule
   ],
 })
 export class SharedModule { }

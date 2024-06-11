@@ -15,6 +15,9 @@ import { ReviewsComponent } from './components/details/reviews/reviews.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentsComponent } from './components/details/comments/comments.component';
 import { NgModule } from '@angular/core';
+import { BookingComponent } from './components/booking/booking.component';
+import { NgxStripeModule } from 'ngx-stripe';
+import { BookingdetailsComponent } from './components/booking/bookingdetails/bookingdetails.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +30,9 @@ import { NgModule } from '@angular/core';
     LandingNavbarComponent,
     DetailsComponent,
     ReviewsComponent,
-    CommentsComponent
-
+    CommentsComponent,
+    BookingComponent,
+    BookingdetailsComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +42,8 @@ import { NgModule } from '@angular/core';
     MatDatepickerModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxStripeModule.forRoot('pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'),
   ]
 })
 export class UserModule { }

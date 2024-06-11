@@ -1,0 +1,19 @@
+<h4 class="color-main third-title">{{'Booking.Shared.leftSide.Title' | translate}}</h4>
+<p>{{'Booking.Shared.leftSide.RoomName' | translate}}: <span class="regular-text">{{booking.roomName?
+        booking.roomName:"loading..."}}</span></p>
+<p>{{'Booking.Shared.leftSide.Price' | translate}}: <span class="regular-text">{{booking.roomPrice? (booking.roomPrice |
+        currency): "loading..."}}</span></p>
+<p>{{'Booking.Shared.leftSide.Discount' | translate}}: <span class="regular-text">{{booking.roomDiscount?
+        (booking.roomDiscount | currency):
+        "loading..."}}</span></p>
+<p>{{'Booking.Shared.leftSide.StartDate' | translate}}: <span class="regular-text">{{booking.startDate?
+        (booking.startDate | date:'fullDate') :
+        "loading..."}}</span></p>
+<p>{{'Booking.Shared.leftSide.EndDate' | translate}}: <span class="regular-text">{{booking.endDate?
+        (booking.endDate | date:'fullDate'): "loading..."}}</span></p>
+<p>{{'Booking.Shared.leftSide.NumberOfNights' | translate}}: <span class="regular-text">{{booking.numberOfNights?
+        booking.numberOfNights: "loading..."}}</span>
+</p>
+<p>{{'Booking.Shared.leftSide.TotalPaid' | translate}}: <span class="regular-text">{{booking.totalPrice?
+        (booking.totalPrice | currency):
+        "loading..."}}</span></p>

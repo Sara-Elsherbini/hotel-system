@@ -115,7 +115,7 @@ export class CommentsComponent {
         }
       })
     } else {
-      this._dialog.open(NoDataComponent);
+      this.openMustLoginDialog('Login to Delete comment.');
     }
   }
 
