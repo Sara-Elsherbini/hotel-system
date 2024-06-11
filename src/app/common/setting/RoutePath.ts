@@ -11,7 +11,8 @@ export class RoutePaths {
     explore: "explore",
     favorites: "favorites",
     reviews: "reviews",
-    roomDetails: "room/:id"
+    roomDetails: "room/:id",
+    booking: "booking"
   }
 
   public static Dashboard = {

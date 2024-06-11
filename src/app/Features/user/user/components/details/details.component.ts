@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NotifyService } from 'src/app/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NotifyService, TokenService } from 'src/app/common';
 import { UserService } from '../../services/user.service';
 import { Rooms } from 'src/app/Features/admin/rooms/models/rooms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MustLoginDialog } from '../MustLoginDialog/MustLoginDialog';
+import { BookingService } from '../../services/booking/booking.service';
+import { Booking } from '../../models/userBooking.model';
 
 @Component({
   selector: 'app-details',
@@ -28,7 +33,19 @@ export class DetailsComponent implements OnInit {
   };
   dummyImage: string = "assets/img/room-placeholder.png";
 
-  constructor(private _ActivatedRoute: ActivatedRoute, private _NotifyService: NotifyService, private _GuestService: UserService) { }
+  bookingForm: FormGroup = new FormGroup({
+    startDate: new FormControl(null, [Validators.required]),
+    endDate: new FormControl(null, [Validators.required]),
+  })
+
+  constructor(
+    private _router: Router,
+    private _ActivatedRoute: ActivatedRoute,
+    private _NotifyService: NotifyService,
+    private _GuestService: UserService,
+    private _tokenService: TokenService,
+    private _userBookingService: BookingService,
+    private _dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.roomId = this._ActivatedRoute.snapshot.params['id'];
@@ -44,6 +61,60 @@ export class DetailsComponent implements OnInit {
         this._NotifyService.Error(err.error.message)
       }
     });
+  }
+
+  startBooking() {
+    if (this.bookingForm.valid) {
+      if (this._tokenService.isAuthenticated()) {
+        let numberOfNights = this.calculateDiff(this.bookingForm.value["startDate"], this.bookingForm.value["endDate"]) + 1;
+        let totalPrice = this.roomData.discount ? (this.roomData.price - this.roomData.discount) * numberOfNights : this.roomData.price * numberOfNights;
+        let bookingId: string;
+        let bookingData: Booking.IBookingCached;
+        this._userBookingService.addBooking({ room: this.roomId, totalPrice, ...this.bookingForm.value }).subscribe({
+          next: (res) => {
+            bookingId = res.data.booking._id as string
+            bookingData = {
+              id: bookingId,
+              numberOfNights: numberOfNights,
+              roomPrice: this.roomData.price,
+              roomDiscount: this.roomData.discount,
+              roomName: this.roomData.roomNumber,
+              startDate: res.data.booking.startDate,
+              endDate: res.data.booking.endDate,
+              totalPrice: res.data.booking.totalPrice
+            };
+          },
+          error: (err) => {
+            this._NotifyService.Error(err.error.message)
+          },
+          complete: () => {
+            this._userBookingService.continueBooking(bookingId, bookingData);
+          }
+        })
+      } else {
+        this.openMustLoginDialog('Login to Add comment.');
+      }
+    }
+  }
+
+  openMustLoginDialog(text: string) {
+    this._dialog.open(MustLoginDialog,
+      { data: text }
+    )
+  }
+
+  calculateDiff(startDate: string, endDate: string) {
+    let start = new Date(startDate);
+    let end = new Date(endDate);
+
+    return Math.floor((Date.UTC(end.getFullYear(), end.getMonth(), end.getDate()) - Date.UTC(start.getFullYear(), start.getMonth(), start.getDate())) / (1000 * 60 * 60 * 24));
+  }
+
+  public get StartDate() {
+    return this.bookingForm.controls["startDate"];
+  }
+  public get EndDate() {
+    return this.bookingForm.controls["endDate"];
   }
 
 }

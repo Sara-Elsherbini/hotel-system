@@ -72,5 +72,10 @@ export class HttpEndPoints {
  public static Comment = {
   Default: "portal/room-comments"
  }
+ public static UserBooking = {
+  Default: "portal/booking",
+  GetForUser: "portal/booking/my",
+
+ }
 }
 

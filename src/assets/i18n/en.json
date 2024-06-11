@@ -88,8 +88,40 @@
     "connectUs": "Connect Us",
     "copyRights": "Copyright 2019 • All rights reserved • Staycation"
   },
-  "favourats":{
-    "Favorites":"Your Favorites"
-
+"favourats": {
+    "Favorites": "Your Favorites"
+  },
+  "Booking": {
+    "FirstStep": {
+      "Title": "Your Payment",
+      "Button": "Confirm"
+    },
+    "SecondStep": {
+      "Title": "Your Booking",
+      "subtitle": "Confirm Your Booking",
+      "paragraph": {
+        "leftSide": "Please, press",
+        "rightSide": "to complete your booking process"
+      }
+    },
+    "ThirdStep":{
+      "label": "Done",
+      "Title": "Yay! Completed",
+      "paragraph": "We will inform you via email later once the transaction has been accepted",
+      "button": "Back to Home"
+    },
+    "Shared": {
+      "leftSide": {
+        "Title": "Booking Details",
+        "RoomName": "Room Name",
+        "Price": "Price per night",
+        "Discount": "Discount",
+        "StartDate": "Start Date",
+        "EndDate":"End Date",
+        "NumberOfNights": "Number Of Nights",
+        "TotalPaid": "Total Paid"
+      },
+      "Button": "Confirm"
+    }
   }
 }

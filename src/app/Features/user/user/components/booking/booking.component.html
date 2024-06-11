@@ -1,0 +1,63 @@
+<mat-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="token" label="{{'Booking.FirstStep.Title' | translate}}" [editable]="false">
+        <div class="container">
+            <h2 class="color-main text-center">{{"Booking.FirstStep.Title" | translate}}</h2>
+            <div class="row border-center">
+                <div class="col-md-6">
+                    <app-bookingdetails [booking]="booking"></app-bookingdetails>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center my-4 my-md-0">
+                    <div
+                        class="d-flex flex-column justify-content-around align-items-center border w-100 h-100 m-4 m-md-0">
+                        <div class="w-75 p-4 border">
+                            <ngx-stripe-elements class="w-100" [stripe]="stripe" [elementsOptions]="elementsOptions">
+                                <ngx-stripe-card [options]="cardOptions" />
+                            </ngx-stripe-elements>
+                        </div>
+
+                        <button type="submit" class="primary" (click)="createToken(stepper)">
+                            {{'Booking.Shared.Button' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="validToGo" label="{{'Booking.SecondStep.Title' | translate}}" [editable]="false">
+        <div class="container">
+            <h2 class="color-main text-center">{{"Booking.SecondStep.Title" | translate}}</h2>
+            <div class="row border-center">
+                <div class="col-md-6">
+                    <app-bookingdetails [booking]="booking"></app-bookingdetails>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center my-4 my-md-0">
+                    <div
+                        class="d-flex flex-column justify-content-around align-items-center border w-100 h-100 m-4 m-md-0">
+                        <h4 class="color-main third-title">{{'Booking.SecondStep.subtitle' | translate}}</h4>
+
+                        <p class="regular-text">{{'Booking.SecondStep.paragraph.leftSide' | translate}}
+                            <strong>{{'Booking.Shared.Button' | translate}}</strong>
+                            {{'Booking.SecondStep.paragraph.rightSide' | translate}}
+                        </p>
+
+                        <button type="submit" class="primary" (click)="confirmBooking(stepper)">
+                            {{'Booking.Shared.Button' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step label="{{'Booking.ThirdStep.label' | translate}}">
+        <div class="container">
+            <h2 class="color-main text-center pb-1">{{"Booking.ThirdStep.Title" | translate}}</h2>
+            <div class="row d-flex justify-content-center">
+                <div class="d-flex flex-column justify-content-center align-items-center w-50">
+                    <img class="w-75" src="assets/img/payment.png" alt="">
+                    <p class="regular-text">{{"Booking.ThirdStep.paragraph" | translate}}</p>
+                    <a routerLink="/"><button class="primary">{{"Booking.ThirdStep.button" | translate}}</button></a>
+                </div>
+            </div>
+        </div>
+    </mat-step>
+</mat-stepper>

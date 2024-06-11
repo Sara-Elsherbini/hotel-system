@@ -90,7 +90,38 @@
     },
     "favourats":{
       "Favorites":"المفضلة"
-
     },
-    "general": {}
+    "general": {},
+    "Booking": {
+        "FirstStep": {
+            "Title": "بيانات الدفع"
+        },
+        "SecondStep": {
+            "Title": "الحجز الخاص بك",
+            "subtitle": "تأكيد الحجز الخاص بك",
+            "paragraph": {
+                "leftSide": "بالرجاء الضغط علي",
+                "rightSide": "لأستكمال اجراءات حجز الغرفة"
+            }
+        },
+        "ThirdStep":{
+          "label": "إنتاء",
+          "Title": "أجل! إنتهينا",
+          "paragraph": "سيتم تبليغك عبر البريد الإلكتروني فور تمام عملية التحويل",
+          "button": "العودة إلي الصفحة الرئيسية"
+        },
+        "Shared": {
+            "leftSide": {
+                "Title": "تفاصيل الحجز",
+                "RoomName": "اسم الغرفة",
+                "Price": "السعر لليلة",
+                "Discount": "الخصم",
+                "StartDate": "إبتداءا من ليلة",
+                "EndDate": "حتي ليلة",
+                "NumberOfNights": "عدد الليلي",
+                "TotalPaid": "السعر الاجمالي"
+            },
+            "Button": "تأكيد"
+        }
+    }
 }
