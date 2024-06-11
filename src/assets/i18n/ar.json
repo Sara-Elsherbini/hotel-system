@@ -13,7 +13,9 @@
         "HousesBeautyBackyard": "منازل ذات فناء خلفي جميل",
         "HotelLargeLivingRoom": "فنادق بها غرفة معيشة كبيرة",
         "WhatgreatTripMyFamily": "يالها من رحله رائعه حقا",
-        "IShouldTryAgainNextTimesoon": "سوف تتكرر قريبا"
+        "IShouldTryAgainNextTimesoon": "سوف تتكرر قريبا",
+        "LoginPutFavorites":"يجب ان تسجل لتضع هذه الغرفه في المفضله",
+        "Cancel":"إلغاء"
     },
     "details": {
         "list": {
@@ -87,6 +89,7 @@
     },
     "favourats":{
       "Favorites":"المفضلة"
+
     },
     "general": {}
 }
