@@ -115,7 +115,7 @@ export class HomeComponent implements OnInit {
     if( this._AuthService.role == this.RoleEnum.USER){
       this._UserService.addRoomFav(id).subscribe({
         next:(res)=>{
-        this._NotifyService.Success('Room added to favorites successfully')
+        this._NotifyService.Success(this._TranslateService.instant('home.RoomAddedToFavoritesSuccessfully'))
         },
        error:(err:HttpErrorResponse)=>{
         this._NotifyService.ServerError(err.error.message);

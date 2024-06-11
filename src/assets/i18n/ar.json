@@ -15,7 +15,8 @@
         "WhatgreatTripMyFamily": "يالها من رحله رائعه حقا",
         "IShouldTryAgainNextTimesoon": "سوف تتكرر قريبا",
         "LoginPutFavorites":"يجب ان تسجل لتضع هذه الغرفه في المفضله",
-        "Cancel":"إلغاء"
+        "Cancel":"إلغاء",
+        "RoomAddedToFavoritesSuccessfully":"تم !ضافه الغرفه الغرفه الي المفضله بنجاح"
     },
     "details": {
         "list": {
