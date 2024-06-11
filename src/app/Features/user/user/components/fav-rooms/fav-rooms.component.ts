@@ -13,7 +13,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./fav-rooms.component.scss']
 })
 export class FavRoomsComponent implements OnInit {
-favroomList!:UserModel.IFavListRooms
+favroomList:UserModel.IFavListRooms={
+  favoriteRooms:[],
+  totalCount: 0
+}
 pageSizeOptions = [5,10, 25];
 pageSize = 10;
 pageIndex = 1;

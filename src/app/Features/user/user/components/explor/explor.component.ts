@@ -51,7 +51,10 @@ export class ExplorComponent implements OnInit {
 
   }
 
-  roomsList!: Rooms.IRoomsList
+  roomsList: Rooms.IRoomsList={
+    rooms:    [],
+    totalCount: 0
+  }
   ngOnInit() {
     this._AuthService.getProfile()
     this._ActivatedRoute.queryParams.subscribe((params:any) => {
