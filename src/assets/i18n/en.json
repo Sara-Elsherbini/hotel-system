@@ -13,7 +13,10 @@
     "HousesBeautyBackyard": "Houses With Beauty Backyard",
     "HotelLargeLivingRoom": "Hotels with large living room",
     "WhatgreatTripMyFamily": "What a great trip with my family and",
-    "IShouldTryAgainNextTimesoon": "i should try again next time soon"
+    "IShouldTryAgainNextTimesoon": "i should try again next time soon",
+    "LoginPutFavorites":"You should Login to put this in Favorites.",
+    "Cancel":"Cancel",
+    "RoomAddedToFavoritesSuccessfully":"Room added to favorites successfully"
   },
   "details": {
     "list": {
@@ -85,7 +88,7 @@
     "connectUs": "Connect Us",
     "copyRights": "Copyright 2019 • All rights reserved • Staycation"
   },
-  "favourats": {
+"favourats": {
     "Favorites": "Your Favorites"
   },
   "Booking": {

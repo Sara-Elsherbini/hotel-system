@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import {  Ads} from '../../../../admin/ads/model/Ads'
 import { HttpErrorResponse } from '@angular/common/http';
-import { NotifyService } from 'src/app/common';
+import { NotifyService, TokenService } from 'src/app/common';
 import{Rooms} from '../../../../admin/rooms/models/rooms'
 import { MatDialog } from '@angular/material/dialog';
 import { MustLoginDialog } from '../MustLoginDialog/MustLoginDialog';
@@ -13,6 +13,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { UserModel } from "../../models/user";
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { RoleEnum } from 'src/app/common/Enums/RoleEnum.enum';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +35,10 @@ export class HomeComponent implements OnInit {
     capacity: new FormControl(0,[Validators.required]),
 })
   constructor(private _AuthService:AuthService,private _UserService:UserService,
-    private _router: Router,private _NotifyService:NotifyService, private _MatDialog:MatDialog) {
+    private _router: Router,private _NotifyService:NotifyService,
+    private _TranslateService: TranslateService,
+    private _TokenService:TokenService,
+     private _MatDialog:MatDialog) {
    }
   ngOnInit() {
     this._AuthService.getProfile()
@@ -43,7 +47,6 @@ export class HomeComponent implements OnInit {
     this.getRoom();
   }
   onExplor(): void {
-    if (this._AuthService.role==this.RoleEnum.USER) {
       const formValues = this.explorForm.value;
       // Format the dates
       const formattedParams = {
@@ -52,7 +55,7 @@ export class HomeComponent implements OnInit {
         endDate: formValues.endDate?this.formatDateToMMDDYYYY(formValues.endDate):''
       };
       this._router.navigate(['explore'], { queryParams: formattedParams });
-    }else this.openMustLoginDialog('Login to Explore room.');
+
   }
 
 
@@ -76,8 +79,6 @@ export class HomeComponent implements OnInit {
     }
 
   }
-
-
   getAds() {
     this._UserService.getAllAds().subscribe({
       next: (res) => {
@@ -113,17 +114,26 @@ export class HomeComponent implements OnInit {
     if( this._AuthService.role == this.RoleEnum.USER){
       this._UserService.addRoomFav(id).subscribe({
         next:(res)=>{
-        this._NotifyService.Success('Room added to favorites successfully')
+        this._NotifyService.Success(this._TranslateService.instant('home.RoomAddedToFavoritesSuccessfully'))
         },
-
        error:(err:HttpErrorResponse)=>{
-        this._NotifyService.ServerError(err.error.message)
+        this._NotifyService.ServerError(err.error.message);
        }
       })
-
-
-    }else{
-      this.openMustLoginDialog('Login to put this in Favorites.')
+    }
+    else{
+      this._NotifyService.Warning2(
+        this._TranslateService.instant('home.LoginPutFavorites'),
+        this._TranslateService.instant('layout.navbar.buttons.Login'),
+        this._TranslateService.instant('home.Cancel'),
+      )
+        .then(result => {
+          if (result) {
+            setTimeout(() => {
+              this._TokenService.logout()
+            }, 300);
+          }
+        });
     }
   }
 
