@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
     this.getRoom();
   }
   onExplor(): void {
-    if (this._AuthService.role==this.RoleEnum.USER) {
       const formValues = this.explorForm.value;
       // Format the dates
       const formattedParams = {
@@ -56,7 +55,7 @@ export class HomeComponent implements OnInit {
         endDate: formValues.endDate?this.formatDateToMMDDYYYY(formValues.endDate):''
       };
       this._router.navigate(['explore'], { queryParams: formattedParams });
-    }else this.openMustLoginDialog('Login to Explore room.');
+
   }
 
 
@@ -121,7 +120,8 @@ export class HomeComponent implements OnInit {
         this._NotifyService.ServerError(err.error.message);
        }
       })
-    }else{
+    }
+    else{
       this._NotifyService.Warning2(
         this._TranslateService.instant('home.LoginPutFavorites'),
         this._TranslateService.instant('layout.navbar.buttons.Login'),
@@ -132,7 +132,7 @@ export class HomeComponent implements OnInit {
             setTimeout(() => {
               this._TokenService.logout()
             }, 300);
-          } else { }
+          }
         });
     }
   }

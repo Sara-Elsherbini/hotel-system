@@ -3,7 +3,7 @@ import { Rooms } from 'src/app/Features/admin/rooms/models/rooms';
 import { UserService } from '../../services/user.service';
 import { UserModel } from '../../models/user';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NotifyService } from 'src/app/common';
+import { NotifyService, TokenService } from 'src/app/common';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MustLoginDialog } from '../MustLoginDialog/MustLoginDialog';
@@ -11,6 +11,7 @@ import { RoutePaths } from 'src/app/common/setting/RoutePath';
 import { AuthService } from 'src/app/Features/auth/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RoleEnum } from 'src/app/common/Enums/RoleEnum.enum';
+import { TranslateService } from '@ngx-translate/core';
 
 
 interface IParame{
@@ -43,7 +44,9 @@ export class ExplorComponent implements OnInit {
     private _ActivatedRoute:ActivatedRoute,
     private _Router:Router,
     private _AuthService:AuthService,
-    private _MatDialog:MatDialog
+    private _MatDialog:MatDialog,
+    private _TranslateService:TranslateService,
+    private _TokenService:TokenService
   ) {
 
   }
@@ -118,7 +121,19 @@ export class ExplorComponent implements OnInit {
 
 
     }else{
-      this.openMustLoginDialog('Login to put this in Favorites.')
+
+        this._NotifyService.Warning2(
+          this._TranslateService.instant('home.LoginPutFavorites'),
+          this._TranslateService.instant('layout.navbar.buttons.Login'),
+          this._TranslateService.instant('home.Cancel'),
+        )
+          .then(result => {
+            if (result) {
+              setTimeout(() => {
+                this._TokenService.logout()
+              }, 300);
+            }
+          });
     }
   }
   openMustLoginDialog(text:string){
