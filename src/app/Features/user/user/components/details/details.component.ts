@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MustLoginDialog } from '../MustLoginDialog/MustLoginDialog';
 import { BookingService } from '../../services/booking/booking.service';
 import { Booking } from '../../models/userBooking.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-details',
@@ -45,6 +46,7 @@ export class DetailsComponent implements OnInit {
     private _GuestService: UserService,
     private _tokenService: TokenService,
     private _userBookingService: BookingService,
+    private _TranslateService:TranslateService,
     private _dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -91,17 +93,24 @@ export class DetailsComponent implements OnInit {
             this._userBookingService.continueBooking(bookingId, bookingData);
           }
         })
-      } else {
-        this.openMustLoginDialog('Login to Add comment.');
-      }
+       } else{
+          this._NotifyService.Warning2(
+            this._TranslateService.instant('home.LoginPutFavorites'),
+            this._TranslateService.instant('layout.navbar.buttons.Login'),
+            this._TranslateService.instant('home.Cancel'),
+          )
+            .then(result => {
+              if (result) {
+                setTimeout(() => {
+                  this._tokenService.logout()
+                }, 300);
+              }
+            });
+        }
     }
   }
 
-  openMustLoginDialog(text: string) {
-    this._dialog.open(MustLoginDialog,
-      { data: text }
-    )
-  }
+
 
   calculateDiff(startDate: string, endDate: string) {
     let start = new Date(startDate);

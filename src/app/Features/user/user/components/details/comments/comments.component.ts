@@ -8,6 +8,8 @@ import { NoDataComponent } from 'src/app/shared/components/no-data/no-data.compo
 import { DeleteComponent } from 'src/app/shared/components/delete/delete.component';
 import { Review } from '../../../models/review.model';
 import { MustLoginDialog } from '../../MustLoginDialog/MustLoginDialog';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-comments',
@@ -30,7 +32,12 @@ export class CommentsComponent {
   });
 
 
-  constructor(private _tokenService: TokenService, private _NotifyService: NotifyService, private _CommentsService: CommentsService, private _dialog: MatDialog) { }
+  constructor(private _tokenService: TokenService,
+     private _NotifyService: NotifyService,
+     private _CommentsService: CommentsService,
+     private _TranslateService:TranslateService,
+     private _TokenService:TokenService,
+     private _dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.isAuth = this._tokenService.isAuthenticated();
@@ -60,16 +67,22 @@ export class CommentsComponent {
     if (this.isAuth) {
       if (this.commentId) this.editComment()
       else this.addComment();
-    } else {
-      // this._dialog.open(NoDataComponent);
-       this.openMustLoginDialog('Login to Add comment.');
+    }    else{
+      this._NotifyService.Warning2(
+        this._TranslateService.instant('home.LoginPutFavorites'),
+        this._TranslateService.instant('layout.navbar.buttons.Login'),
+        this._TranslateService.instant('home.Cancel'),
+      )
+        .then(result => {
+          if (result) {
+            setTimeout(() => {
+              this._TokenService.logout()
+            }, 300);
+          }
+        });
     }
   }
-  openMustLoginDialog(text:string){
-    this._dialog.open(MustLoginDialog,
-      {data:text}
-    )
-  }
+
 
   addComment() {
     this._CommentsService.addComments({ ...this.CommentForm.value, roomId: this.id }).subscribe({
@@ -114,8 +127,19 @@ export class CommentsComponent {
           this.getComments();
         }
       })
-    } else {
-      this.openMustLoginDialog('Login to Delete comment.');
+    } else{
+      this._NotifyService.Warning2(
+        this._TranslateService.instant('home.LoginPutFavorites'),
+        this._TranslateService.instant('layout.navbar.buttons.Login'),
+        this._TranslateService.instant('home.Cancel'),
+      )
+        .then(result => {
+          if (result) {
+            setTimeout(() => {
+              this._TokenService.logout()
+            }, 300);
+          }
+        });
     }
   }
 

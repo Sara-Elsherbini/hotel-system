@@ -139,11 +139,7 @@ export class ExplorComponent implements OnInit {
           });
     }
   }
-  openMustLoginDialog(text:string){
-    this._MatDialog.open(MustLoginDialog,
-      {data:text}
-    )
-  }
+
   view(id:string){
     let url =RoutePaths.User.roomDetails;
     url=url.replace(':id',id);
