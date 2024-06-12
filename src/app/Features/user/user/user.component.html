@@ -1,7 +1,7 @@
-<section [dir]="lang === 'en' ? 'ltr' : 'rtl'">
+<section [dir]="lang === 'en' ? 'ltr' : 'rtl'" [class.dark-mode]="themeService.isDarkMode | async">
   <app-landing-navbar></app-landing-navbar>
 
   <router-outlet></router-outlet>
   <app-footer></app-footer>
-  
+
 </section>
