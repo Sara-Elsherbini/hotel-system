@@ -1,56 +1,206 @@
-<section class="my-4 section1">
+
+
+<section >
   <div class="container">
-    <div class="row ">
-      <div class="col-md-6">
-        <div class="">
-          <h1 class="main-color w-100">{{"home.ForgetBusyWork"|translate}}<br>
-            {{"home.StartNextVacation"|translate}}
-          </h1>
-          <p class="light-color"> {{"home.EnjoyYourHolidayWithFamily"|translate}}<br>
-            {{"home.HappyMemorable"|translate}}
-          </p>
-        </div>
+    <section class="my-4 section1">
 
-        <div class="mt-5 ">
-
-          <h5 class="main-color">{{"home.StartBooking"|translate}}</h5>
-          <div>
-            <p class="main-color">{{"home.PickDate"|translate}}</p>
-            <mat-form-field class="w-75">
-              <mat-label>Enter a date range</mat-label>
-              <mat-date-range-input [rangePicker]="picker">
-                <input matStartDate placeholder="Start date">
-                <input matEndDate placeholder="End date">
-              </mat-date-range-input>
-              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-date-range-picker #picker></mat-date-range-picker>
-            </mat-form-field>
-
-          </div>
-          <div class="w-75">
-            <span>{{'home.Capacity'|translate}}</span>
-            <br>
-            <mat-form-field class="example-full-width w-100">
-
-              <mat-icon class="bg-danger-color text-white" matPrefix>remove</mat-icon>
-              <input type="tel" matInput placeholder="555-555-1234">
-              <mat-icon class="bg-green text-white h-100" matSuffix>add</mat-icon>
-            </mat-form-field>
+      <div class="row ">
+        <div class="col-md-6">
+          <div class="">
+            <h1 class="main-color w-100">{{"home.ForgetBusyWork"|translate}}<br>
+              {{"home.StartNextVacation"|translate}}
+            </h1>
+            <p class="light-color"> {{"home.EnjoyYourHolidayWithFamily"|translate}}<br>
+              {{"home.HappyMemorable"|translate}}
+            </p>
           </div>
 
+          <div class="mt-5 ">
+
+            <h5 class="main-color">{{"home.StartBooking"|translate}}</h5>
+            <div>
+              <p class="main-color">{{"home.PickDate"|translate}}</p>
+              <mat-form-field class="w-75">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="Start date">
+                  <input matEndDate placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
+
+            </div>
+            <div class="w-75">
+              <span>{{'home.Capacity'|translate}}</span>
+              <br>
+              <mat-form-field class="example-full-width w-100">
+
+                <mat-icon (click)="decrement()" class="bg-danger-color text-white" matPrefix>remove</mat-icon>
+                <input type="number" class="text-center" matInput  [(ngModel)]="capacity">
+
+                <mat-icon (click)="increment()" class="bg-green text-white h-100" matSuffix >add</mat-icon>
+
+              </mat-form-field>
+            </div>
+
+          </div>
+          <button class="primary w-50 ">{{"home.Explor"|translate}}</button>
         </div>
-        <button class="primary w-50 ">{{"home.Explor"|translate}}</button>
+        <div class="col-md-6">
+          <div class=" img-home-border w-75 ">
+            <div class=" img-home w-100 mt-5 ">
+              <img class="img-fluid" src="../../../../../../assets/img/landing1.svg" alt="">
+            </div>
+
+          </div>
+
+        </div>
       </div>
-      <div class="col-md-6">
-        <div class=" img-home-border w-75 ">
-          <div class=" img-home w-100 mt-5 ">
-            <img class="img-fluid" src="../../../../../../assets/img/landing1.svg" alt="">
+
+
+  </section>
+
+  <section class="my-4 ads ">
+    <h3 class="main-color">{{'home.MostPopularAds'|translate}}</h3>
+      <div class="row ">
+        <div class="col-lg-4">
+          <div  class="img-about  overflow-hidden position-relative">
+            <div class="position-relative">
+              <img  class=" img-fluid first-img-ads" [src]="firstAds?.room?.images[0]" alt="">
+              <span class="badge bg-accent text-white position-absolute top-0 end-0 p-3">{{firstAds?.room?.price|currency}}</span>
+            </div>
+
+            <div class="layer position-absolute w-100 h-100  d-flex gap-2 justify-content-center align-items-center ">
+              <a href=""><i class="fa-solid fa-heart fa-2x text-white"></i></a>
+              <a href=""><i  class="fa-solid fa-eye fa-2x text-white"></i></a>
+            </div>
           </div>
 
         </div>
+    <div class="col-lg-8 my-1">
+     <div class="row">
+      <div *ngFor="let item of adsList"  class="col-lg-6 img-about d-flex  overflow-hidden position-relative my-2">
+
+        <img  class="w-100 rest-img-ads" [src]="item?.room?.images[0]" alt="">
+         <span class="badge bg-accent text-white position-absolute me-3 top-0 end-0 p-3">{{item?.room?.price|currency}}</span>
+        <div class="layer position-absolute w-100 h-100  d-flex gap-2 justify-content-center align-items-center ">
+          <a href=""><i class="fa-solid fa-heart fa-2x text-white"></i></a>
+          <a href=""><i  class="fa-solid fa-eye fa-2x text-white"></i></a>
+        </div>
+      </div>
+     </div>
+    </div>
+    </div>
+  </section>
+  <section class="my-5">
+    <h3 class="main-color mt-5">{{'home.HousesBeautyBackyard'|translate}}</h3>
+    <div class="row">
+
+      <div class="col-xl-3 col-lg-4 col-md-6 " *ngFor="let item of beautyroomList">
+        <div class="card">
+          <img [src]="item.images[0]" class="card-img-top" alt="...">
+          <span class="badge bg-accent text-white position-absolute top-0 end-0 p-3">{{item?.price|currency}}</span>
+
+        </div>
+        <h5 class="main-color mt-1">{{item.roomNumber}}</h5>
+
+        <p class="light-color"> {{item.facilities[0].name}}</p>
+
 
       </div>
     </div>
 
+  </section>
+
+  <section class="my-5">
+    <h3 class="main-color mt-5">{{'home.HotelLargeLivingRoom'|translate}}</h3>
+    <div class="row">
+      <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let item of largeroomList">
+        <div class="card ">
+          <img [src]="item.images[0]" class="card-img-top img-fluid" alt="...">
+          <span class="badge bg-accent text-white position-absolute top-0 end-0 p-3">{{item?.price|currency}}</span>
+        </div>
+        <h5 class="main-color mt-1">{{item.roomNumber}}</h5>
+
+        <p class="light-color"> {{item.facilities[0].name}}</p>
+
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <section>
+    <section>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container p-5">
+              <div class="row align-items-center">
+                <div class="col-md-4">
+                  <img src="../../../../../../assets/img/silder1.png" class="w-75" alt="...">
+                </div>
+
+                <div class="col-md-8">
+                  <div class="fs-3">
+                    <span class="fa fa-star text-warning "></span>
+                    <span class="fa fa-star text-warning "></span>
+                    <span class="fa fa-star text-warning "></span>
+                    <span class="fa fa-star text-warning "></span>
+                    <span class="fa fa-star text-warning "></span>
+                  </div>
+                  <div class="">
+                    <h4 class="fs-1">{{'home.WhatgreatTripMyFamily'|translate}}<br>{{'home.IShouldTryAgainNextTimesoon'|translate}}...</h4>
+                    <p>Angga, Product Designer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container p-5">
+              <div class="row align-items-center">
+                <div class="col-md-4">
+                  <img src="../../../../../../assets/img/silder1.png" class="w-75" alt="...">
+                </div>
+
+                <div class="col-md-8">
+                  <div class=" fs-3">
+                    <span class="fa fa-star text-warning "></span>
+                    <span class="fa fa-star text-warning "></span>
+                    <span class="fa fa-star text-warning "></span>
+                    <span class="fa fa-star text-warning "></span>
+                    <span class="fa fa-star"></span>
+                  </div>
+                  <div class="">
+                    <h4 class=""> {{'home.IShouldTryAgainNextTimesoon'|translate}}...</h4>
+                    <p>Angga, Product Designer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add more carousel items here if needed -->
+        </div>
+
+
+        <button class="carousel-control-prev"  type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon " aria-hidden="true"></span>
+          <span class="visually-hidden ">Next</span>
+        </button>
+      </div>
+    </section>
+
+  </section>
+
   </div>
 </section>
+

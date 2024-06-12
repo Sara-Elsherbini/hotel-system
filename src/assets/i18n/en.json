@@ -7,8 +7,33 @@
     "StartBooking":"Start Booking",
     "PickDate":"Pick a Date",
     "Capacity":"Capacity",
-    "Explor":"Explor"
+    "Explor":"Explor",
+    "Person":"person",
+    "MostPopularAds":"Most Popular Ads",
+    "HousesBeautyBackyard":"Houses With Beauty Backyard",
+    "HotelLargeLivingRoom":"Hotels with large living room",
+    "WhatgreatTripMyFamily":"What a great trip with my family and",
+    "IShouldTryAgainNextTimesoon":"i should try again next time soon"
    },
    "details":{},
-   "explor":{}
+   "explor":{},
+
+    "footer":{
+      "stayCation":"Staycation",
+      "kaboom":"We kaboom your beauty holiday instantly and memorable.",
+      "beginners":"For Beginners",
+      "newAccouant":"New Account",
+      "bookingRoom":"Start Booking a Room",
+      "usePayment":"Use Payments",
+      "exploreUs":"Explore Us",
+      "ourCareers":"Our Careers",
+      "privacy":"privacy",
+      "terms":"Terms & Conditions",
+      "connectUs":"Connect Us",
+      "copyRights":"Copyright 2019 • All rights reserved • Staycation"
+
+    }
+
+  
+
 }

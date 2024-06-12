@@ -26,6 +26,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LandingNavbarComponent } from './components/landing-navbar/landing-navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FooterComponent } from './components/footer/footer/footer.component';
 
 @NgModule({
 
@@ -40,7 +41,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ViewvalueComponent,
     SharedCardComponent,
     ChangePasswordComponent,
-    LandingNavbarComponent
+    LandingNavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MatSelectModule,
     MatCardModule,
     MatDividerModule,
-    TranslateModule
+    TranslateModule,
+    
   ],
   exports: [
     NoDataComponent,
@@ -89,7 +92,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ChangePasswordComponent,
     ViewvalueComponent,
     LandingNavbarComponent,
-    TranslateModule
+    TranslateModule,
+    FooterComponent
   ],
 })
 export class SharedModule { }

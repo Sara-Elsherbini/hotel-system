@@ -26,6 +26,17 @@ a{
     }
    }
 }
+
+:is(.footer) {
+  .title{
+    color: $primary-color;
+    margin-left: 0 !important;
+    span{
+      color: $main-color!important;
+    }
+  }
+  
+}
 mat-icon{
   color: $primary-color !important;
 }
