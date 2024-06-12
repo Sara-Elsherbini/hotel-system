@@ -1,4 +1,7 @@
-export namespace ExploreUser {
+
+import { Rooms } from "src/app/Features/admin/rooms/models/rooms";
+
+export namespace UserModel {
 
  export interface IUserRoomsRes {
   success: boolean;
@@ -36,11 +39,33 @@ export namespace ExploreUser {
  export interface IParams {
   page: number;
   size: number;
-  // startDate: any;
-  // endDate: any;
+  startDate?: Date|string;
+  endDate?: Date|string;
   [Key: string]: any
  }
+  
+   export interface IFavResponse {
+        success: boolean
+        message: string
+        data: IFavListRooms
+      }
+      
+      export interface IFavListRooms {
+        favoriteRooms: FavoriteRoom[]
+        totalCount: number
+      }
+      
+      export interface FavoriteRoom {
+        _id: string
+        rooms: Rooms.IRoom[]
+        user: Rooms.IUser
+        createdAt: string
+        updatedAt: string
+      }
+      
+  
 }
+
 
 
 

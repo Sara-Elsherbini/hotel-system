@@ -6,7 +6,7 @@ export namespace Rooms {
     data:    IRoomsList;
 }
   export interface IRoomsList {
-    rooms:      IRoom[];
+  rooms:      IRoom[];
     totalCount: number;
 }
 export interface IRoomdDetails {
@@ -27,7 +27,7 @@ export interface IRoom {
     discount:   number;
     facilities: IFacility[];
     createdBy:  IUser;
-    images:    any;
+    images:   any;
     createdAt:  Date;
     updatedAt:  Date;
 }

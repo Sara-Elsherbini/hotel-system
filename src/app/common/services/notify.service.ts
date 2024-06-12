@@ -53,4 +53,40 @@ Success(message:string){
  }
 
 
+Warning1(message: string, cancelButtonText: string) {
+  Swal.fire({
+    icon: 'warning',
+    text: message,
+    showConfirmButton: false,
+    showCancelButton: true,
+    cancelButtonText: cancelButtonText,
+  })
+}
+
+
+  async Warning2(message: string, confirmButtonText: string, cancelButtonText: string) {
+  const result = await Swal.fire({
+    text: message,
+    icon: 'warning',
+    showConfirmButton: true,
+    showCancelButton: true,
+    confirmButtonText: confirmButtonText,
+    cancelButtonText: cancelButtonText,
+    confirmButtonColor: '#434343',
+  });
+  return result.value;
+}
+
+  async Warning3(message: string, confirmButtonText: string) {
+  const result = await Swal.fire({
+    position: 'top-end',
+    showConfirmButton: true,
+    icon: 'warning',
+    confirmButtonColor: '#434343',
+    confirmButtonText: confirmButtonText,
+    text: message,
+  });
+  return result.value;
+}
+
 }

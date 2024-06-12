@@ -1,0 +1,24 @@
+.stars-group{
+    display: flex;
+    align-items: center;
+    color: hsl(0, 0%, 69%);
+    .star{
+        font-size: 1rem;
+        // margin: 0.5rem auto;
+    }
+    &:has(.star:nth-child(1):hover, .star:nth-child(1):is(.active)){
+        color: #FF4545;
+    }
+    &:has(.star:nth-child(2):hover, .star:nth-child(2):is(.active)){
+        color: #ffa534;
+    }
+    &:has(.star:nth-child(3):hover, .star:nth-child(3):is(.active)){
+        color: #ffe234;
+    }
+    &:has(.star:nth-child(4):hover, .star:nth-child(4):is(.active)){
+        color: #b7dd29;
+    }
+    &:has(.star:nth-child(5):hover, .star:nth-child(5):is(.active)){
+        color: #57e32c;
+    }
+}

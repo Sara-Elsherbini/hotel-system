@@ -27,11 +27,11 @@ export class LandingNavbarComponent implements OnInit {
       link: RoutePaths.User.explore,
       isActive: true
     },
-    {
-      text: 'Reviews',
-      link: RoutePaths.User.reviews,
-      isActive: this._tokenService.isAuthenticated()
-    },
+    // {
+    //   text: 'Reviews',
+    //   link: RoutePaths.User.reviews,
+    //   isActive: this._tokenService.isAuthenticated()
+    // },
     {
       text: 'Favorites',
       link: RoutePaths.User.favorites,
@@ -42,7 +42,7 @@ export class LandingNavbarComponent implements OnInit {
   constructor(private _tokenService: TokenService,
     private _translate: TranslateService,) {
    _translate.onLangChange.subscribe((event:LangChangeEvent)=>{
-    console.log("myevebt",event);
+    // console.log("myevebt",event);
 
    })
 

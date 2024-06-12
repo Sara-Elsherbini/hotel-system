@@ -1,0 +1,19 @@
+.myCard {
+  img{
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+}
+.myCard {
+  overflow: hidden;
+}
+
+.layer {
+  transform: translateX(-100%);
+  background-color:rgba(21, 44, 91, 0.2);
+  transition: transform 400ms ease-in-out;
+}
+
+.myCard:hover .layer {
+  transform: translateX(0);
+}

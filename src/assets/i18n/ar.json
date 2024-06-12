@@ -1,53 +1,127 @@
 {
-  "home": {
-    "ForgetBusyWork": "انسي ضغوطات العمل",
-    "StartNextVacation": "وابدأ اجازتك",
-    "EnjoyYourHolidayWithFamily": "نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة",
-    "HappyMemorable": "لجعل لحظات سعيدة لاتنسي",
-    "StartBooking": "احجز الان",
-    "PickDate": "اختر الموعد",
-    "Capacity": "عدد الأفراد",
-    "Explor": "استكشف",
-    "Person": "فرد",
-    "MostPopularAds": "الإعلانات الأكثر شعبية",
-    "HousesBeautyBackyard": "منازل ذات فناء خلفي جميل",
-    "HotelLargeLivingRoom": "فنادق بها غرفة معيشة كبيرة",
-    "WhatgreatTripMyFamily": "يالها من رحله رائعه حقا",
-    "IShouldTryAgainNextTimesoon": "سوف تتكرر قريبا"
-  },
-  "layout": {
-    "navbar": {
-      "links": {
-        "Home": "الصفحة الرئيسية",
-        "Explore": "تصفح",
-        "Reviews": "التقيمات",
-        "Favorites": "المفضلة"
-      },
-      "buttons": {
-        "Register": "تسجيل حساب",
-        "Login": "تسجيل الدخول"
-      },
-      "dropdown": {
-        "profile": "الصفحة الشخصية",
-        "change_password": "تغير كلمة السر",
-        "logout": "تسجيل الخروج"
-      }
+    "home": {
+        "ForgetBusyWork": "انسي ضغوطات العمل",
+        "StartNextVacation": "وابدأ اجازتك",
+        "EnjoyYourHolidayWithFamily": "نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة",
+        "HappyMemorable": "لجعل لحظات سعيدة لاتنسي",
+        "StartBooking": "احجز الان",
+        "PickDate": "اختر الموعد",
+        "Capacity": "عدد الأفراد",
+        "Explor": "استكشف",
+        "Person": "فرد",
+        "MostPopularAds": "الإعلانات الأكثر شعبية",
+        "HousesBeautyBackyard": "منازل ذات فناء خلفي جميل",
+        "HotelLargeLivingRoom": "فنادق بها غرفة معيشة كبيرة",
+        "WhatgreatTripMyFamily": "يالها من رحله رائعه حقا",
+        "IShouldTryAgainNextTimesoon": "سوف تتكرر قريبا",
+        "LoginPutFavorites":"يجب ان تسجل لتضع هذه الغرفه في المفضله",
+        "Cancel":"إلغاء",
+        "RoomAddedToFavoritesSuccessfully":"تم !ضافه الغرفه الغرفه الي المفضله بنجاح"
+    },
+    "details": {
+        "list": {
+            "Home": "الصفحة الرئيسية",
+            "RoomDetails": "تفاصيل الغرفة"
+        },
+        "address": "المدينة, البلد",
+        "paragraphs": {
+            "p1": "الحد الأدنى من موسيقى التكنو هو نوع فرعي بسيط من موسيقى التكنو. ويتميز بجمالية مجردة تستغل استخدام التكرار والتطوير البسيط. يُعتقد أن تقنية الحد الأدنى قد تم تطويرها في الأصل في أوائل التسعينيات من قبل المنتجين المقيمين في ديترويت روبرت هود ودانييل بيل.",
+            "p2": "شهدت مثل هذه الاتجاهات زوال موسيقى التكنو المليئة بالروح والتي تجسد صوت ديترويت الأصلي. لاحظ روبرت هود أنه ودانيال بيل أدركا أن شيئًا ما كان مفقودًا من موسيقى التكنو في عصر ما بعد الهذيان.",
+            "p3": "التصميم هو خطة أو مواصفات لبناء كائن أو نظام أو لتنفيذ نشاط أو عملية، أو نتيجة تلك الخطة أو المواصفات في شكل نموذج أولي أو منتج أو عملية. الوكالة الوطنية للتصميم: تمكين سنغافورة من استخدام التصميم للنمو الاقتصادي ولجعل الحياة أفضل."
+        },
+        "BookingCard": {
+            "StartBooking": "إبدا الحجز",
+            "PerNight": "لليلة",
+            "Discount": "تخفيض",
+            "Off": "خصم",
+            "PickDate": {
+                "title": "أختر تاريخ الحجز",
+                "label": "أختر مدي التاريخ",
+                "StartDate": "إبتداءا من",
+                "EndDate": "وصولا إلي"
+            },
+            "button": "أكمل الحجز"
+        },
+        "Reviews": {
+            "Rate": "تقييم",
+            "Message": "رسالة",
+            "Placeholder": "أدخل رسالتك",
+            "Button": "تقييم"
+        },
+        "Comments": {
+            "Title": "أضف تعليق",
+            "Placeholder": "أدخل تعليقك",
+            "Button": "أرسل"
+        }
+    },
+    "explor": {},
+    "layout": {
+        "navbar": {
+            "links": {
+                "Home": "الصفحة الرئيسية",
+                "Explore": "تصفح",
+                "Reviews": "التقيمات",
+                "Favorites": "المفضلة"
+            },
+            "buttons": {
+                "Register": "تسجيل حساب",
+                "Login": "تسجيل الدخول"
+            },
+            "dropdown": {
+                "profile": "الصفحة الشخصية",
+                "change_password": "تغير كلمة السر",
+                "logout": "تسجيل الخروج"
+            }
+        }
+    },
+    "footer": {
+        "stayCation": "الإقامة",
+        "kaboom": "نحن نمنحك عطلة جمالك على الفور ولا تنسى.",
+        "beginners": "للمبتدئين",
+        "newAccouant": "حساب جديد",
+        "bookingRoom": "ابدأ بحجز غرفة",
+        "usePayment": "استخدم المدفوعات",
+        "exploreUs": "اكتشفنا",
+        "ourCareers": "مسيرتنا المهنية",
+        "privacy": "خصوصية",
+        "terms": "شروط واحكام",
+        "connectUs": "اتصل بنا",
+        "copyRights": "حقوق الطبع والنشر 2019 • جميع الحقوق محفوظة"
+    },
+    "favourats":{
+      "Favorites":"المفضلة"
+    },
+    "general": {},
+    "Booking": {
+        "FirstStep": {
+            "Title": "بيانات الدفع"
+        },
+        "SecondStep": {
+            "Title": "الحجز الخاص بك",
+            "subtitle": "تأكيد الحجز الخاص بك",
+            "paragraph": {
+                "leftSide": "بالرجاء الضغط علي",
+                "rightSide": "لأستكمال اجراءات حجز الغرفة"
+            }
+        },
+        "ThirdStep":{
+          "label": "إنتاء",
+          "Title": "أجل! إنتهينا",
+          "paragraph": "سيتم تبليغك عبر البريد الإلكتروني فور تمام عملية التحويل",
+          "button": "العودة إلي الصفحة الرئيسية"
+        },
+        "Shared": {
+            "leftSide": {
+                "Title": "تفاصيل الحجز",
+                "RoomName": "اسم الغرفة",
+                "Price": "السعر لليلة",
+                "Discount": "الخصم",
+                "StartDate": "إبتداءا من ليلة",
+                "EndDate": "حتي ليلة",
+                "NumberOfNights": "عدد الليلي",
+                "TotalPaid": "السعر الاجمالي"
+            },
+            "Button": "تأكيد"
+        }
     }
-  },
-  "footer": {
-    "stayCation": "الإقامة",
-    "kaboom": "نحن نمنحك عطلة جمالك على الفور ولا تنسى.",
-    "beginners": "للمبتدئين",
-    "newAccouant": "حساب جديد",
-    "bookingRoom": "ابدأ بحجز غرفة",
-    "usePayment": "استخدم المدفوعات",
-    "exploreUs": "اكتشفنا",
-    "ourCareers": "مسيرتنا المهنية",
-    "privacy": "خصوصية",
-    "terms": "شروط واحكام",
-    "connectUs": "اتصل بنا",
-    "copyRights": "حقوق الطبع والنشر 2019 • جميع الحقوق محفوظة"
-  },
-  "details": {},
-  "explor": {}
 }

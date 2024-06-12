@@ -12,7 +12,11 @@ export class ProfileComponent {
   constructor(
     public dialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) { 
+
+    console.log(data);
+    
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
