@@ -69,6 +69,7 @@ export class TokenService {
 
   logout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     this.routeTologin();
   }
 
