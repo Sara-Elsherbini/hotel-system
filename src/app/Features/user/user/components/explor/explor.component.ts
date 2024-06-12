@@ -12,12 +12,13 @@ import { AuthService } from 'src/app/Features/auth/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RoleEnum } from 'src/app/common/Enums/RoleEnum.enum';
 import { TranslateService } from '@ngx-translate/core';
+import { ThemeService } from 'src/app/shared/services/theme.service';
 
 
-interface IParame{
-capacity:number,
-endDate:Date|string,
-startDate:Date|string
+interface IParame {
+  capacity: number,
+  endDate: Date | string,
+  startDate: Date | string
 }
 @Component({
   selector: 'app-explor',
@@ -25,40 +26,41 @@ startDate:Date|string
   styleUrls: ['./explor.component.scss']
 })
 export class ExplorComponent implements OnInit {
-  exploreList: Rooms.IRoomsList={
+  exploreList: Rooms.IRoomsList = {
     rooms: [],
     totalCount: 0,
   }
   data: Rooms.IRoom[] | any = [];
-  pageSizeOptions = [5,10, 25];
+  pageSizeOptions = [5, 10, 25];
   pageSize = 10;
   pageIndex = 1;
-  params:IParame={
-    capacity:0,
-    startDate:'',
-    endDate:''
+  params: IParame = {
+    capacity: 0,
+    startDate: '',
+    endDate: ''
   }
-  paramRequired:any
-  RoleEnum=RoleEnum;
-  constructor(private _UserService: UserService,private _NotifyService:NotifyService,
-    private _ActivatedRoute:ActivatedRoute,
-    private _Router:Router,
-    private _AuthService:AuthService,
-    private _MatDialog:MatDialog,
-    private _TranslateService:TranslateService,
-    private _TokenService:TokenService
+  paramRequired: any
+  RoleEnum = RoleEnum;
+  constructor(private _UserService: UserService, private _NotifyService: NotifyService,
+    private _ActivatedRoute: ActivatedRoute,
+    private _Router: Router,
+    private _AuthService: AuthService,
+    private _MatDialog: MatDialog,
+    private _TranslateService: TranslateService,
+    private _TokenService: TokenService,
+    public _ThemeService: ThemeService
   ) {
 
   }
 
-  roomsList: Rooms.IRoomsList={
-    rooms:    [],
+  roomsList: Rooms.IRoomsList = {
+    rooms: [],
     totalCount: 0
   }
   ngOnInit() {
     this._AuthService.getProfile()
-    this._ActivatedRoute.queryParams.subscribe((params:any) => {
-      this.params=params
+    this._ActivatedRoute.queryParams.subscribe((params: any) => {
+      this.params = params
     });
     this.getExplorRoom();
 
@@ -72,12 +74,12 @@ export class ExplorComponent implements OnInit {
       this.paramRequired = {
         page: this.pageIndex,
         size: this.pageSize,
-        startDate:this.params.startDate,
-        endDate:this.params.endDate,
-        capacity:this.params.capacity
+        startDate: this.params.startDate,
+        endDate: this.params.endDate,
+        capacity: this.params.capacity
       }
-    }else{
-      this.paramRequired={
+    } else {
+      this.paramRequired = {
         page: this.pageIndex,
         size: this.pageSize,
       }
@@ -88,8 +90,8 @@ export class ExplorComponent implements OnInit {
 
 
     this._UserService.getAllRooms(this.paramRequired).subscribe({
-      next: (res:Rooms.IRoomsRes) => {
-        this.roomsList=res.data
+      next: (res: Rooms.IRoomsRes) => {
+        this.roomsList = res.data
         let tableData = res.data.rooms.map((room: Rooms.IRoom) => {
           return {
             ...room,
@@ -99,7 +101,7 @@ export class ExplorComponent implements OnInit {
         });
         this.data = tableData;
       },
-      error: (err:HttpErrorResponse) => {
+      error: (err: HttpErrorResponse) => {
         this._NotifyService.ServerError(err.error.message)
       }
     })
@@ -110,40 +112,40 @@ export class ExplorComponent implements OnInit {
     this.pageIndex = e.pageIndex + 1;
     this.getExplorRoom();
   }
-  checkIslogged(id:string){
-    if( this._AuthService.role == this.RoleEnum.USER){
+  checkIslogged(id: string) {
+    if (this._AuthService.role == this.RoleEnum.USER) {
       this._UserService.addRoomFav(id).subscribe({
-        next:(res)=>{
-        this._NotifyService.Success('Room added to favorites successfully')
+        next: (res) => {
+          this._NotifyService.Success('Room added to favorites successfully')
         },
 
-       error:(err:HttpErrorResponse)=>{
-        this._NotifyService.ServerError(err.error.message)
-       }
+        error: (err: HttpErrorResponse) => {
+          this._NotifyService.ServerError(err.error.message)
+        }
       })
 
 
-    }else{
+    } else {
 
-        this._NotifyService.Warning2(
-          this._TranslateService.instant('home.LoginPutFavorites'),
-          this._TranslateService.instant('layout.navbar.buttons.Login'),
-          this._TranslateService.instant('home.Cancel'),
-        )
-          .then(result => {
-            if (result) {
-              setTimeout(() => {
-                this._TokenService.logout()
-              }, 300);
-            }
-          });
+      this._NotifyService.Warning2(
+        this._TranslateService.instant('home.LoginPutFavorites'),
+        this._TranslateService.instant('layout.navbar.buttons.Login'),
+        this._TranslateService.instant('home.Cancel'),
+      )
+        .then(result => {
+          if (result) {
+            setTimeout(() => {
+              this._TokenService.logout()
+            }, 300);
+          }
+        });
     }
   }
 
-  view(id:string){
-    let url =RoutePaths.User.roomDetails;
-    url=url.replace(':id',id);
+  view(id: string) {
+    let url = RoutePaths.User.roomDetails;
+    url = url.replace(':id', id);
 
-  this._Router.navigateByUrl(url);
+    this._Router.navigateByUrl(url);
   }
 }

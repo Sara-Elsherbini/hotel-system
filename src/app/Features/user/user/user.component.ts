@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
+import { ThemeService } from 'src/app/shared/services/theme.service';
+
 @Component({
   selector: 'app-guest',
   templateUrl: './user.component.html',
@@ -8,7 +10,7 @@ import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 export class userComponent {
   lang:String=''
 
-constructor( _translate:TranslateService){
+constructor( _translate:TranslateService , public themeService:ThemeService){
   _translate.onLangChange.subscribe((event:LangChangeEvent)=>{
         this.lang=event.lang;
         // console.log('lang',this.lang);

@@ -1,0 +1,6 @@
+<button (click)="toggleMode()" class="theme px-1 "
+ style="border: 1px solid #dee2e6; border-radius: 3px; cursor: pointer;">
+ <!-- <i class="fa-solid fa-sun"></i> -->
+ <!-- <i class="fa-regular fa-moon"></i> -->
+ <mat-icon>{{ (_ThemeService.isDarkMode | async) ?'light_mode' : 'dark_mode' }}</mat-icon>
+</button>

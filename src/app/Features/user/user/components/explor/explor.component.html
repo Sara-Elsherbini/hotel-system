@@ -1,7 +1,7 @@
 <section class="explore">
   <div class="container">
     <div class="exploreTitle ">
-      <h1 class="text-center py-5 main-color" >Explore ALL Rooms </h1>
+      <h1 class="text-center py-5 main-color">Explore ALL Rooms </h1>
     </div>
     <div class="links d-flex ">
       <a class="me-2 text-muted" routerLink="home">Home /</a>
@@ -27,7 +27,8 @@
                   <p class=""></p>
                 </div>
               </div>
-              <div class="layer position-absolute radius-15 w-100 h-100 top-0 start-0 d-flex gap-2 justify-content-center align-items-center">
+              <div
+                class="layer position-absolute radius-15 w-100 h-100 top-0 start-0 d-flex gap-2 justify-content-center align-items-center">
                 <a (click)="checkIslogged(item._id)" class="bg-transparent curser-pointer">
                   <i class="fa-solid fa-heart fa-2x text-white"></i>
                 </a>
@@ -46,10 +47,8 @@
     </div>
   </div>
   <div *ngIf="roomsList.rooms.length" class=" d-flex justify-content-center">
-    <mat-paginator [length]="roomsList.totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-      (page)="handlePageEvent($event)" aria-label="Select page">
+    <mat-paginator class="bg-transparent " [length]="roomsList.totalCount" [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions" (page)="handlePageEvent($event)" aria-label="Select page">
     </mat-paginator>
   </div>
 </section>
-
-

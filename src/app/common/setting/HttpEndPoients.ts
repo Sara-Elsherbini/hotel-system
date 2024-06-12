@@ -42,40 +42,33 @@ export class HttpEndPoints {
   }
   public static Home = {
     Dashboard: 'admin/dashboard',
+  }
 
+  public static User = {
+    home: {
+      GetAllads: 'portal/ads',
+      Getallroom: 'portal/rooms/available',
+      GetRoomById: 'portal/rooms'
+    },
+    fav: {
+      favoriteRooms: 'portal/favorite-rooms',
+      deleteFavoriteRooms: 'portal/favorite-rooms',
+      addToFav: 'portal/favorite-rooms',
+    },
   }
 
 
-  // public static AddUsers={
-  //   addUser:'admin/users',
-
-
-  // }
- public static User={
-  home:{
-   GetAllads:'portal/ads',
-   Getallroom:'portal/rooms/available',
-      GetRoomById:'portal/rooms'
-  },
-  fav:{
-    favoriteRooms:'portal/favorite-rooms',
-    deleteFavoriteRooms:'portal/favorite-rooms',
-    addToFav:'portal/favorite-rooms',
-  },
+  public static Review = {
+    Default: "portal/room-reviews"
   }
 
+  public static Comment = {
+    Default: "portal/room-comments"
+  }
+  public static UserBooking = {
+    Default: "portal/booking",
+    GetForUser: "portal/booking/my",
 
- public static Review = {
-  Default: "portal/room-reviews"
- }
-
- public static Comment = {
-  Default: "portal/room-comments"
- }
- public static UserBooking = {
-  Default: "portal/booking",
-  GetForUser: "portal/booking/my",
-
- }
+  }
 }
 

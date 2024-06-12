@@ -17,16 +17,17 @@ import { SharedHeaderComponent } from './components/shared-header/shared-header.
 import { DialogModule } from '@angular/cdk/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { NavbarDropdownComponent } from './components/navbar-dropdown/navbar-dropdown.component';
 import { ViewvalueComponent } from './components/viewvalue/viewvalue.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SharedCardComponent } from './components/shared-card/shared-card.component';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FooterComponent } from './components/footer/footer/footer.component';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
+import { ThemeComponent } from './components/theme/theme.component';
 
 @NgModule({
 
@@ -41,7 +42,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     ViewvalueComponent,
     SharedCardComponent,
     ChangePasswordComponent,
-    FooterComponent
+    FooterComponent,
+    ThemeComponent
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatCardModule,
     MatDividerModule,
     TranslateModule,
-    MatStepperModule
+    MatStepperModule,
+
   ],
   exports: [
     NoDataComponent,
@@ -92,7 +95,9 @@ import {MatStepperModule} from '@angular/material/stepper';
     ViewvalueComponent,
     TranslateModule,
     FooterComponent,
-    MatStepperModule
+    MatStepperModule,
+    ThemeComponent
+
   ],
 })
 export class SharedModule { }
