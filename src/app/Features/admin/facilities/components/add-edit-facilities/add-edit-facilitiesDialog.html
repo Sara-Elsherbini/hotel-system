@@ -1,9 +1,9 @@
 <section>
   <div class="container">
     <div class="title d-flex justify-content-between d-flex mx-2 my-3">
-      <h2 class="fw-bold main-title"  *ngIf="!facilityId"> Add Facilities</h2>
-      <h2 class="fw-bold main-title" *ngIf="facilityId&&data.mode=='Edit'">Edit Facilities</h2>
-      <h2 class="fw-bold main-title" *ngIf="facilityId&&data.mode=='View'">View Facilities</h2>
+      <h2 class="fw-bold primary-color"  *ngIf="!facilityId"> Add Facilities</h2>
+      <h2 class="fw-bold primary-color" *ngIf="facilityId&&data.mode=='Edit'">Edit Facilities</h2>
+      <h2 class="fw-bold primary-color" *ngIf="facilityId&&data.mode=='View'">View Facilities</h2>
       <div class="close" (click)="onNoClick()"><i class="fa-regular fa-circle-xmark text-danger"></i></div>
     </div>
 

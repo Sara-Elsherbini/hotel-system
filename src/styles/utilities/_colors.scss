@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+.main-color {
+  color: $main-color;
+}
+.light-color {
+  color: $light-color;
+}
+.primary-color {
+  color: $primary-color;
+}

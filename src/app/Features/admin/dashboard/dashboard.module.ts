@@ -6,7 +6,6 @@ import { DashboardComponent } from './dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../auth/services/auth.service';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ThemeService } from 'src/app/shared/services/theme.service';
 
 @NgModule({
   declarations: [
@@ -21,5 +20,5 @@ import { ThemeService } from 'src/app/shared/services/theme.service';
   providers: [AuthService]
 })
 export class DashboardModule {
-  constructor(public _ThemeService: ThemeService) { }
+
 }

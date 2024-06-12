@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
-import { TokenService } from 'src/app/common';
+import { ThemeService, TokenService } from 'src/app/common';
 import { RoutePaths } from 'src/app/common/setting/RoutePath';
-import { ThemeService } from 'src/app/shared/services/theme.service';
 
 @Component({
   selector: 'app-landing-navbar',
@@ -41,7 +40,7 @@ export class LandingNavbarComponent implements OnInit {
   ]
 
   constructor(private _tokenService: TokenService,
-    private _translate: TranslateService, public _ThemeService: ThemeService,) {
+    private _translate: TranslateService, public _ThemeService: ThemeService) {
     _translate.onLangChange.subscribe((event: LangChangeEvent) => {
       // console.log("myevebt",event);
 

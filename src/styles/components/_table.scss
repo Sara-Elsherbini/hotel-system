@@ -1,11 +1,10 @@
 .native-table {
-  $header-bg-color: #E2E5EB;
-  $header-color:#1F263E;
+  $header-bg-color: #e2e5eb;
+  $header-color: #1f263e;
   $body-row-bg-color: hsl(220, 27%, 98%);
 
   width: 100%;
   empty-cells: show;
-
 
   .fluid-padding {
     padding-block: 0.75rem;
@@ -45,5 +44,9 @@
         background-color: $body-row-bg-color;
       }
     }
+  }
+  .imageDim {
+    width: 50px;
+    height: 50px;
   }
 }

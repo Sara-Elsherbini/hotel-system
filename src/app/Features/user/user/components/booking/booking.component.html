@@ -1,7 +1,7 @@
 <mat-stepper [linear]="true" #stepper>
     <mat-step [stepControl]="token" label="{{'Booking.FirstStep.Title' | translate}}" [editable]="false">
         <div class="container">
-            <h2 class="color-main text-center">{{"Booking.FirstStep.Title" | translate}}</h2>
+            <h2 class="headers main-color text-center">{{"Booking.FirstStep.Title" | translate}}</h2>
             <div class="row border-center">
                 <div class="col-md-6">
                     <app-bookingdetails [booking]="booking"></app-bookingdetails>
@@ -25,7 +25,7 @@
     </mat-step>
     <mat-step [stepControl]="validToGo" label="{{'Booking.SecondStep.Title' | translate}}" [editable]="false">
         <div class="container">
-            <h2 class="color-main text-center">{{"Booking.SecondStep.Title" | translate}}</h2>
+            <h2 class="headers main-color text-center">{{"Booking.SecondStep.Title" | translate}}</h2>
             <div class="row border-center">
                 <div class="col-md-6">
                     <app-bookingdetails [booking]="booking"></app-bookingdetails>
@@ -33,9 +33,9 @@
                 <div class="col-md-6 d-flex justify-content-center align-items-center my-4 my-md-0">
                     <div
                         class="d-flex flex-column justify-content-around align-items-center border w-100 h-100 m-4 m-md-0">
-                        <h4 class="color-main third-title">{{'Booking.SecondStep.subtitle' | translate}}</h4>
+                        <h4 class="headers main-color title3">{{'Booking.SecondStep.subtitle' | translate}}</h4>
 
-                        <p class="regular-text">{{'Booking.SecondStep.paragraph.leftSide' | translate}}
+                        <p class="regular-text light-color">{{'Booking.SecondStep.paragraph.leftSide' | translate}}
                             <strong>{{'Booking.Shared.Button' | translate}}</strong>
                             {{'Booking.SecondStep.paragraph.rightSide' | translate}}
                         </p>
@@ -50,11 +50,11 @@
     </mat-step>
     <mat-step label="{{'Booking.ThirdStep.label' | translate}}">
         <div class="container">
-            <h2 class="color-main text-center pb-1">{{"Booking.ThirdStep.Title" | translate}}</h2>
+            <h2 class="headers main-color text-center pb-1">{{"Booking.ThirdStep.Title" | translate}}</h2>
             <div class="row d-flex justify-content-center">
                 <div class="d-flex flex-column justify-content-center align-items-center w-50">
                     <img class="w-75" src="assets/img/payment.png" alt="">
-                    <p class="regular-text">{{"Booking.ThirdStep.paragraph" | translate}}</p>
+                    <p class="regular-text light-color">{{"Booking.ThirdStep.paragraph" | translate}}</p>
                     <a routerLink="/"><button class="primary">{{"Booking.ThirdStep.button" | translate}}</button></a>
                 </div>
             </div>

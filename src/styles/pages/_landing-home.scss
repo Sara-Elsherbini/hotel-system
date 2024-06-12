@@ -1,0 +1,38 @@
+.section1 {
+  h1 {
+    font-size: 3.2rem !important;
+  }
+}
+
+.ads {
+  .first-img-ads {
+    height: 35rem !important;
+    border-radius: 15px;
+  }
+  .rest-img-ads {
+    height: 16rem;
+    border-radius: 15px;
+  }
+  .badge {
+    border-radius: 0px, 15px, 0px, 15px;
+  }
+  a {
+    cursor: pointer;
+  }
+}
+.card {
+  img {
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
+}
+
+.layer {
+  transform: translateX(-100%);
+  background-color: rgba(21, 44, 91, 0.2);
+  transition: transform 400ms ease-in-out;
+}
+
+.myCard:hover .layer {
+  transform: translateX(0);
+}

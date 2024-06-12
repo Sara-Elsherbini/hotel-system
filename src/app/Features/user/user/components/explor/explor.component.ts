@@ -3,7 +3,7 @@ import { Rooms } from 'src/app/Features/admin/rooms/models/rooms';
 import { UserService } from '../../services/user.service';
 import { UserModel } from '../../models/user';
 import { HttpErrorResponse } from '@angular/common/http';
-import { NotifyService, TokenService } from 'src/app/common';
+import { NotifyService, ThemeService, TokenService } from 'src/app/common';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MustLoginDialog } from '../MustLoginDialog/MustLoginDialog';
@@ -12,7 +12,6 @@ import { AuthService } from 'src/app/Features/auth/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RoleEnum } from 'src/app/common/Enums/RoleEnum.enum';
 import { TranslateService } from '@ngx-translate/core';
-import { ThemeService } from 'src/app/shared/services/theme.service';
 
 
 interface IParame {

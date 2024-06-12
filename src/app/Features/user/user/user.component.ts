@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
-import { ThemeService } from 'src/app/shared/services/theme.service';
+import { ThemeService } from 'src/app/common';
 
 @Component({
   selector: 'app-guest',

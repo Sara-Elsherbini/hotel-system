@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+
+:is(.auth, .landing-navbar) {
+    p {
+      a {
+        color: $danger-Color;
+      }
+    }
+  }
+  
+  :is(.auth, .landing-navbar, .footer) {
+    .title {
+      color: $primary-color;
+      span {
+        color: $main-color !important;
+      }
+    }
+  }

@@ -1,0 +1,19 @@
+[dir="rtl"] {
+  .headers {
+    font-weight: 400;
+    &.title2 {
+      font-size: 38px !important;
+    }
+    &.title3 {
+      font-size: 32px !important;
+    }
+    &.title4 {
+      font-size: 20px !important;
+    }
+  }
+  .regular-text {
+    &.scalable {
+      font-size: 1.25rem;
+    }
+  }
+}
